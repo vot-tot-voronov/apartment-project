@@ -1,16 +1,10 @@
+import { BuildOptions } from "./types/config";
 import { RuleSetRule } from "webpack";
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
 
-export function buildLoaders(): Array<RuleSetRule> {
-  const babelLoader = {
-    test: /\.(js|tsx|ts)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: "babel-loader",
-      options: {
-        presets: ["@babel/preset-env"],
-      },
-    },
-  };
+export function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
-  return [babelLoader];
+  return [codeBabelLoader, tsxCodeBabelLoader];
 }
