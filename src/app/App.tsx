@@ -1,11 +1,9 @@
-import { Button } from "@/shared/ui";
+import { Button } from '@/shared/ui';
 
-import "./styles/index.scss";
+import './styles/index.scss';
 
-export const App = () => {
-  return (
-    <div className="app">
-      <Button />
-    </div>
-  );
-};
+export const App = () => (
+  <div className="app">
+    <Button />
+  </div>
+);
