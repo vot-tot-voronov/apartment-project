@@ -4,9 +4,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { BuildOptions } from './types/config';
+import { IBuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): Array<WebpackPluginInstance> {
+export function buildPlugins({ paths, isDev }: IBuildOptions): Array<WebpackPluginInstance> {
   const isProd = !isDev;
 
   const plugins = [

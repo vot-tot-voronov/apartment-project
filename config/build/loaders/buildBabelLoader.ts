@@ -1,10 +1,10 @@
-import { BuildOptions } from '../types/config';
+import { IBuildOptions } from '../types/config';
 
-interface BuildBabelLoaderProps extends BuildOptions {
+interface IBuildBabelLoaderProps extends IBuildOptions {
   isTsx: boolean;
 }
 
-export function buildBabelLoader({ isTsx, isDev }: BuildBabelLoaderProps) {
+export function buildBabelLoader({ isTsx, isDev }: IBuildBabelLoaderProps) {
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,

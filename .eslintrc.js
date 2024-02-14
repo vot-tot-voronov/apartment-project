@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['airbnb', 'plugin:react/recommended', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -12,31 +12,69 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: ['tsconfig.json'],
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
+    'react/boolean-prop-naming': ['error', { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' }],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/prop-types': 'off',
-    'import/no-unresolved': 'off',
-    'import/prefer-default-export': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
-    'no-shadow': 'off',
+    'react/no-array-index-key': 'error',
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'no-underscore-dangle': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn',
     'import/order': [
       'error',
       {
         groups: [['external', 'builtin'], 'internal', ['sibling', 'parent'], 'index'],
         'newlines-between': 'always',
+      },
+    ],
+    'no-underscore-dangle': 'off',
+    'no-unused-vars': 'off',
+    'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
+    'no-shadow': 'off',
+    'no-undef': 'off',
+    'no-param-reassign': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'variable',
+        types: ['boolean'],
+        format: ['PascalCase'],
+        prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+      },
+      {
+        selector: 'typeParameter',
+        format: ['PascalCase'],
+        prefix: ['T'],
+      },
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
+      },
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        prefix: ['I'],
+      },
+      {
+        selector: 'enum',
+        format: ['PascalCase'],
+        suffix: ['Enum'],
+      },
+      {
+        selector: 'enumMember',
+        format: ['UPPER_CASE'],
       },
     ],
     // 'i18next/no-literal-string': [
@@ -63,9 +101,6 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-    'no-param-reassign': 'off',
     'newline-before-return': 'error',
-    'no-undef': 'off',
-    'react/no-array-index-key': 'warn',
   },
 };

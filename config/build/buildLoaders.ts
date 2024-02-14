@@ -1,10 +1,10 @@
 import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { BuildOptions } from './types/config';
+import { IBuildOptions } from './types/config';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
+export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
   const { isDev } = options;
 
   const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
