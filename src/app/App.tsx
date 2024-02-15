@@ -1,9 +1,39 @@
-import { Button } from '@/shared/ui';
+import { Suspense } from 'react';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+
+import { routeCreator } from './providers/router/config/lib/routeCreator';
+import { mainRouteConfig } from './providers/router/config/routeConfig';
+import { ErrorBoundary } from './providers/errorBoundary';
+
+import { NotFoundPage } from '@/pages/notFound';
 
 import './styles/index.scss';
 
-export const App = () => (
-  <div className="app">
-    <Button />
-  </div>
-);
+const Root = () => {
+  return (
+    <ErrorBoundary>
+      <Suspense fallback="">
+        <>
+          <main>
+            <div>Navbar</div>
+            <Outlet />
+          </main>
+          <footer>Footer</footer>
+        </>
+      </Suspense>
+    </ErrorBoundary>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <NotFoundPage />,
+    children: routeCreator(mainRouteConfig),
+  },
+]);
+
+export const App = () => {
+  return <RouterProvider router={router} />;
+};
