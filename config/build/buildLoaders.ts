@@ -7,6 +7,11 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
   const { isDev } = options;
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  };
   const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
   const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
@@ -30,5 +35,10 @@ export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
     ],
   };
 
-  return [codeBabelLoader, tsxCodeBabelLoader, scssLoader];
+  const imageLoader = {
+    test: /\.(png|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
+    type: 'asset/resource',
+  };
+
+  return [svgLoader, codeBabelLoader, tsxCodeBabelLoader, scssLoader, imageLoader];
 }

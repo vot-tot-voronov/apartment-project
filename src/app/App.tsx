@@ -13,13 +13,13 @@ const Root = () => {
   return (
     <ErrorBoundary>
       <Suspense fallback="">
-        <>
+        <div className="layout">
           <main>
             <div>Navbar</div>
             <Outlet />
           </main>
           <footer>Footer</footer>
-        </>
+        </div>
       </Suspense>
     </ErrorBoundary>
   );
