@@ -1,10 +1,11 @@
-@import './reset';
-@import './fonts';
-@import './variables/global';
+@import 'global';
+@import 'reset';
+@import 'fonts';
 
 .layout {
   font-family: $font-family-main;
   font-style: normal;
   font-weight: $font-weight-main;
   font-size: $font-size-main;
+  color: $dark;
 }

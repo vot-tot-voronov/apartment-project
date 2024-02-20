@@ -17,6 +17,7 @@ export function buildLoaders(options: IBuildOptions): Array<RuleSetRule> {
 
   const scssLoader = {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       // Creates `style` nodes from JS strings
       isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

@@ -5,7 +5,7 @@ import { routeCreator } from './providers/router/config/lib/routeCreator';
 import { mainRouteConfig } from './providers/router/config/routeConfig';
 import { ErrorBoundary } from './providers/errorBoundary';
 
-import { NotFoundPage } from '@/pages/notFound';
+import { Navbar } from '@/widgets/navbar';
 
 import './styles/index.scss';
 
@@ -15,7 +15,7 @@ const Root = () => {
       <Suspense fallback="">
         <div className="layout">
           <main>
-            <div>Navbar</div>
+            <Navbar />
             <Outlet />
           </main>
           <footer>Footer</footer>
@@ -29,7 +29,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <NotFoundPage />,
     children: routeCreator(mainRouteConfig),
   },
 ]);

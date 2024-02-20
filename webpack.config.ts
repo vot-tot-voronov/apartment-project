@@ -9,6 +9,7 @@ const config = (env: IBuildEnv) => {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: path.resolve(__dirname, 'build'),
     src: path.resolve(__dirname, 'src'),
+    styles: path.resolve(__dirname, 'src', 'app', 'styles'),
   };
 
   const mode: BuildMode = env.mode || 'development';
