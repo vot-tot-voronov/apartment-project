@@ -1,3 +1,21 @@
+@import '@styles/global';
+
 .btn {
   background-color: antiquewhite;
+}
+
+.small {
+  font-size: $font-size-small;
+}
+
+.main {
+  font-size: $font-size-main;
+}
+
+.middle {
+  font-size: $font-size-middle;
+}
+
+.large {
+  font-size: $font-size-large;
 }

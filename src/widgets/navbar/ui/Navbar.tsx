@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import classes from './Navbar.module.scss';
 
 import { MainRoutePaths, MainRoutesEnum } from '@/shared/config/routeConfig/routeConfig';
-import { AppLink } from '@/shared/ui';
+import { AppLink, Button } from '@/shared/ui';
 
 interface ILinkArray {
   path: string;
@@ -50,7 +50,9 @@ export const Navbar = () => {
             </AppLink>
           ))}
         </div>
-        <div className="authorization">Авторизация</div>
+        <div className="authorization">
+          <Button size="large">Войти</Button>
+        </div>
       </div>
     </div>
   );
