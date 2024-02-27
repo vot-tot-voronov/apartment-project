@@ -1,10 +1,17 @@
+// Как появится esLint v9.0 обновиться до него
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     jest: true,
   },
-  extends: ['airbnb', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -16,11 +23,21 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
-    'react/boolean-prop-naming': ['error', { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' }],
+    'react/boolean-prop-naming': [
+      'error',
+      {
+        rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
+      },
+    ],
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      {
+        extensions: ['.js', '.jsx', '.tsx'],
+      },
+    ],
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -40,7 +57,12 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off',
     'no-unused-vars': 'off',
-    'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
+    'no-console': [
+      'error',
+      {
+        allow: ['info', 'warn', 'error'],
+      },
+    ],
     'no-shadow': 'off',
     'no-undef': 'off',
     'no-param-reassign': 'off',
@@ -96,11 +118,28 @@ module.exports = {
     //   },
     // ],
     'linebreak-style': ['error', 'unix'],
-    'max-len': ['error', { ignoreComments: true, code: 130 }],
+    'max-len': [
+      'error',
+      {
+        ignoreComments: true,
+        code: 130,
+      },
+    ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
+    'react-hooks/rules-of-hooks': 'error',
+    // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'error',
+    // Checks effect dependencies
     'newline-before-return': 'error',
   },
+
+  overrides: [
+    {
+      files: '*.stories.tsx',
+      rules: {
+        'react/jsx-props-no-spreading': 'off',
+      },
+    },
+  ],
 };

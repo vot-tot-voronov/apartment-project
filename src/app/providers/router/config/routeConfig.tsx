@@ -8,7 +8,10 @@ import { RentPage } from '@/pages/rent';
 import { NotFoundPage } from '@/pages/notFound';
 
 export const mainRouteConfig: Record<MainRoutesEnum, RouteProps> = {
-  [MainRoutesEnum.MAIN]: { path: MainRoutePaths[MainRoutesEnum.MAIN], element: <MainPage /> },
+  [MainRoutesEnum.MAIN]: {
+    path: MainRoutePaths[MainRoutesEnum.MAIN],
+    element: <MainPage />,
+  },
   [MainRoutesEnum.BUY]: { path: MainRoutePaths[MainRoutesEnum.BUY], element: <BuyPage /> },
   [MainRoutesEnum.SELL]: {
     path: MainRoutePaths[MainRoutesEnum.SELL],

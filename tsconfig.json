@@ -23,6 +23,7 @@
   "include": [
     "./config/**/*.ts",
     "./config/**/*.tsx",
+    "./config/**/*.js",
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "webpack.config.ts",
