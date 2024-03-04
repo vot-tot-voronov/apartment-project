@@ -1,6 +1,13 @@
 @font-face {
   font-family: Rubik;
   font-style: normal;
+  font-weight: 200;
+  src: local('Rubik'), url('../../shared/assets/fonts/Rubik-Light.ttf');
+}
+
+@font-face {
+  font-family: Rubik;
+  font-style: normal;
   font-weight: 400;
   src: local('Rubik'), url('../../shared/assets/fonts/Rubik-Regular.ttf');
 }

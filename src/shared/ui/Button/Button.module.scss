@@ -1,8 +1,17 @@
 @import '@styles/global';
 
 .btn {
-  background-color: antiquewhite;
-  padding: 10px;
+  background-color: $dark;
+  transition: background-color 0.4s;
+  color: $white;
+  padding: $margin-small $margin-large;
+  min-width: 15px;
+  width: 100%;
+  border-radius: $radius-main;
+
+  &:hover {
+    background-color: $white-dark;
+  }
 }
 
 .small {

@@ -1,6 +1,7 @@
 import { withRouter } from 'storybook-addon-react-router-v6';
 
 import { StyleDecorator } from '@/shared/config/storybook/styleDecorator/StyleDecorator';
+import { PortalDecorator } from '@/shared/config/storybook/portalDecorator/PortalDecorator';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -12,4 +13,4 @@ export const parameters = {
   },
 };
 
-export const decorators = [StyleDecorator, withRouter];
+export const decorators = [StyleDecorator, PortalDecorator, withRouter];

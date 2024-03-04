@@ -7,6 +7,7 @@ import classes from './Navbar.module.scss';
 
 import { MainRoutePaths, MainRoutesEnum } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, Button } from '@/shared/ui';
+import { ModalTypeEnum } from '@/shared/types';
 
 interface ILinkArray {
   path: string;
@@ -50,8 +51,11 @@ export const Navbar = () => {
             </AppLink>
           ))}
         </div>
-        <div className="authorization">
-          <Button size="large">Войти</Button>
+        <div className={classes.authorization}>
+          <AppLink to={{ search: `?${ModalTypeEnum.LOGIN}=true` }} className={classes.login}>
+            Войти
+          </AppLink>
+          <Button>Регистрация</Button>
         </div>
       </div>
     </div>
