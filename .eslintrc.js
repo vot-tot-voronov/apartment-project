@@ -141,5 +141,19 @@ module.exports = {
         'react/jsx-props-no-spreading': 'off',
       },
     },
+    {
+      files: 'global.d.ts',
+      rules: {
+        '@typescript-eslint/naming-convention': [
+          'off',
+          {
+            selector: 'variable',
+            types: ['boolean'],
+            format: ['PascalCase'],
+            prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+          },
+        ],
+      },
+    },
   ],
 };

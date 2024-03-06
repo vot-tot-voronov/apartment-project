@@ -1,4 +1,4 @@
-import { WebpackPluginInstance, ProgressPlugin } from 'webpack';
+import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
@@ -24,6 +24,7 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): Array<WebpackPlug
         mode: 'write-references',
       },
     }),
+    new DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
   ];
 
   if (isDev) {
