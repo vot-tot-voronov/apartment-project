@@ -1,0 +1,17 @@
+@import '@styles/global';
+
+.label {
+  margin-right: $margin-small;
+  color: $dark;
+}
+
+.input {
+  padding: $margin-small;
+  border: 1px solid $grey;
+  border-radius: $radius-small;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: $white-dark;
+  }
+}

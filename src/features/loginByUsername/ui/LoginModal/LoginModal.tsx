@@ -1,5 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 
+import { LoginForm } from '../LoginForm/LoginForm';
+
 import { Modal } from '@/shared/ui';
 
 export const LoginModal = () => {
@@ -10,5 +12,9 @@ export const LoginModal = () => {
     navigate(location.pathname);
   };
 
-  return <Modal onBack={handleClose}>LoginModal</Modal>;
+  return (
+    <Modal onBack={handleClose}>
+      <LoginForm />
+    </Modal>
+  );
 };

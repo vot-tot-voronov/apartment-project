@@ -1,0 +1,21 @@
+@import '@styles/global';
+
+.container {
+  div {
+    margin-bottom: $margin-small;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.input {
+  input {
+    width: 100%;
+  }
+}
+
+.button {
+  margin-top: $margin-main;
+}
