@@ -1,16 +1,16 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Input } from './Input';
+import { TextInput } from './TextInput';
 
 export default {
-  title: 'shared/Input',
-  component: Input,
+  title: 'shared/TextInput',
+  component: TextInput,
   args: {
-    children: 'Input',
+    children: 'TextInput',
   },
-} as Meta<typeof Input>;
+} as Meta<typeof TextInput>;
 
-const Template: StoryFn<typeof Input> = args => <Input {...args} />;
+const Template: StoryFn<typeof TextInput> = args => <TextInput {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
