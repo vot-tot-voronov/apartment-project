@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { createBrowserRouter, LoaderFunction, Outlet, RouterProvider, useLoaderData } from 'react-router-dom';
 
 import { routeCreator } from './providers/router/config/lib/routeCreator';
@@ -8,11 +8,18 @@ import { ErrorBoundary } from './providers/errorBoundary';
 import { Navbar } from '@/widgets/navbar';
 import { ModalsViaQueryParams } from '@/widgets/modals';
 import { ModalTypeEnum, TModalViaQueryParam } from '@/shared/types';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { userActions } from '@/entities/User';
 
 import './styles/index.scss';
 
 const Root = () => {
   const modalProps = useLoaderData() as TModalViaQueryParam | null;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.checkAuth());
+  }, [dispatch]);
 
   return (
     <ErrorBoundary>

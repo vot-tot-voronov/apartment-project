@@ -2,22 +2,22 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import styles from './LoginForm.module.scss';
+import { ILoginForm } from '../../model/types/loginByUsernameTypes';
+import { loginByUsername } from '../../model/services/loginByUsernameService';
 
 import { Button, TextInput } from '@/shared/ui';
-
-interface ILoginFormFields {
-  name: string;
-  password: string;
-}
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 export const LoginForm = () => {
-  const { register, handleSubmit } = useForm<ILoginFormFields>();
-  const onSubmit: SubmitHandler<ILoginFormFields> = data => console.info(data);
+  const dispatch = useAppDispatch();
+  const { register, handleSubmit } = useForm<ILoginForm>();
+
+  const onSubmit: SubmitHandler<ILoginForm> = data => dispatch(loginByUsername(data));
 
   return (
     <form>
       <div className={styles.container}>
-        <TextInput {...register('name')} className={styles.input} placeholder="Имя пользователя" />
+        <TextInput {...register('username')} className={styles.input} placeholder="Имя пользователя" />
         <TextInput {...register('password')} className={styles.input} placeholder="Пароль" />
       </div>
       <Button className={styles.button} onClick={handleSubmit(onSubmit)}>

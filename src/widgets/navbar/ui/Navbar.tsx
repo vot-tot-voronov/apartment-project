@@ -1,13 +1,16 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
 
 import classes from './Navbar.module.scss';
 
 import { MainRoutePaths, MainRoutesEnum } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, Button } from '@/shared/ui';
 import { ModalTypeEnum } from '@/shared/types';
+import { getUserData, userActions } from '@/entities/User';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 interface ILinkArray {
   path: string;
@@ -31,6 +34,12 @@ const linksArray: Array<ILinkArray> = [
 
 export const Navbar = () => {
   const location = useLocation();
+  const userData = useSelector(getUserData);
+  const dispatch = useAppDispatch();
+
+  const handelLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
   return (
     <div className={classes.navbar}>
@@ -52,10 +61,16 @@ export const Navbar = () => {
           ))}
         </div>
         <div className={classes.authorization}>
-          <AppLink to={{ search: `?${ModalTypeEnum.LOGIN}=true` }} className={classes.login}>
-            Войти
-          </AppLink>
-          <Button>Регистрация</Button>
+          {userData ? (
+            <Button onClick={handelLogout}>Выйти</Button>
+          ) : (
+            <>
+              <AppLink to={{ search: `?${ModalTypeEnum.LOGIN}=true` }} className={classes.login}>
+                Войти
+              </AppLink>
+              <Button>Регистрация</Button>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Configuration, RuleSetRule } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
@@ -34,6 +34,8 @@ export default ({ config }: { config: Configuration }) => {
     use: ['@svgr/webpack'],
   });
   config.module?.rules?.push(buildScssLoader(true));
+
+  config.plugins?.push(new DefinePlugin({ __IS_DEV__: JSON.stringify(true) }));
 
   return config;
 };
