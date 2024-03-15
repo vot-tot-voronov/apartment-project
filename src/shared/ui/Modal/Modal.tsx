@@ -11,9 +11,16 @@ interface IModalProps {
   onBack: () => void;
   className?: string;
   hasCloseButton?: boolean;
+  title?: string;
 }
 
-export const Modal = ({ children, onBack, className, hasCloseButton = true }: PropsWithChildren<IModalProps>) => {
+export const Modal = ({
+  children,
+  onBack,
+  className,
+  hasCloseButton = true,
+  title,
+}: PropsWithChildren<IModalProps>) => {
   const [element, setElement] = useState<HTMLElement | null>();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,6 +46,7 @@ export const Modal = ({ children, onBack, className, hasCloseButton = true }: Pr
               </Button>
             </div>
           )}
+          {title && <h2 className={classes.title}>{title}</h2>}
           {children}
         </div>
       </div>,

@@ -9,3 +9,13 @@ body {
   font-size: $font-size-main;
   color: $dark;
 }
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+}

@@ -1,18 +1,12 @@
 @import '@styles/global';
 
 .container {
-  div {
+  & > div {
     margin-bottom: $margin-small;
 
     &:last-child {
       margin-bottom: 0;
     }
-  }
-}
-
-.input {
-  input {
-    width: 100%;
   }
 }
 

@@ -17,7 +17,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: $white;
-    padding: $margin-main $margin-small;
+    padding: $margin-large $margin-small;
     min-width: 320px;
     border-radius: $radius-main;
 
@@ -41,6 +41,11 @@
           color: $white-red;
         }
       }
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: $margin-main;
     }
   }
 }

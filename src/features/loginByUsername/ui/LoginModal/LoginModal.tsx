@@ -13,7 +13,7 @@ export const LoginModal = () => {
   };
 
   return (
-    <Modal onBack={handleClose}>
+    <Modal title="Авторизация" onBack={handleClose}>
       <LoginForm />
     </Modal>
   );

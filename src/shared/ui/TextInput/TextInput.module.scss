@@ -1,8 +1,28 @@
 @import '@styles/global';
 
 .label {
-  margin-right: $margin-small;
-  color: $dark;
+  display: inline-flex;
+  flex-direction: column;
+
+  & > span {
+    color: $red;
+  }
+
+  & > p {
+    position: relative;
+    color: $dark;
+    width: fit-content;
+
+    & > span {
+      color: $red;
+
+      &:not(.relative) {
+        position: absolute;
+        top: 0;
+        right: -10px;
+      }
+    }
+  }
 }
 
 .input {
@@ -10,8 +30,17 @@
   border: 1px solid $grey;
   border-radius: $radius-small;
   transition: border-color 0.3s;
+  width: 100%;
 
-  &:hover {
+  &:hover:not(&[disabled], .error) {
     border-color: $white-dark;
   }
+
+  &[disabled] {
+    background-color: $white-grey;
+  }
+}
+
+.error {
+  border-color: $red;
 }

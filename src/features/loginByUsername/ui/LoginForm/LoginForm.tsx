@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import styles from './LoginForm.module.scss';
+import classes from './LoginForm.module.scss';
 import { ILoginForm } from '../../model/types/loginByUsernameTypes';
 import { loginByUsername } from '../../model/services/loginByUsernameService';
 
@@ -16,11 +16,11 @@ export const LoginForm = () => {
 
   return (
     <form>
-      <div className={styles.container}>
-        <TextInput {...register('username')} className={styles.input} placeholder="Имя пользователя" />
-        <TextInput {...register('password')} className={styles.input} placeholder="Пароль" />
+      <div className={classes.container}>
+        <TextInput {...register('username')} placeholder="Имя пользователя" />
+        <TextInput {...register('password')} placeholder="Пароль" />
       </div>
-      <Button className={styles.button} onClick={handleSubmit(onSubmit)}>
+      <Button className={classes.button} onClick={handleSubmit(onSubmit)}>
         Войти
       </Button>
     </form>

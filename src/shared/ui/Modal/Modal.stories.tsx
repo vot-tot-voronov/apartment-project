@@ -6,16 +6,22 @@ export default {
   title: 'shared/Modal',
   component: Modal,
   args: {
-    children: 'Pop-up modal window',
+    children: 'Modal content',
     onBack: () => {},
   },
 } as Meta<typeof Modal>;
 
 const Template: StoryFn<typeof Modal> = args => <Modal {...args} />;
 
-export const PopupMain = Template.bind({});
+export const ModalMain = Template.bind({});
 
-export const PopupWithoutCloseButton = Template.bind({});
-PopupWithoutCloseButton.args = {
+export const ModalWithoutCloseButton = Template.bind({});
+ModalWithoutCloseButton.args = {
   hasCloseButton: false,
+};
+
+export const ModalWithTitle = Template.bind({});
+ModalWithTitle.args = {
+  hasCloseButton: true,
+  title: 'Title',
 };
