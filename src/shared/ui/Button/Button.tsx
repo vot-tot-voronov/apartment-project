@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
 
 import classes from './Button.module.scss';
 
@@ -10,7 +10,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   dataTestId?: string;
 }
 
-export const Button: FC<IButtonProps> = props => {
+export const Button: FC<IButtonProps> = memo(function ButtonComponent(props) {
   const { size = 'main', className, children, onClick, dataTestId = 'button' } = props;
 
   return (
@@ -23,4 +23,4 @@ export const Button: FC<IButtonProps> = props => {
       {children}
     </button>
   );
-};
+});

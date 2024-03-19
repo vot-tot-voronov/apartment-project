@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormAsync as LoginForm } from '../LoginForm/LoginFormAsync';
 
 import { Modal } from '@/shared/ui';
 
@@ -13,7 +13,7 @@ export const LoginModal = () => {
   };
 
   return (
-    <Modal title="Авторизация" onBack={handleClose}>
+    <Modal title="Авторизация" onBack={handleClose} asyncContent>
       <LoginForm />
     </Modal>
   );

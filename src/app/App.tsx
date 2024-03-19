@@ -10,6 +10,7 @@ import { ModalsViaQueryParams } from '@/widgets/modals';
 import { ModalTypeEnum, TModalViaQueryParam } from '@/shared/types';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { userActions } from '@/entities/User';
+import { Loader } from '@/shared/ui';
 
 import './styles/index.scss';
 
@@ -23,17 +24,23 @@ const Root = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback="">
-        <div className="layout">
-          <main>
-            <Navbar />
-            {modalProps && <ModalsViaQueryParams modalType={modalProps.modalType} />}
+      <div className="layout">
+        <main>
+          <Navbar />
+          {modalProps && <ModalsViaQueryParams modalType={modalProps.modalType} />}
+          <Suspense
+            fallback={
+              <div className="loaderContainer">
+                <Loader />
+              </div>
+            }
+          >
             <Outlet />
-          </main>
-          <footer>Footer</footer>
-        </div>
-        <div id="modalPortal" />
-      </Suspense>
+          </Suspense>
+        </main>
+        <footer>Footer</footer>
+      </div>
+      <div id="modalPortal" />
     </ErrorBoundary>
   );
 };

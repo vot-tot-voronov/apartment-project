@@ -8,7 +8,7 @@ import { loginByUsername } from '../../model/services/loginByUsernameService';
 import { Button, TextInput } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<ILoginForm>();
 
@@ -26,3 +26,5 @@ export const LoginForm = () => {
     </form>
   );
 };
+
+export default LoginForm;

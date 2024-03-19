@@ -16,7 +16,7 @@
   height: 60px;
 
   .container {
-    @include flex-align-justify-between;
+    @include flex-a-j-between;
     max-width: $width-xl;
     width: 100%;
     height: 100%;
@@ -57,7 +57,7 @@
       height: inherit;
 
       .link {
-        @include flex-align-center;
+        @include flex-a-center;
 
         position: relative;
         height: inherit;
@@ -75,12 +75,12 @@
     }
 
     .authorization {
-      @include flex-align-center;
+      @include flex-a-center;
       column-gap: $margin-main;
       height: inherit;
 
       .login {
-        @include flex-align-center;
+        @include flex-a-center;
         position: relative;
         height: inherit;
         font-weight: $font-weight-light;
