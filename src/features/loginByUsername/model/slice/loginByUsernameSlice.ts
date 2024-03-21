@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { ILoginFormSchema } from '../types/loginByUsernameTypes';
 import { loginByUsername } from '../services/loginByUsernameService';
+import { ILoginFormSchema } from '../types/loginByUsernameTypes';
 
 const initialState: ILoginFormSchema = {
   username: '',
@@ -9,7 +9,7 @@ const initialState: ILoginFormSchema = {
   isLoading: false,
 };
 
-const loginByUsernameSlice = createSlice({
+export const loginByUsernameSlice = createSlice({
   name: 'loginByUsername',
   initialState,
   reducers: {},
@@ -27,5 +27,3 @@ const loginByUsernameSlice = createSlice({
       });
   },
 });
-
-export const { actions: loginFormActions, reducer: loginFormReducer } = loginByUsernameSlice;

@@ -3,5 +3,9 @@ import { ILoginFormSchema } from '@/features/loginByUsername';
 
 export interface IStateSchema {
   user: IUserSchema;
-  loginForm: ILoginFormSchema;
+
+  // async reducers
+  loginForm?: ILoginFormSchema;
 }
+
+export type KeysOfStateSchema = keyof IStateSchema;
