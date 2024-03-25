@@ -22,4 +22,4 @@ export const NavbarLogin = Template.bind({});
 NavbarLogin.decorators = [StoreDecorator({})];
 
 export const NavbarLogout = Template.bind({});
-NavbarLogout.decorators = [StoreDecorator({ user: { authData: { id: 1, username: 'user' } } })];
+NavbarLogout.decorators = [StoreDecorator({ user: { authData: { id: '1', username: 'user' } } })];

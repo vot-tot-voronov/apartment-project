@@ -4,8 +4,6 @@ import { loginByUsername } from '../services/loginByUsernameService';
 import { ILoginFormSchema } from '../types/loginByUsernameTypes';
 
 const initialState: ILoginFormSchema = {
-  username: '',
-  password: '',
   isLoading: false,
 };
 
@@ -24,6 +22,7 @@ export const loginByUsernameSlice = createSlice({
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.error = action.payload;
+        state.isLoading = false;
       });
   },
 });

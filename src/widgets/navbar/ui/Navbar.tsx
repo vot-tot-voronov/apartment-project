@@ -10,7 +10,7 @@ import { MainRoutePaths, MainRoutesEnum } from '@/shared/config/routeConfig/rout
 import { AppLink, Button } from '@/shared/ui';
 import { ModalTypeEnum } from '@/shared/types';
 import { getUserData, userActions } from '@/entities/User';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/hooks';
 
 interface ILinkArray {
   path: string;

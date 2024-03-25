@@ -1,7 +1,6 @@
 @import '@styles/global';
 
 .btn {
-  background-color: $dark;
   transition: background-color 0.4s;
   color: $white;
   padding: $margin-small $margin-large;
@@ -9,8 +8,17 @@
   width: 100%;
   border-radius: $radius-main;
 
-  &:hover {
-    background-color: $white-dark;
+  &.disabled {
+    background-color: $grey;
+    cursor: not-allowed;
+  }
+
+  &:not(.disabled) {
+    background-color: $dark;
+
+    &:hover {
+      background-color: $white-dark;
+    }
   }
 }
 

@@ -3,7 +3,7 @@ export interface ILoginForm {
   password: string;
 }
 
-export interface ILoginFormSchema extends ILoginForm {
+export interface ILoginFormSchema {
   isLoading: boolean;
   error?: string;
 }

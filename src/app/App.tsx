@@ -8,7 +8,7 @@ import { ErrorBoundary } from './providers/errorBoundary';
 import { Navbar } from '@/widgets/navbar';
 import { ModalsViaQueryParams } from '@/widgets/modals';
 import { ModalTypeEnum, TModalViaQueryParam } from '@/shared/types';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/hooks';
 import { userActions } from '@/entities/User';
 import { Loader } from '@/shared/ui';
 

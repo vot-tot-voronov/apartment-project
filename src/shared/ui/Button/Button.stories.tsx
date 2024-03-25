@@ -33,3 +33,8 @@ export const Large = Template.bind({});
 Large.args = {
   size: 'large',
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  isDisabled: true,
+};
