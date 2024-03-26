@@ -7,7 +7,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { IBuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: IBuildOptions): Array<WebpackPluginInstance> {
+export function buildPlugins({ paths, isDev, apiUrl }: IBuildOptions): Array<WebpackPluginInstance> {
   const isProd = !isDev;
 
   const plugins = [
@@ -25,7 +25,7 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): Array<WebpackPlug
         mode: 'write-references',
       },
     }),
-    new DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
+    new DefinePlugin({ __IS_DEV__: JSON.stringify(isDev), __API_URL__: JSON.stringify(apiUrl) }),
   ];
 
   if (isDev) {

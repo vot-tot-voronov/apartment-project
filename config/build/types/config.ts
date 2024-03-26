@@ -13,9 +13,11 @@ export interface IBuildOptions {
   mode: BuildMode;
   port: number;
   isDev: boolean;
+  apiUrl: string;
 }
 
 export interface IBuildEnv {
   port: number;
   mode: BuildMode;
+  apiUrl?: string;
 }
