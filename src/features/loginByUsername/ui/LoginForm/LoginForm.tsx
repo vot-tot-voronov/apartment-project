@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 
 import classes from './LoginForm.module.scss';
-import { ILoginForm } from '../../model/types/loginByUsernameTypes';
+import { ILoginForm, LoginFieldEnum } from '../../model/types/loginByUsernameTypes';
 import { loginByUsernameSlice } from '../../model/slice/loginByUsernameSlice';
 import { loginByUsername } from '../../model/services/loginByUsernameService';
 
-import { Button, TextInput } from '@/shared/ui';
+import { Button, Form, TextInput } from '@/shared/ui';
 import { useSliceInject, useAppDispatch } from '@/shared/hooks';
 
 interface ILoginFormProps {
@@ -34,15 +34,15 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
   };
 
   return (
-    <form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.container}>
-        <TextInput {...register('username')} isDisabled={isLoading} placeholder="Имя пользователя" />
-        <TextInput {...register('password')} isDisabled={isLoading} placeholder="Пароль" />
+        <TextInput {...register(LoginFieldEnum.USERNAME)} isDisabled={isLoading} placeholder="Имя пользователя" />
+        <TextInput {...register(LoginFieldEnum.PASSWORD)} isDisabled={isLoading} placeholder="Пароль" />
       </div>
       <Button className={classes.button} onClick={handleSubmit(onSubmit)} isDisabled={isLoading}>
         Войти
       </Button>
-    </form>
+    </Form>
   );
 };
 

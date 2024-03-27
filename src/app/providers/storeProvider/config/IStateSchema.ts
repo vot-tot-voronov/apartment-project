@@ -2,12 +2,14 @@ import { AxiosInstance } from 'axios';
 
 import { IUserSchema } from '@/entities/User';
 import { ILoginFormSchema } from '@/features/loginByUsername';
+import { IProfileCardSchema } from '@/entities/Profile';
 
 export interface IStateSchema {
   user: IUserSchema;
 
   // async reducers
   loginForm?: ILoginFormSchema;
+  profileCard?: IProfileCardSchema;
 }
 
 export interface IThunkExtraArg {

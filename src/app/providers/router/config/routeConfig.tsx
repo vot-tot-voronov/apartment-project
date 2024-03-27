@@ -6,6 +6,7 @@ import { BuyPage } from '@/pages/buy';
 import { SellPage } from '@/pages/sell';
 import { RentPage } from '@/pages/rent';
 import { NotFoundPage } from '@/pages/notFound';
+import { ProfilePage } from '@/pages/profile';
 
 export const mainRouteConfig: Record<MainRoutesEnum, RouteProps> = {
   [MainRoutesEnum.MAIN]: {
@@ -20,6 +21,10 @@ export const mainRouteConfig: Record<MainRoutesEnum, RouteProps> = {
   [MainRoutesEnum.RENT]: {
     path: MainRoutePaths[MainRoutesEnum.RENT],
     element: <RentPage />,
+  },
+  [MainRoutesEnum.PROFILE]: {
+    path: MainRoutePaths[MainRoutesEnum.PROFILE],
+    element: <ProfilePage />,
   },
   [MainRoutesEnum.NOT_FOUND_PAGE]: {
     path: MainRoutePaths[MainRoutesEnum.NOT_FOUND_PAGE],

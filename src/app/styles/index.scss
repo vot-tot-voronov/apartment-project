@@ -24,3 +24,7 @@ h2 {
 .loaderContainer {
   @include flex-a-j-center;
 }
+
+.boxContent {
+  padding: $margin-main $margin-small;
+}

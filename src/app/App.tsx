@@ -25,7 +25,7 @@ const Root = () => {
   return (
     <ErrorBoundary>
       <div className="layout">
-        <main>
+        <main className="main">
           <Navbar />
           {modalProps && <ModalsViaQueryParams modalType={modalProps.modalType} />}
           <Suspense
@@ -35,7 +35,9 @@ const Root = () => {
               </div>
             }
           >
-            <Outlet />
+            <div className="boxContent">
+              <Outlet />
+            </div>
           </Suspense>
         </main>
         <footer>Footer</footer>
