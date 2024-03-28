@@ -31,6 +31,11 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "Иван",
+    "surname": "Иванов",
+    "middleName": "Иванович",
+    "region": "Республика Саха",
+    "city": "Якутск",
+    "phone": "+79999999999"
   }
 }

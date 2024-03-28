@@ -9,7 +9,8 @@ import { loginByUsernameSlice } from '../../model/slice/loginByUsernameSlice';
 import { loginByUsername } from '../../model/services/loginByUsernameService';
 
 import { Button, Form, TextInput } from '@/shared/ui';
-import { useSliceInject, useAppDispatch } from '@/shared/hooks';
+import { useAppDispatch } from '@/shared/hooks';
+import { rootReducer } from '@/app/providers/storeProvider';
 
 interface ILoginFormProps {
   onClose: () => void;
@@ -18,11 +19,11 @@ interface ILoginFormProps {
 const LoginForm = ({ onClose }: ILoginFormProps) => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm<ILoginForm>();
-  const injectedLoginSlice = useSliceInject(loginByUsernameSlice);
-
-  const getIsLoading = useMemo(() => {
-    return injectedLoginSlice.selector(state => state.loginByUsername.isLoading);
-  }, [injectedLoginSlice]);
+  const {
+    selectors: { getIsLoading },
+  } = useMemo(() => {
+    return loginByUsernameSlice.injectInto(rootReducer);
+  }, []);
 
   const isLoading = useSelector(getIsLoading);
 

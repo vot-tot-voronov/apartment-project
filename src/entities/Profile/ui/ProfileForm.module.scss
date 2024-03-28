@@ -1,7 +1,18 @@
 @import '@styles/global';
+@import '@styles/mixins';
 
 .container {
   min-height: 80vh;
+
+  &.center {
+    @include flex-a-j-center;
+  }
+
+  .error {
+    color: $dark-red;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+  }
 
   .title {
     margin-bottom: $margin-main;

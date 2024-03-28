@@ -1,10 +1,11 @@
-import { ProfileCard } from '@/entities/Profile';
+import { Container } from '@/shared/ui';
+import { ProfileCard } from '@/features/getEditProfile';
 
 const ProfilePage = () => {
   return (
-    <div>
+    <Container>
       <ProfileCard />
-    </div>
+    </Container>
   );
 };
 

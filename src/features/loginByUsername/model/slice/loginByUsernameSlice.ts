@@ -11,6 +11,9 @@ export const loginByUsernameSlice = createSlice({
   name: 'loginByUsername',
   initialState,
   reducers: {},
+  selectors: {
+    getIsLoading: sliceState => sliceState.isLoading,
+  },
   extraReducers: builder => {
     builder
       .addCase(loginByUsername.pending, state => {

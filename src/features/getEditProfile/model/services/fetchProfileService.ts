@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { IProfileForm } from '../types/profileCardTypes';
-
 import { IThunkConfig } from '@/app/providers/storeProvider';
+import { IProfileForm } from '@/entities/Profile';
 
 export const fetchProfileService = createAsyncThunk<IProfileForm, void, IThunkConfig<string>>(
   'profile/fetchProfileCard',

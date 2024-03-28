@@ -1,0 +1,8 @@
+@import '@styles/global';
+
+.container {
+  background-color: $dark-white;
+  border-radius: $radius-main;
+  box-shadow: 0 0 12px 0 $darker-white;
+  padding: $margin-main;
+}

@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import { FormHTMLAttributes } from 'react';
 
-interface IFormProps extends PropsWithChildren {
+interface IFormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> {
   onSubmit: Function;
 }
 

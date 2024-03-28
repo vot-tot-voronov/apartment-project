@@ -15,10 +15,3 @@ export interface IProfileForm {
   city: string;
   phone: string;
 }
-
-export interface IProfileCardSchema {
-  data?: IProfileForm;
-  isLoading: boolean;
-  error?: string;
-  readonly: boolean;
-}
