@@ -1,7 +1,9 @@
 @import '@styles/global';
 
 .btn {
-  transition: background-color 0.4s;
+  transition:
+    background-color 0.4s,
+    border-color 0.4s;
   color: $white;
   padding: $margin-small $margin-large;
   min-width: 15px;
@@ -14,10 +16,24 @@
   }
 
   &:not(.disabled) {
-    background-color: $dark;
+    &.primary {
+      background-color: $dark;
+    }
+
+    &.secondary {
+      background-color: $white;
+      border: 2px solid $grey;
+      color: $white-dark;
+    }
 
     &:hover {
-      background-color: $white-dark;
+      &.primary {
+        background-color: $white-dark;
+      }
+
+      &.secondary {
+        border-color: $dark;
+      }
     }
   }
 }

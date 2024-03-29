@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 
-import { Button } from './Button';
+import { Button, ButtonThemeEnum } from './Button';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,6 +13,16 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: StoryFn<typeof Button> = args => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  theme: ButtonThemeEnum.PRIMARY,
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  theme: ButtonThemeEnum.SECONDARY,
+};
 
 export const Small = Template.bind({});
 Small.args = {

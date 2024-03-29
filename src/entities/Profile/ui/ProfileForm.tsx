@@ -5,18 +5,31 @@ import clsx from 'clsx';
 import classes from './ProfileForm.module.scss';
 import { IProfileForm, ProfileFieldsEnum } from '../model/types/profileTypes';
 
-import { Button, Form, Loader, TextInput } from '@/shared/ui';
+import { Button, ButtonThemeEnum, Form, Loader, TextInput } from '@/shared/ui';
 
 interface IProfileCardProps {
-  profileData?: IProfileForm;
+  defaultData?: IProfileForm;
   onSubmit: SubmitHandler<IProfileForm>;
   isLoading: boolean;
   error?: string;
   isReadonly: boolean;
+  setIsReadonly: (isReadonly: boolean) => void;
 }
 
-export const ProfileForm = ({ profileData, onSubmit, isLoading, error, isReadonly }: IProfileCardProps) => {
-  const { register, handleSubmit } = useForm<IProfileForm>({ values: profileData });
+export const ProfileForm = ({
+  defaultData,
+  onSubmit,
+  setIsReadonly,
+  isLoading,
+  error,
+  isReadonly,
+}: IProfileCardProps) => {
+  const { register, handleSubmit, reset } = useForm<IProfileForm>({ values: defaultData });
+
+  const handleCancel = () => {
+    setIsReadonly(true);
+    reset(defaultData);
+  };
 
   const renderForm = () => {
     if (error) {
@@ -73,15 +86,20 @@ export const ProfileForm = ({ profileData, onSubmit, isLoading, error, isReadonl
           />
         </div>
 
-        <div>
+        <div className={classes.buttons}>
           {isReadonly ? (
-            <Button onClick={() => console.info('Edit')} className={classes.editBtn}>
+            <Button onClick={() => setIsReadonly(false)} className={classes.btn}>
               Редактировать
             </Button>
           ) : (
-            <Button onClick={handleSubmit(onSubmit)} className={classes.editBtn}>
-              Сохранить
-            </Button>
+            <>
+              <Button onClick={handleSubmit(onSubmit)} className={classes.btn}>
+                Сохранить
+              </Button>
+              <Button onClick={handleCancel} theme={ButtonThemeEnum.SECONDARY} className={classes.btn}>
+                Отмена
+              </Button>
+            </>
           )}
         </div>
       </Form>
