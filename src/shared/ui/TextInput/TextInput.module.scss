@@ -31,6 +31,7 @@
   border-radius: $radius-small;
   transition: border-color 0.3s;
   width: 100%;
+  max-height: $field-height;
 
   &:hover:not(&[disabled], .error) {
     border-color: $white-dark;

@@ -1,0 +1,75 @@
+@import '@styles/global';
+
+.box {
+  width: 100%;
+}
+
+.control {
+  height: $field-height;
+  border-radius: $radius-small !important;
+  border-color: $grey !important;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: $white-dark !important;
+  }
+}
+
+.focused {
+  box-shadow: 0 0 0 1px $white-dark !important;
+}
+
+.disabled {
+  background-color: $white-grey !important;
+}
+
+.error {
+  border-color: $red !important;
+}
+
+.singleValue {
+  color: $black !important;
+}
+
+.menu {
+  background-color: $grey !important;
+}
+
+.option {
+  transition: background-color 0.3s;
+  background-color: $white !important;
+
+  &:hover {
+    background-color: $white-grey !important;
+  }
+}
+
+.optionSelected {
+  background-color: $dark-white !important;
+  color: $black !important;
+}
+
+.label {
+  display: inline-flex;
+  flex-direction: column;
+
+  & > span {
+    color: $red;
+  }
+
+  & > p {
+    position: relative;
+    color: $dark;
+    width: fit-content;
+
+    & > span {
+      color: $red;
+
+      &:not(.relative) {
+        position: absolute;
+        top: 0;
+        right: -10px;
+      }
+    }
+  }
+}

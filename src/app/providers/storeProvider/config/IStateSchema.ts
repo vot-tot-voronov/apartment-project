@@ -9,7 +9,7 @@ export interface IStateSchema {
 
   // async reducers
   loginForm?: ILoginFormSchema;
-  profileCard: IProfileCardSchema;
+  profileCard?: IProfileCardSchema;
 }
 
 export interface IThunkExtraArg {
@@ -19,6 +19,7 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
+  state: IStateSchema;
 }
 
 export type KeysOfStateSchema = keyof IStateSchema;

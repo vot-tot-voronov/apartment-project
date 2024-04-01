@@ -1,3 +1,5 @@
+import { ISelectItem } from '@/shared/types';
+
 export enum ProfileFieldsEnum {
   NAME = 'name',
   SURNAME = 'surname',
@@ -11,7 +13,7 @@ export interface IProfileForm {
   name: string;
   surname: string;
   middleName?: string;
-  region: string;
+  region: ISelectItem;
   city: string;
   phone: string;
 }

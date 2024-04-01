@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import classes from './ProfileForm.module.scss';
 import { IProfileForm, ProfileFieldsEnum } from '../model/types/profileTypes';
 
-import { Button, ButtonThemeEnum, Form, Loader, TextInput } from '@/shared/ui';
+import { Button, ButtonThemeEnum, Form, Loader, Select, TextInput } from '@/shared/ui';
 
 interface IProfileCardProps {
   defaultData?: IProfileForm;
@@ -16,6 +16,11 @@ interface IProfileCardProps {
   setIsReadonly: (isReadonly: boolean) => void;
 }
 
+const options = [
+  { value: '1', label: 'Краснодарский край' },
+  { value: '2', label: 'Республика Саха' },
+];
+
 export const ProfileForm = ({
   defaultData,
   onSubmit,
@@ -24,7 +29,7 @@ export const ProfileForm = ({
   error,
   isReadonly,
 }: IProfileCardProps) => {
-  const { register, handleSubmit, reset } = useForm<IProfileForm>({ values: defaultData });
+  const { register, handleSubmit, reset, control } = useForm<IProfileForm>({ values: defaultData });
 
   const handleCancel = () => {
     setIsReadonly(true);
@@ -66,9 +71,11 @@ export const ProfileForm = ({
             labelText="Отчество"
             isDisabled={isReadonly}
           />
-          <TextInput
-            {...register(ProfileFieldsEnum.REGION)}
+          <Select
             className={classes.region}
+            name={ProfileFieldsEnum.REGION}
+            options={options}
+            control={control}
             labelText="Регион"
             isDisabled={isReadonly}
           />
