@@ -1,11 +1,11 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 
-import { SelectStatic } from './Select';
+import { SelectComponent } from './Select';
 
 export default {
   title: 'shared/Select',
-  component: SelectStatic,
+  component: SelectComponent,
   args: {
     name: 'select',
     options: [
@@ -15,12 +15,12 @@ export default {
     labelText: 'Label',
     placeholder: 'Select a value',
   },
-} as Meta<typeof SelectStatic>;
+} as Meta<typeof SelectComponent>;
 
-const Template: StoryFn<typeof SelectStatic> = args => {
+const Template: StoryFn<typeof SelectComponent> = args => {
   const { control } = useForm();
 
-  return <SelectStatic control={control} {...args} />;
+  return <SelectComponent {...args} control={control} />;
 };
 
 export const Default = Template.bind({});

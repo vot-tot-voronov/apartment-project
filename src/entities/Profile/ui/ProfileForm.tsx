@@ -29,7 +29,7 @@ export const ProfileForm = ({
   error,
   isReadonly,
 }: IProfileCardProps) => {
-  const { register, handleSubmit, reset, control } = useForm<IProfileForm>({ values: defaultData });
+  const { handleSubmit, reset, control } = useForm<IProfileForm>({ values: defaultData });
 
   const handleCancel = () => {
     setIsReadonly(true);
@@ -54,19 +54,22 @@ export const ProfileForm = ({
         <h2 className={classes.title}>Информация о пользователе</h2>
         <div className={classes.fields}>
           <TextInput
-            {...register(ProfileFieldsEnum.SURNAME)}
+            name={ProfileFieldsEnum.SURNAME}
+            control={control}
             className={classes.surname}
             labelText="Фамилия"
             isDisabled={isReadonly}
           />
           <TextInput
-            {...register(ProfileFieldsEnum.NAME)}
+            name={ProfileFieldsEnum.NAME}
+            control={control}
             className={classes.name}
             labelText="Имя"
             isDisabled={isReadonly}
           />
           <TextInput
-            {...register(ProfileFieldsEnum.MIDDLENAME)}
+            name={ProfileFieldsEnum.MIDDLENAME}
+            control={control}
             className={classes.middleName}
             labelText="Отчество"
             isDisabled={isReadonly}
@@ -80,13 +83,15 @@ export const ProfileForm = ({
             isDisabled={isReadonly}
           />
           <TextInput
-            {...register(ProfileFieldsEnum.CITY)}
+            name={ProfileFieldsEnum.CITY}
+            control={control}
             className={classes.city}
             labelText="Город"
             isDisabled={isReadonly}
           />
           <TextInput
-            {...register(ProfileFieldsEnum.PHONE)}
+            name={ProfileFieldsEnum.PHONE}
+            control={control}
             className={classes.phone}
             labelText="Телефон"
             isDisabled={isReadonly}

@@ -19,3 +19,28 @@
   display: flex;
   align-items: center;
 }
+
+@mixin label {
+  display: inline-flex;
+  flex-direction: column;
+
+  & > span {
+    color: $red;
+  }
+
+  & > p {
+    position: relative;
+    color: $dark;
+    width: fit-content;
+
+    & > span {
+      color: $red;
+
+      &:not(.relative) {
+        position: absolute;
+        top: 0;
+        right: -10px;
+      }
+    }
+  }
+}

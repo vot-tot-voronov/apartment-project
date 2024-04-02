@@ -1,20 +1,41 @@
-import { InputHTMLAttributes, forwardRef, memo, useMemo } from 'react';
+import { InputHTMLAttributes, useMemo } from 'react';
 import clsx from 'clsx';
 import { v4 as uuidv4 } from 'uuid';
+import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 
 import classes from './TextInput.module.scss';
 
-interface IInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'disabled'> {
-  className?: string;
-  value?: string;
-  labelText?: string;
-  isDisabled?: boolean;
-  isRequired?: boolean;
-  error?: string;
-}
+import { genericMemo } from '@/shared/lib';
 
-const InputComponent = forwardRef<HTMLInputElement, IInputProps>(function InputComponent(props, ref) {
-  const { className, onChange, value, labelText, placeholder, name, onBlur, isDisabled, isRequired, error } = props;
+interface IInput
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'disabled' | 'name' | 'onBlur' | 'onChange'> {}
+
+type IInputProps<T extends FieldValues> = UseControllerProps<T> &
+  IInput & {
+    className?: string;
+    labelText?: string;
+    isDisabled?: boolean;
+    isRequired?: boolean;
+    error?: string;
+  };
+
+const InputComponent = <T extends FieldValues>(props: IInputProps<T>) => {
+  const {
+    className,
+    labelText,
+    placeholder,
+    name,
+    isDisabled,
+    isRequired,
+    error,
+    control,
+    defaultValue,
+    rules,
+    shouldUnregister,
+  } = props;
+  const {
+    field: { onBlur, onChange, value = '', ref },
+  } = useController<T>({ name, control, defaultValue, rules, shouldUnregister });
 
   const idInput = useMemo(() => uuidv4(), []);
 
@@ -42,6 +63,6 @@ const InputComponent = forwardRef<HTMLInputElement, IInputProps>(function InputC
       />
     </div>
   );
-});
+};
 
-export const TextInput = memo(InputComponent);
+export const TextInput = genericMemo(InputComponent);

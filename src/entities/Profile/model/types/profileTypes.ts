@@ -13,7 +13,7 @@ export interface IProfileForm {
   name: string;
   surname: string;
   middleName?: string;
-  region: ISelectItem;
+  region?: ISelectItem;
   city: string;
   phone: string;
 }

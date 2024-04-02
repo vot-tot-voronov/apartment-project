@@ -18,7 +18,7 @@ interface ILoginFormProps {
 
 const LoginForm = ({ onClose }: ILoginFormProps) => {
   const dispatch = useAppDispatch();
-  const { register, handleSubmit } = useForm<ILoginForm>();
+  const { control, handleSubmit } = useForm<ILoginForm>();
   const {
     selectors: { getIsLoading },
   } = useMemo(() => {
@@ -37,8 +37,13 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.container}>
-        <TextInput {...register(LoginFieldEnum.USERNAME)} isDisabled={isLoading} placeholder="Имя пользователя" />
-        <TextInput {...register(LoginFieldEnum.PASSWORD)} isDisabled={isLoading} placeholder="Пароль" />
+        <TextInput
+          name={LoginFieldEnum.USERNAME}
+          control={control}
+          isDisabled={isLoading}
+          placeholder="Имя пользователя"
+        />
+        <TextInput name={LoginFieldEnum.PASSWORD} control={control} isDisabled={isLoading} placeholder="Пароль" />
       </div>
       <Button className={classes.button} onClick={handleSubmit(onSubmit)} isDisabled={isLoading}>
         Войти

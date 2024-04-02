@@ -1,13 +1,12 @@
-import { PropsWithChildren, ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import Select, { GroupBase, OptionsOrGroups } from 'react-select';
 import { v4 as uuidv4 } from 'uuid';
 import clsx from 'clsx';
-import { Control, Controller } from 'react-hook-form';
+import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 
 import classes from './Select.module.scss';
 
-interface ISelectStaticProps extends PropsWithChildren {
-  name: string;
+interface ISelect {
   options: OptionsOrGroups<unknown, GroupBase<unknown>>;
   labelText?: string;
   className?: string;
@@ -15,10 +14,11 @@ interface ISelectStaticProps extends PropsWithChildren {
   isDisabled?: boolean;
   isRequired?: boolean;
   error?: string;
-  control?: Control<any>;
 }
 
-export const SelectStatic = ({
+type ISelectProps<T extends FieldValues> = UseControllerProps<T> & ISelect;
+
+export const SelectComponent = <T extends FieldValues>({
   options,
   labelText,
   className,
@@ -28,8 +28,15 @@ export const SelectStatic = ({
   error,
   name,
   control,
-}: ISelectStaticProps) => {
+  defaultValue,
+  rules,
+  shouldUnregister,
+}: ISelectProps<T>) => {
   const selectId = useMemo(() => uuidv4(), []);
+
+  const {
+    field: { onChange, onBlur, value },
+  } = useController<T>({ name, control, defaultValue, rules, shouldUnregister });
 
   return (
     <div className={clsx(classes.box, className)}>
@@ -41,34 +48,27 @@ export const SelectStatic = ({
           {error && <span>{error}</span>}
         </label>
       )}
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { value, onChange } }) => {
-          return (
-            <Select
-              inputId={selectId}
-              onChange={onChange}
-              options={options}
-              openMenuOnFocus
-              placeholder={placeholder}
-              classNames={{
-                control: state =>
-                  clsx(
-                    classes.control,
-                    state.isDisabled && classes.disabled,
-                    error && classes.error,
-                    state.isFocused && classes.focused,
-                  ),
-                singleValue: () => classes.singleValue,
-                menu: () => classes.menu,
-                option: state => clsx(classes.option, state.isSelected && classes.optionSelected),
-              }}
-              value={value}
-              isDisabled={isDisabled}
-            />
-          );
+      <Select
+        inputId={selectId}
+        onChange={onChange}
+        onBlur={onBlur}
+        options={options}
+        openMenuOnFocus
+        placeholder={placeholder}
+        classNames={{
+          control: state =>
+            clsx(
+              classes.control,
+              state.isDisabled && classes.disabled,
+              error && classes.error,
+              state.isFocused && classes.focused,
+            ),
+          singleValue: () => classes.singleValue,
+          menu: () => classes.menu,
+          option: state => clsx(classes.option, state.isSelected && classes.optionSelected),
         }}
+        value={value}
+        isDisabled={isDisabled}
       />
     </div>
   );

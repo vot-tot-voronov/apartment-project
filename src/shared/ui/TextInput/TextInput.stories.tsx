@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
+import { useForm } from 'react-hook-form';
 
 import { TextInput } from './TextInput';
 
@@ -6,11 +7,15 @@ export default {
   title: 'shared/TextInput',
   component: TextInput,
   args: {
-    children: 'TextInput',
+    name: 'test',
   },
 } as Meta<typeof TextInput>;
 
-const Template: StoryFn<typeof TextInput> = args => <TextInput {...args} />;
+const Template: StoryFn<typeof TextInput> = args => {
+  const { control } = useForm();
+
+  return <TextInput {...args} control={control} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {};
@@ -24,11 +29,6 @@ WithLabel.args = {
 export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
-};
-
-export const WithDefaultValue = Template.bind({});
-WithDefaultValue.args = {
-  value: 'Default value',
 };
 
 export const Disabled = Template.bind({});
