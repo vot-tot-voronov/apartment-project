@@ -1,3 +1,5 @@
+import { RouteProps } from 'react-router-dom';
+
 export enum MainRoutesEnum {
   MAIN = 'main',
   BUY = 'buy',
@@ -15,3 +17,9 @@ export const MainRoutePaths: Record<MainRoutesEnum, string> = {
   [MainRoutesEnum.PROFILE]: '/profile',
   [MainRoutesEnum.NOT_FOUND_PAGE]: '*',
 };
+
+export type IAppRouteProps = {
+  isAuthOnly?: boolean;
+} & RouteProps;
+
+export const getRouteMain = () => MainRoutePaths[MainRoutesEnum.MAIN];

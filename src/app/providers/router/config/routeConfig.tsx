@@ -1,6 +1,4 @@
-import { RouteProps } from 'react-router-dom';
-
-import { MainRoutesEnum, MainRoutePaths } from '@/shared/config/routeConfig/routeConfig';
+import { MainRoutesEnum, MainRoutePaths, IAppRouteProps } from '@/shared/config/routeConfig/routeConfig';
 import { MainPage } from '@/pages/main';
 import { BuyPage } from '@/pages/buy';
 import { SellPage } from '@/pages/sell';
@@ -8,7 +6,7 @@ import { RentPage } from '@/pages/rent';
 import { NotFoundPage } from '@/pages/notFound';
 import { ProfilePage } from '@/pages/profile';
 
-export const mainRouteConfig: Record<MainRoutesEnum, RouteProps> = {
+export const mainRouteConfig: Record<MainRoutesEnum, IAppRouteProps> = {
   [MainRoutesEnum.MAIN]: {
     path: MainRoutePaths[MainRoutesEnum.MAIN],
     element: <MainPage />,
@@ -25,6 +23,7 @@ export const mainRouteConfig: Record<MainRoutesEnum, RouteProps> = {
   [MainRoutesEnum.PROFILE]: {
     path: MainRoutePaths[MainRoutesEnum.PROFILE],
     element: <ProfilePage />,
+    isAuthOnly: true,
   },
   [MainRoutesEnum.NOT_FOUND_PAGE]: {
     path: MainRoutePaths[MainRoutesEnum.NOT_FOUND_PAGE],

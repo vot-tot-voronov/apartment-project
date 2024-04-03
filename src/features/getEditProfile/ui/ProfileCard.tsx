@@ -1,8 +1,7 @@
 import { SubmitHandler } from 'react-hook-form';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { fetchProfileService } from '../model/services/fetchProfileService';
 import { profileCardSlice } from '../model/slice/profileCardSlice';
 import { putProfileService } from '../model/services/putProfileService';
 
@@ -37,10 +36,6 @@ export const ProfileCard = () => {
     },
     [dispatch, setIsReadonly],
   );
-
-  useEffect(() => {
-    dispatch(fetchProfileService());
-  }, [dispatch]);
 
   return (
     <ProfileForm
