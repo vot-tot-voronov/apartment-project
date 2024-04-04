@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ILoginForm } from '../types/loginByUsernameTypes';
+import { LoginFormType } from '../types/loginByUsernameTypes';
 
 import { IUser, userActions } from '@/entities/User';
 import { USER_INFO_LOCALSTORAGE_KEY } from '@/shared/constants';
 import { IThunkConfig } from '@/app/providers/storeProvider';
 
-export const loginByUsername = createAsyncThunk<IUser, ILoginForm, IThunkConfig<string>>(
+export const loginByUsername = createAsyncThunk<IUser, LoginFormType, IThunkConfig<string>>(
   'login/loginByUsername',
   async (authData, { dispatch, extra: { api }, rejectWithValue }) => {
     try {

@@ -18,7 +18,7 @@ export const MainRoutePaths: Record<MainRoutesEnum, string> = {
   [MainRoutesEnum.NOT_FOUND_PAGE]: '*',
 };
 
-export type IAppRouteProps = {
+export type AppRoutePropsType = {
   isAuthOnly?: boolean;
 } & RouteProps;
 

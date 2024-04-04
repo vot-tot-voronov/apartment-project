@@ -1,4 +1,7 @@
-import { ISelectItem } from '@/shared/types';
+import { z } from 'zod';
+
+import { SelectItemSchema } from '@/shared/types';
+import { ErrorMessagesEnum } from '@/shared/constants';
 
 export enum ProfileFieldsEnum {
   NAME = 'name',
@@ -9,11 +12,38 @@ export enum ProfileFieldsEnum {
   PHONE = 'phone',
 }
 
-export interface IProfileForm {
-  name: string;
-  surname: string;
-  middleName?: string;
-  region?: ISelectItem;
-  city: string;
-  phone: string;
-}
+export const ProfileFormSchema = z.object({
+  name: z
+    .string({ required_error: ErrorMessagesEnum.REQUIRED })
+    .min(1, { message: ErrorMessagesEnum.REQUIRED })
+    .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER })
+    .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),
+  surname: z
+    .string({ required_error: ErrorMessagesEnum.REQUIRED })
+    .min(1, { message: ErrorMessagesEnum.REQUIRED })
+    .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+    .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+  middleName: z
+    .union([
+      z
+        .string()
+        .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+        .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+      z.string().length(0),
+    ])
+    .optional()
+    .transform(e => (e === '' ? undefined : e)),
+  region: SelectItemSchema.nullable(),
+  city: z
+    .union([z.string().regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }), z.string().length(0)])
+    .optional()
+    .transform(e => (e === '' ? undefined : e)),
+  phone: z
+    .string({ required_error: ErrorMessagesEnum.REQUIRED })
+    .min(1, { message: ErrorMessagesEnum.REQUIRED })
+    .regex(/^(\+7|8)-\d{3}-\d{3}-\d{2}-\d{2}$/g, {
+      message: 'Введите номер телефона в формате +7|8-XXX-XXX-XX-XX',
+    }),
+});
+
+export type ProfileFormType = z.infer<typeof ProfileFormSchema>;

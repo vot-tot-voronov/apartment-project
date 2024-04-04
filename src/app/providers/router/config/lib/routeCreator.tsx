@@ -2,11 +2,11 @@ import { RouteObject } from 'react-router-dom';
 
 import { ProtectedRoute } from '../ui/ProtectedRoute';
 
-import { IAppRouteProps } from '@/shared/config/routeConfig/routeConfig';
+import { AppRoutePropsType } from '@/shared/config/routeConfig/routeConfig';
 
-type RouteCreator = Record<string, IAppRouteProps>;
+type RouteCreatorType = Record<string, AppRoutePropsType>;
 
-export const routeCreator = (routeConfig: RouteCreator): Array<RouteObject> => {
+export const routeCreator = (routeConfig: RouteCreatorType): Array<RouteObject> => {
   return Object.values(routeConfig).map(({ path, element, isAuthOnly }) => ({
     path,
     element: isAuthOnly ? <ProtectedRoute>{element}</ProtectedRoute> : element,

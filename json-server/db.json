@@ -27,7 +27,7 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "1234"
+      "password": "123qW!"
     }
   ],
   "profile": {
@@ -35,10 +35,10 @@
     "surname": "Иванов",
     "middleName": "Иванович",
     "region": {
-      "value": "2",
-      "label": "Республика Саха"
+      "value": "1",
+      "label": "Краснодарский край"
     },
-    "city": "Якутск",
-    "phone": "+79999999999"
+    "city": "Краснодар",
+    "phone": "8-999-999-99-99"
   }
 }

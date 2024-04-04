@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { profileCardSlice } from '../model/slice/profileCardSlice';
 import { putProfileService } from '../model/services/putProfileService';
 
-import { IProfileForm, ProfileForm } from '@/entities/Profile';
+import { ProfileFormType, ProfileForm } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks';
 import { rootReducer } from '@/app/providers/storeProvider';
 
@@ -23,7 +23,7 @@ export const ProfileCard = () => {
   const error = useSelector(getError);
   const isReadonly = useSelector(getIsReadonly);
 
-  const handleSubmit: SubmitHandler<IProfileForm> = useCallback(
+  const handleSubmit: SubmitHandler<ProfileFormType> = useCallback(
     async data => {
       await dispatch(putProfileService(data));
     },

@@ -7,7 +7,7 @@ import { ErrorBoundary } from './providers/errorBoundary';
 
 import { Navbar } from '@/widgets/navbar';
 import { ModalsViaQueryParams } from '@/widgets/modals';
-import { TModalViaQueryParam } from '@/shared/types';
+import { ModalViaQueryParamType } from '@/shared/types';
 import { useAppDispatch } from '@/shared/hooks';
 import { userActions } from '@/entities/User';
 import { Loader } from '@/shared/ui';
@@ -16,7 +16,7 @@ import { rootLoader } from '@/shared/lib';
 import './styles/index.scss';
 
 const Root = () => {
-  const modalProps = useLoaderData() as TModalViaQueryParam | null;
+  const modalProps = useLoaderData() as ModalViaQueryParamType | null;
   const dispatch = useAppDispatch();
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { MainRoutesEnum, MainRoutePaths, IAppRouteProps } from '@/shared/config/routeConfig/routeConfig';
+import { MainRoutesEnum, MainRoutePaths, AppRoutePropsType } from '@/shared/config/routeConfig/routeConfig';
 import { MainPage } from '@/pages/main';
 import { BuyPage } from '@/pages/buy';
 import { SellPage } from '@/pages/sell';
@@ -6,7 +6,7 @@ import { RentPage } from '@/pages/rent';
 import { NotFoundPage } from '@/pages/notFound';
 import { ProfilePage } from '@/pages/profile';
 
-export const mainRouteConfig: Record<MainRoutesEnum, IAppRouteProps> = {
+export const mainRouteConfig: Record<MainRoutesEnum, AppRoutePropsType> = {
   [MainRoutesEnum.MAIN]: {
     path: MainRoutePaths[MainRoutesEnum.MAIN],
     element: <MainPage />,

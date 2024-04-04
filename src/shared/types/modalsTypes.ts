@@ -3,6 +3,6 @@ export enum ModalTypeEnum {
   SIGN_IN = 'sing_in',
 }
 
-export type TModalViaQueryParam = {
+export type ModalViaQueryParamType = {
   modalType: ModalTypeEnum;
 };

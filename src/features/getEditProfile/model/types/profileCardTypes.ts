@@ -1,7 +1,7 @@
-import { IProfileForm } from '@/entities/Profile';
+import { ProfileFormType } from '@/entities/Profile';
 
 export interface IProfileCardSchema {
-  data?: IProfileForm;
+  data?: ProfileFormType;
   isLoading: boolean;
   error?: string;
   isReadonly: boolean;

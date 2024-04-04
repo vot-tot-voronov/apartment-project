@@ -1,2 +1,2 @@
-export { type TModalViaQueryParam, ModalTypeEnum } from './modalsTypes';
-export { type ISelectItem } from './selectItem';
+export { type ModalViaQueryParamType, ModalTypeEnum } from './modalsTypes';
+export { type SelectItemType, SelectItemSchema } from './selectItem';

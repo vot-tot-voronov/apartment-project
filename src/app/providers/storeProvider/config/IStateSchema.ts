@@ -22,4 +22,4 @@ export interface IThunkConfig<T> {
   state: IStateSchema;
 }
 
-export type KeysOfStateSchema = keyof IStateSchema;
+export type KeysOfStateSchemaType = keyof IStateSchema;

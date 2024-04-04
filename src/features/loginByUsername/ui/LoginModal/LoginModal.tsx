@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { LoginFormAsync as LoginForm } from '../LoginForm/LoginFormAsync';
+import classes from './LoginModal.module.scss';
 
 import { Modal } from '@/shared/ui';
 
@@ -13,7 +14,7 @@ export const LoginModal = () => {
   };
 
   return (
-    <Modal title="Авторизация" onBack={handleClose} asyncContent>
+    <Modal title="Авторизация" onBack={handleClose} asyncContent className={classes.modal}>
       <LoginForm onClose={handleClose} />
     </Modal>
   );

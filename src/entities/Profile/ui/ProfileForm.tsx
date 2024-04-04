@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { SubmitHandler, useForm } from 'react-hook-form';
 import clsx from 'clsx';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import classes from './ProfileForm.module.scss';
-import { IProfileForm, ProfileFieldsEnum } from '../model/types/profileTypes';
+import { ProfileFormType, ProfileFieldsEnum, ProfileFormSchema } from '../model/types/profileTypes';
 
 import { Button, ButtonThemeEnum, Form, Loader, Select, TextInput } from '@/shared/ui';
 
 interface IProfileCardProps {
-  defaultData?: IProfileForm;
-  onSubmit: SubmitHandler<IProfileForm>;
+  defaultData?: ProfileFormType;
+  onSubmit: SubmitHandler<ProfileFormType>;
   isLoading: boolean;
   error?: string;
   isReadonly: boolean;
@@ -29,7 +30,18 @@ export const ProfileForm = ({
   error,
   isReadonly,
 }: IProfileCardProps) => {
-  const { handleSubmit, reset, control } = useForm<IProfileForm>({ values: defaultData });
+  const {
+    handleSubmit,
+    reset,
+    control,
+    formState: {
+      errors: { surname, name, middleName, region, city, phone },
+    },
+  } = useForm<ProfileFormType>({
+    values: defaultData,
+    resolver: zodResolver(ProfileFormSchema),
+    mode: 'onChange',
+  });
 
   const handleCancel = () => {
     setIsReadonly(true);
@@ -59,6 +71,7 @@ export const ProfileForm = ({
             className={classes.surname}
             labelText="Фамилия"
             isDisabled={isReadonly}
+            error={surname?.message}
           />
           <TextInput
             name={ProfileFieldsEnum.NAME}
@@ -66,6 +79,7 @@ export const ProfileForm = ({
             className={classes.name}
             labelText="Имя"
             isDisabled={isReadonly}
+            error={name?.message}
           />
           <TextInput
             name={ProfileFieldsEnum.MIDDLENAME}
@@ -73,6 +87,7 @@ export const ProfileForm = ({
             className={classes.middleName}
             labelText="Отчество"
             isDisabled={isReadonly}
+            error={middleName?.message}
           />
           <Select
             className={classes.region}
@@ -81,6 +96,8 @@ export const ProfileForm = ({
             control={control}
             labelText="Регион"
             isDisabled={isReadonly}
+            isClearable
+            error={region?.message}
           />
           <TextInput
             name={ProfileFieldsEnum.CITY}
@@ -88,6 +105,7 @@ export const ProfileForm = ({
             className={classes.city}
             labelText="Город"
             isDisabled={isReadonly}
+            error={city?.message}
           />
           <TextInput
             name={ProfileFieldsEnum.PHONE}
@@ -95,6 +113,8 @@ export const ProfileForm = ({
             className={classes.phone}
             labelText="Телефон"
             isDisabled={isReadonly}
+            placeholder="8-XXX-XXX-XX-XX"
+            error={phone?.message}
           />
         </div>
 

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { IThunkConfig } from '@/app/providers/storeProvider';
-import { IProfileForm } from '@/entities/Profile';
+import { ProfileFormType } from '@/entities/Profile';
 
-export const putProfileService = createAsyncThunk<IProfileForm, IProfileForm, IThunkConfig<string>>(
+export const putProfileService = createAsyncThunk<ProfileFormType, ProfileFormType, IThunkConfig<string>>(
   'profile/putProfileCard',
   async (data, thunkApi) => {
     const {
@@ -12,7 +12,7 @@ export const putProfileService = createAsyncThunk<IProfileForm, IProfileForm, IT
     } = thunkApi;
 
     try {
-      const response = await api.put<IProfileForm>('/profile', data);
+      const response = await api.put<ProfileFormType>('/profile', data);
 
       return response.data;
     } catch (error) {
