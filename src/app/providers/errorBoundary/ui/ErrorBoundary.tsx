@@ -10,6 +10,7 @@ interface IState {
   hasError: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 class ErrorBoundary extends React.Component<IErrorBoundaryProps, IState> {
   constructor(props: IErrorBoundaryProps) {
     super(props);

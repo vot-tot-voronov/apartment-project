@@ -14,9 +14,10 @@ interface ISelect {
   isDisabled?: boolean;
   isRequired?: boolean;
   error?: string;
+  isClearable?: boolean;
 }
 
-type ISelectProps<T extends FieldValues> = UseControllerProps<T> & ISelect;
+type SelectPropsType<T extends FieldValues> = UseControllerProps<T> & ISelect;
 
 export const SelectComponent = <T extends FieldValues>({
   options,
@@ -31,7 +32,8 @@ export const SelectComponent = <T extends FieldValues>({
   defaultValue,
   rules,
   shouldUnregister,
-}: ISelectProps<T>) => {
+  isClearable,
+}: SelectPropsType<T>) => {
   const selectId = useMemo(() => uuidv4(), []);
 
   const {
@@ -69,6 +71,7 @@ export const SelectComponent = <T extends FieldValues>({
         }}
         value={value}
         isDisabled={isDisabled}
+        isClearable={isClearable}
       />
     </div>
   );

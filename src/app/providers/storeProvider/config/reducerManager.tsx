@@ -1,6 +1,6 @@
 // import { Reducer, ReducersMapObject, UnknownAction, combineReducers } from '@reduxjs/toolkit';
 
-// import { IStateSchema, KeysOfStateSchema } from './IStateSchema';
+// import { IStateSchema, KeysOfStateSchemaType } from './IStateSchema';
 
 // export function createReducerManager(initialReducers: ReducersMapObject<IStateSchema>) {
 //   // Create an object which maps keys to reducers
@@ -10,7 +10,7 @@
 //   let combinedReducer = combineReducers(reducers);
 
 //   // An array which is used to delete state keys when reducers are removed
-//   let keysToRemove: Array<KeysOfStateSchema> = [];
+//   let keysToRemove: Array<KeysOfStateSchemaType> = [];
 
 //   return {
 //     getReducerMap: () => reducers,
@@ -30,7 +30,7 @@
 //     },
 
 //     // Adds a new reducer with the specified key
-//     add: (key: KeysOfStateSchema, reducer: Reducer) => {
+//     add: (key: KeysOfStateSchemaType, reducer: Reducer) => {
 //       if (!key || reducers[key]) {
 //         return;
 //       }
@@ -43,7 +43,7 @@
 //     },
 
 //     // Removes a reducer with the specified key
-//     remove: (key: KeysOfStateSchema) => {
+//     remove: (key: KeysOfStateSchemaType) => {
 //       if (!key || !reducers[key]) {
 //         return;
 //       }

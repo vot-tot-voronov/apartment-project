@@ -27,18 +27,18 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "1234"
+      "password": "123qW!"
     }
   ],
   "profile": {
-    "name": "Иван",
-    "surname": "Иванов",
-    "middleName": "Иванович",
+    "name": "Пётр",
+    "surname": "Петров",
+    "middleName": "Петрович",
     "region": {
       "value": "2",
       "label": "Республика Саха"
     },
     "city": "Якутск",
-    "phone": "+79999999999"
+    "phone": "8-999-999-99-99"
   }
 }

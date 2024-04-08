@@ -83,6 +83,7 @@ module.exports = {
       {
         selector: 'typeLike',
         format: ['PascalCase'],
+        suffix: ['T', 'Type'],
       },
       {
         selector: 'interface',

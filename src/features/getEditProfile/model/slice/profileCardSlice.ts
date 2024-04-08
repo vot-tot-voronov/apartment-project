@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchProfileService } from '../services/fetchProfileService';
+import { fetchProfileService } from '../services/fetchProfile/fetchProfileService';
 import { IProfileCardSchema } from '../types/profileCardTypes';
-import { putProfileService } from '../services/putProfileService';
+import { putProfileService } from '../services/putProfile/putProfileService';
 
 const initialState: IProfileCardSchema = {
   isLoading: false,
@@ -52,3 +52,5 @@ export const profileCardSlice = createSlice({
       });
   },
 });
+
+export const { actions: profileCardActions, reducer: profileCardReducer } = profileCardSlice;

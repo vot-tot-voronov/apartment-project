@@ -10,7 +10,7 @@ import { genericMemo } from '@/shared/lib';
 interface IInput
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'disabled' | 'name' | 'onBlur' | 'onChange'> {}
 
-type IInputProps<T extends FieldValues> = UseControllerProps<T> &
+type InputPropsType<T extends FieldValues> = UseControllerProps<T> &
   IInput & {
     className?: string;
     labelText?: string;
@@ -19,7 +19,7 @@ type IInputProps<T extends FieldValues> = UseControllerProps<T> &
     error?: string;
   };
 
-const InputComponent = <T extends FieldValues>(props: IInputProps<T>) => {
+const InputComponent = <T extends FieldValues>(props: InputPropsType<T>) => {
   const {
     className,
     labelText,

@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import classes from './LoginForm.module.scss';
-import { ILoginForm, LoginFieldEnum } from '../../model/types/loginByUsernameTypes';
+import { LoginFormType, LoginFieldEnum, LoginFormSchema } from '../../model/types/loginByUsernameTypes';
 import { loginByUsernameSlice } from '../../model/slice/loginByUsernameSlice';
 import { loginByUsername } from '../../model/services/loginByUsernameService';
 
@@ -18,7 +18,13 @@ interface ILoginFormProps {
 
 const LoginForm = ({ onClose }: ILoginFormProps) => {
   const dispatch = useAppDispatch();
-  const { control, handleSubmit } = useForm<ILoginForm>();
+  const {
+    control,
+    handleSubmit,
+    formState: {
+      errors: { username, password },
+    },
+  } = useForm<LoginFormType>({ resolver: zodResolver(LoginFormSchema) });
   const {
     selectors: { getIsLoading },
   } = useMemo(() => {
@@ -27,7 +33,7 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
 
   const isLoading = useSelector(getIsLoading);
 
-  const onSubmit: SubmitHandler<ILoginForm> = async data => {
+  const onSubmit: SubmitHandler<LoginFormType> = async data => {
     const result = await dispatch(loginByUsername(data));
     if (result.meta.requestStatus === 'fulfilled') {
       onClose();
@@ -42,8 +48,15 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
           control={control}
           isDisabled={isLoading}
           placeholder="Имя пользователя"
+          error={username?.message}
         />
-        <TextInput name={LoginFieldEnum.PASSWORD} control={control} isDisabled={isLoading} placeholder="Пароль" />
+        <TextInput
+          name={LoginFieldEnum.PASSWORD}
+          control={control}
+          isDisabled={isLoading}
+          placeholder="Пароль"
+          error={password?.message}
+        />
       </div>
       <Button className={classes.button} onClick={handleSubmit(onSubmit)} isDisabled={isLoading}>
         Войти

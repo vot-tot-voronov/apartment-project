@@ -56,8 +56,11 @@ export const Modal = ({
   return (
     element &&
     createPortal(
-      <div onClick={() => onBack()} className={clsx(classes.modal, className, isOpen && classes.open)}>
-        <div onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()} className={classes.modalContent}>
+      <div onClick={() => onBack()} className={clsx(classes.modal, isOpen && classes.open)}>
+        <div
+          onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+          className={clsx(classes.modalContent, className)}
+        >
           {asyncContent ? (
             <Suspense
               fallback={

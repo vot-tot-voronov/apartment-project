@@ -6,11 +6,11 @@ export interface IBuildPaths {
   styles: string;
 }
 
-export type BuildMode = 'production' | 'development';
+export type BuildModeType = 'production' | 'development';
 
 export interface IBuildOptions {
   paths: IBuildPaths;
-  mode: BuildMode;
+  mode: BuildModeType;
   port: number;
   isDev: boolean;
   apiUrl: string;
@@ -18,6 +18,6 @@ export interface IBuildOptions {
 
 export interface IBuildEnv {
   port: number;
-  mode: BuildMode;
+  mode: BuildModeType;
   apiUrl?: string;
 }

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import { AppDispatch } from '@/app/providers/storeProvider/config/store';
+import { AppDispatchType } from '@/app/providers/storeProvider/config/store';
 
-export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppDispatch: () => AppDispatchType = useDispatch;
