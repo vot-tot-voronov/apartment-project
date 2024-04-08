@@ -27,7 +27,7 @@ const linksArray: Array<ILinkArray> = [
     element: 'Продать',
   },
   {
-    path: MainRoutePaths[MainRoutesEnum.RENT],
+    path: MainRoutePaths[MainRoutesEnum.RENT_LIST],
     element: 'Арендовать',
   },
 ];

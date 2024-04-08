@@ -4,7 +4,8 @@ export enum MainRoutesEnum {
   MAIN = 'main',
   BUY = 'buy',
   SELL = 'sell',
-  RENT = 'rent',
+  RENT_LIST = 'rent',
+  RENT_DETAILED = ':id',
   PROFILE = 'profile',
   NOT_FOUND_PAGE = 'not-found-page',
 }
@@ -13,7 +14,8 @@ export const MainRoutePaths: Record<MainRoutesEnum, string> = {
   [MainRoutesEnum.MAIN]: '/',
   [MainRoutesEnum.BUY]: '/buy',
   [MainRoutesEnum.SELL]: '/sell',
-  [MainRoutesEnum.RENT]: '/rent',
+  [MainRoutesEnum.RENT_LIST]: '/rent',
+  [MainRoutesEnum.RENT_DETAILED]: `${MainRoutesEnum.RENT_LIST}/${MainRoutesEnum.RENT_DETAILED}`,
   [MainRoutesEnum.PROFILE]: '/profile',
   [MainRoutesEnum.NOT_FOUND_PAGE]: '*',
 };

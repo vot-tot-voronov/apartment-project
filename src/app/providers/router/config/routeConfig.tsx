@@ -2,9 +2,10 @@ import { MainRoutesEnum, MainRoutePaths, AppRoutePropsType } from '@/shared/conf
 import { MainPage } from '@/pages/main';
 import { BuyPage } from '@/pages/buy';
 import { SellPage } from '@/pages/sell';
-import { RentPage } from '@/pages/rent';
 import { NotFoundPage } from '@/pages/notFound';
 import { ProfilePage } from '@/pages/profile';
+import { RentListPage } from '@/pages/rentList';
+import { RentDetailedPage } from '@/pages/rentDetailed';
 
 export const mainRouteConfig: Record<MainRoutesEnum, AppRoutePropsType> = {
   [MainRoutesEnum.MAIN]: {
@@ -16,9 +17,13 @@ export const mainRouteConfig: Record<MainRoutesEnum, AppRoutePropsType> = {
     path: MainRoutePaths[MainRoutesEnum.SELL],
     element: <SellPage />,
   },
-  [MainRoutesEnum.RENT]: {
-    path: MainRoutePaths[MainRoutesEnum.RENT],
-    element: <RentPage />,
+  [MainRoutesEnum.RENT_LIST]: {
+    path: MainRoutePaths[MainRoutesEnum.RENT_LIST],
+    element: <RentListPage />,
+  },
+  [MainRoutesEnum.RENT_DETAILED]: {
+    path: MainRoutePaths[MainRoutesEnum.RENT_DETAILED],
+    element: <RentDetailedPage />,
   },
   [MainRoutesEnum.PROFILE]: {
     path: MainRoutePaths[MainRoutesEnum.PROFILE],
