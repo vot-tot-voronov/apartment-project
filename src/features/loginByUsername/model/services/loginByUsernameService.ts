@@ -12,6 +12,10 @@ export const loginByUsername = createAsyncThunk<IUser, LoginFormType, IThunkConf
     try {
       const { data } = await api.post<IUser>('login', authData);
 
+      if (!data) {
+        throw new Error();
+      }
+
       localStorage.setItem(USER_INFO_LOCALSTORAGE_KEY, JSON.stringify(data));
       dispatch(userActions.setUserData(data));
 

@@ -16,26 +16,26 @@ export const ProfileFormSchema = z.object({
   name: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
-    .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER })
-    .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),
+    .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER })
+    .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),
   surname: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
-    .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
-    .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+    .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+    .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
   middleName: z
     .union([
       z
         .string()
-        .regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
-        .regex(/^[А-Я]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+        .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+        .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
       z.string().length(0),
     ])
     .optional()
     .transform(e => (e === '' ? undefined : e)),
   region: SelectItemSchema.nullable(),
   city: z
-    .union([z.string().regex(/^[а-яА-Я]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }), z.string().length(0)])
+    .union([z.string().regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }), z.string().length(0)])
     .optional()
     .transform(e => (e === '' ? undefined : e)),
   phone: z

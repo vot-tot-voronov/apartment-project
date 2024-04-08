@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { profileCardSlice } from '../model/slice/profileCardSlice';
-import { putProfileService } from '../model/services/putProfileService';
+import { putProfileService } from '../model/services/putProfile/putProfileService';
 
 import { ProfileFormType, ProfileForm } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks';

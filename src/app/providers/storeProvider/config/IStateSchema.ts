@@ -1,5 +1,7 @@
 import { AxiosInstance } from 'axios';
 
+import { AppDispatchType } from './store';
+
 import { IUserSchema } from '@/entities/User';
 import { ILoginFormSchema } from '@/features/loginByUsername';
 import { IProfileCardSchema } from '@/features/getEditProfile';
@@ -20,6 +22,7 @@ export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
   state: IStateSchema;
+  dispatch: AppDispatchType;
 }
 
 export type KeysOfStateSchemaType = keyof IStateSchema;

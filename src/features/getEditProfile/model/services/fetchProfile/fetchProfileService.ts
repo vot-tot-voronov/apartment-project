@@ -14,6 +14,10 @@ export const fetchProfileService = createAsyncThunk<ProfileFormType, void, IThun
     try {
       const response = await api.get<ProfileFormType>('/profile');
 
+      if (!response.data) {
+        throw new Error();
+      }
+
       return response.data;
     } catch (error) {
       return rejectWithValue('Ошибка получения данных профиля');
