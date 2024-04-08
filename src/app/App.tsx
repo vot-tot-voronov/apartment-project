@@ -1,5 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { createBrowserRouter, Outlet, RouterProvider, useLoaderData } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { routeCreator } from './providers/router/config/lib/routeCreator';
 import { mainRouteConfig } from './providers/router/config/routeConfig';
@@ -9,7 +10,7 @@ import { Navbar } from '@/widgets/navbar';
 import { ModalsViaQueryParams } from '@/widgets/modals';
 import { ModalViaQueryParamType } from '@/shared/types';
 import { useAppDispatch } from '@/shared/hooks';
-import { userActions } from '@/entities/User';
+import { getUserInited, userActions } from '@/entities/User';
 import { Loader } from '@/shared/ui';
 import { rootLoader } from '@/shared/lib';
 
@@ -18,6 +19,7 @@ import './styles/index.scss';
 const Root = () => {
   const modalProps = useLoaderData() as ModalViaQueryParamType | null;
   const dispatch = useAppDispatch();
+  const isUserInited = useSelector(getUserInited);
 
   useEffect(() => {
     dispatch(userActions.checkAuth());
@@ -36,9 +38,7 @@ const Root = () => {
               </div>
             }
           >
-            <div className="boxContent">
-              <Outlet />
-            </div>
+            <div className="boxContent">{isUserInited && <Outlet />}</div>
           </Suspense>
         </main>
         <footer>Footer</footer>

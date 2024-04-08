@@ -1,11 +1,12 @@
 import { Navigate } from 'react-router-dom';
 import { PropsWithChildren } from 'react';
+import { useSelector } from 'react-redux';
 
 import { getRouteMain } from '@/shared/config/routeConfig/routeConfig';
-import { USER_INFO_LOCALSTORAGE_KEY } from '@/shared/constants';
+import { getUserData } from '@/entities/User';
 
 export const ProtectedRoute = ({ children }: PropsWithChildren) => {
-  const isAuth = localStorage.getItem(USER_INFO_LOCALSTORAGE_KEY);
+  const isAuth = useSelector(getUserData);
 
   if (!isAuth) {
     return <Navigate to={getRouteMain()} replace />;
