@@ -18,8 +18,8 @@ export const profileCardSlice = createSlice({
     },
   },
   selectors: {
-    getIsLoading: state => state.isLoading,
-    getProfileData: state => state.data,
+    getIsLoading: stateSlice => stateSlice.isLoading,
+    getProfileData: stateSlice => stateSlice.data,
     getError: stateSlice => stateSlice.error,
     getIsReadonly: stateSlice => stateSlice.isReadonly,
   },

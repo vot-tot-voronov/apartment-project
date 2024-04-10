@@ -5,6 +5,7 @@ import { AppDispatchType } from './store';
 import { IUserSchema } from '@/entities/User';
 import { ILoginFormSchema } from '@/features/loginByUsername';
 import { IProfileCardSchema } from '@/features/getEditProfile';
+import { IRentApartmentSchema } from '@/features/getRentApartment';
 
 export interface IStateSchema {
   user: IUserSchema;
@@ -12,6 +13,7 @@ export interface IStateSchema {
   // async reducers
   loginForm?: ILoginFormSchema;
   profileCard?: IProfileCardSchema;
+  getRentApartmentSlice?: IRentApartmentSchema;
 }
 
 export interface IThunkExtraArg {
