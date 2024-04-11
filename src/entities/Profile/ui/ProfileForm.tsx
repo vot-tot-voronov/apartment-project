@@ -50,7 +50,7 @@ export const ProfileForm = ({
 
   const renderForm = () => {
     if (error) {
-      return <p className={classes.error}>{error}</p>;
+      return <h2 className={classes.error}>{error}</h2>;
     }
 
     if (isLoading) {

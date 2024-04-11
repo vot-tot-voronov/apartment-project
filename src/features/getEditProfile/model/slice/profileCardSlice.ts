@@ -19,8 +19,6 @@ export const profileCardSlice = createSlice({
   },
   selectors: {
     getIsLoading: stateSlice => stateSlice.isLoading,
-    getProfileData: stateSlice => stateSlice.data,
-    getError: stateSlice => stateSlice.error,
     getIsReadonly: stateSlice => stateSlice.isReadonly,
   },
   extraReducers: builder => {

@@ -7,13 +7,14 @@ import { ILoginFormSchema } from '@/features/loginByUsername';
 import { IProfileCardSchema } from '@/features/getEditProfile';
 import { IRentApartmentSchema } from '@/features/getRentApartment';
 
-export interface IStateSchema {
+export interface ISyncSliсesSchema {
   user: IUserSchema;
+}
 
-  // async reducers
-  loginForm?: ILoginFormSchema;
-  profileCard?: IProfileCardSchema;
-  getRentApartmentSlice?: IRentApartmentSchema;
+export interface ILazyLoadedSlicesSchema {
+  loginByUsername: ILoginFormSchema;
+  profileCard: IProfileCardSchema;
+  getRentApartmentSlice: IRentApartmentSchema;
 }
 
 export interface IThunkExtraArg {
@@ -23,8 +24,6 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
-  state: IStateSchema;
+  state: ISyncSliсesSchema;
   dispatch: AppDispatchType;
 }
-
-export type KeysOfStateSchemaType = keyof IStateSchema;

@@ -13,8 +13,6 @@ export const getRentApartmentSlice = createSlice({
   reducers: {},
   selectors: {
     getIsLoading: stateSlice => stateSlice.isLoading,
-    getRentApartmentData: stateSlice => stateSlice.data,
-    getError: stateSlice => stateSlice.error,
   },
   extraReducers: builder =>
     builder

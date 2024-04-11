@@ -4,7 +4,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { loginByUsername } from './loginByUsernameService';
 
 import { IUser, userActions } from '@/entities/User';
-import { IStateSchema } from '@/app/providers/storeProvider';
+import { RootStateType } from '@/app/providers/storeProvider';
 
 jest.mock('axios');
 
@@ -12,7 +12,7 @@ const mockedAxios = jest.mocked(axios);
 
 describe('loginByUsernameService.test', () => {
   let dispatch: Dispatch;
-  let getState: () => IStateSchema;
+  let getState: () => RootStateType;
 
   beforeEach(() => {
     dispatch = jest.fn();

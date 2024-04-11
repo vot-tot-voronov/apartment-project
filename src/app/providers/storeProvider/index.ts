@@ -1,3 +1,3 @@
-export { rootReducer } from './config/store';
+export { rootReducer, type RootStateType } from './config/store';
 export { StoreProvider } from './ui/StoreProvider';
-export { type IStateSchema, type IThunkConfig } from './config/IStateSchema';
+export { type IThunkConfig } from './config/storeConfigSchema';
