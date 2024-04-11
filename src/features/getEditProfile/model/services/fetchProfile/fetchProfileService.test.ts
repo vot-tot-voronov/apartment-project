@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { fetchProfileService } from './fetchProfileService';
 
-import { IStateSchema } from '@/app/providers/storeProvider';
+import { RootStateType } from '@/app/providers/storeProvider';
 import { ProfileFormType } from '@/entities/Profile';
 
 jest.mock('axios');
@@ -22,7 +22,7 @@ const data: ProfileFormType = {
 
 describe('fetchProfileService.test', () => {
   let dispatch: Dispatch;
-  let getState: () => IStateSchema;
+  let getState: () => RootStateType;
 
   beforeEach(() => {
     dispatch = jest.fn();

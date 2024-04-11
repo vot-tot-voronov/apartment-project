@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { profileCardSlice } from '../model/slice/profileCardSlice';
 import { putProfileService } from '../model/services/putProfile/putProfileService';
+import { getEditProfileError, getEditProfiletData } from '../model/selectors/getEditProfileSelectors';
 
 import { ProfileFormType, ProfileForm } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks';
@@ -13,14 +14,14 @@ export const ProfileCard = () => {
   const dispatch = useAppDispatch();
   const {
     actions: { setIsReadonly },
-    selectors: { getIsLoading, getProfileData, getError, getIsReadonly },
+    selectors: { getIsLoading, getIsReadonly },
   } = useMemo(() => {
     return profileCardSlice.injectInto(rootReducer);
   }, []);
 
   const isLoading = useSelector(getIsLoading);
-  const fetchedData = useSelector(getProfileData);
-  const error = useSelector(getError);
+  const fetchedData = useSelector(getEditProfiletData);
+  const error = useSelector(getEditProfileError);
   const isReadonly = useSelector(getIsReadonly);
 
   const handleSubmit: SubmitHandler<ProfileFormType> = useCallback(

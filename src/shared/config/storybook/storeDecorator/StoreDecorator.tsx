@@ -1,8 +1,8 @@
 import { StoryFn } from '@storybook/react';
 
-import { IStateSchema, StoreProvider } from '@/app/providers/storeProvider';
+import { RootStateType, StoreProvider } from '@/app/providers/storeProvider';
 
-export const StoreDecorator = (state: DeepPartial<IStateSchema>) =>
+export const StoreDecorator = (state: DeepPartial<RootStateType>) =>
   function Decorator(StoryComponent: StoryFn) {
     return (
       <StoreProvider inititalState={state}>

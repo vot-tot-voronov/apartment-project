@@ -1,15 +1,15 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 
-import { IStateSchema, IThunkExtraArg } from './IStateSchema';
+import { ILazyLoadedSlicesSchema, ISyncSliсesSchema, IThunkExtraArg } from './storeConfigSchema';
 
 import { userReducer } from '@/entities/User';
 import { $serviceApi } from '@/shared/lib';
 
 export const rootReducer = combineSlices({
   user: userReducer,
-});
+}).withLazyLoadedSlices<ILazyLoadedSlicesSchema>();
 
-export const createReduxStore = (initalState?: IStateSchema) => {
+export const createReduxStore = (initalState?: ISyncSliсesSchema) => {
   const extraArg: IThunkExtraArg = {
     api: $serviceApi,
   };
@@ -28,3 +28,5 @@ export const createReduxStore = (initalState?: IStateSchema) => {
 };
 
 export type AppDispatchType = ReturnType<typeof createReduxStore>['dispatch'];
+export type RootStateType = ReturnType<typeof rootReducer>;
+export type KeysOfStateSchemaType = keyof RootStateType;

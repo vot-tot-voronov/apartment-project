@@ -1,3 +1,3 @@
-import { IStateSchema } from '@/app/providers/storeProvider';
+import { RootStateType } from '@/app/providers/storeProvider';
 
-export const getUserData = (state: IStateSchema) => state.user.authData;
+export const getUserData = (state: RootStateType) => state.user.authData;

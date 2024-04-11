@@ -31,20 +31,24 @@
     }
   ],
   "profile": {
-    "name": "Пётр",
+    "name": "Иван",
     "surname": "Петров",
-    "middleName": "Петрович",
+    "middleName": "Иванович",
     "region": {
-      "value": "2",
-      "label": "Республика Саха"
+      "value": "1",
+      "label": "Краснодарский край"
     },
-    "city": "Якутск",
+    "city": "Краснодар",
     "phone": "8-999-999-99-99"
   },
   "rent": [
     {
       "id": 1,
-      "images": ["/image1", "/image2", "/image3"],
+      "images": [
+        "/image1",
+        "/image2",
+        "/image3"
+      ],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",

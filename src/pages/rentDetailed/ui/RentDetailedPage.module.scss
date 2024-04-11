@@ -1,0 +1,18 @@
+@import '@styles/mixins';
+@import '@styles/global';
+
+.stateContainer {
+  min-height: 80vh;
+
+  @include flex-a-j-center;
+
+  .error {
+    color: $dark-red;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+  }
+}
+
+.mainContainer {
+  min-height: 80vh;
+}
