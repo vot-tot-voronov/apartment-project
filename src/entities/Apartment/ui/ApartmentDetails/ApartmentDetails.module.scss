@@ -1,0 +1,7 @@
+@import '@styles/global';
+
+.details {
+  display: flex;
+  flex-direction: column;
+  row-gap: $margin-main;
+}

@@ -44,11 +44,7 @@
   "rent": [
     {
       "id": 1,
-      "images": [
-        "/image1",
-        "/image2",
-        "/image3"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",

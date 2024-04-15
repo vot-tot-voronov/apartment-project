@@ -2,6 +2,7 @@
 @import 'reset';
 @import 'fonts';
 @import 'mixins';
+@import 'react-toastify/dist/ReactToastify.css';
 
 body {
   font-family: $font-family-main;

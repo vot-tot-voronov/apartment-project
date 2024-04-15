@@ -28,7 +28,7 @@ const ApartmentItemSchema = z.object({
     adress: z.string(),
     fullArea: z.number(),
     livingArea: z.number(),
-    floor: z.number(),
+    floor: z.number().optional(),
     kitchenArea: z.number(),
     renovation: z.string(),
     balcony: z.string(),

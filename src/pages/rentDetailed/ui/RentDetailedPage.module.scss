@@ -15,4 +15,16 @@
 
 .mainContainer {
   min-height: 80vh;
+  display: flex;
+
+  .content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar {
+    flex: none;
+    margin-left: $margin-middle;
+    width: 380px;
+  }
 }

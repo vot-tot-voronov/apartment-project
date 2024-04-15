@@ -48,7 +48,10 @@ const RentDetailedPage = () => {
 
   return (
     <Container className={classes.mainContainer}>
-      <RentApartmentDetails />
+      <div className={classes.content}>
+        <RentApartmentDetails />
+      </div>
+      <div className={classes.sidebar}>Sidebar</div>
     </Container>
   );
 };
