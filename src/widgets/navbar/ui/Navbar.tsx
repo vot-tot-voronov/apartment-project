@@ -54,7 +54,7 @@ export const Navbar = () => {
             <AppLink
               key={uuidv4()}
               to={path}
-              className={clsx(classes.link, location.pathname === path && classes.active)}
+              className={clsx(classes.link, location.pathname.includes(`${path}`) && classes.active)}
             >
               {element}
             </AppLink>
@@ -62,7 +62,20 @@ export const Navbar = () => {
         </div>
         <div className={classes.authorization}>
           {userData ? (
-            <Button onClick={handelLogout}>Выйти</Button>
+            <>
+              <div className={classes.links}>
+                <AppLink
+                  to={MainRoutePaths[MainRoutesEnum.PROFILE]}
+                  className={clsx(
+                    classes.link,
+                    location.pathname.includes(`${MainRoutePaths[MainRoutesEnum.PROFILE]}`) && classes.active,
+                  )}
+                >
+                  Проифиль
+                </AppLink>
+              </div>
+              <Button onClick={handelLogout}>Выйти</Button>
+            </>
           ) : (
             <>
               <AppLink to={{ search: `?${ModalTypeEnum.LOGIN}=true` }} className={classes.login}>

@@ -25,7 +25,9 @@ export const ApartmentDetails = (props: IApartmentDetailsProps) => {
       <Container>
         <Description text={data.description} />
       </Container>
-      <ConditionsAndFacilities />
+      <Container>
+        <ConditionsAndFacilities conditionsFacilities={data.conditionsAndFacilities} />
+      </Container>
       <AboutInfo />
     </div>
   );

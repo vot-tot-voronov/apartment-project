@@ -5,10 +5,19 @@ const ListItemShcema = z.object({
   label: z.string(),
 });
 
+export type ListItemType = z.infer<typeof ListItemShcema>;
+
 enum ApartmentEnum {
   HOUSE = 'house',
   FLAT = 'flat',
 }
+
+const ConditionsAndFacilitiesSchema = z.object({
+  conditions: z.array(ListItemShcema),
+  facilities: z.array(ListItemShcema),
+});
+
+export type ConditionsAndFacilitiesType = z.infer<typeof ConditionsAndFacilitiesSchema>;
 
 const ApartmentItemSchema = z.object({
   id: z.number(),
@@ -17,10 +26,7 @@ const ApartmentItemSchema = z.object({
   views: z.number(),
   updated: z.string().regex(/^\d\d\d\d\.\d\d\.\d\d$/),
   description: z.string(),
-  conditionsAndFacilities: z.object({
-    conditions: z.array(ListItemShcema),
-    facilities: z.array(ListItemShcema),
-  }),
+  conditionsAndFacilities: ConditionsAndFacilitiesSchema,
   about: z.object({
     type: z.nativeEnum(ApartmentEnum),
     rooms: z.number(),

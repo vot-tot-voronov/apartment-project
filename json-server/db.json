@@ -70,7 +70,7 @@
             "label": "Мебель в комнатах"
           },
           {
-            "value": true,
+            "value": false,
             "label": "Стиральная машина"
           },
           {
@@ -82,7 +82,7 @@
             "label": "Интернет"
           },
           {
-            "value": true,
+            "value": false,
             "label": "Кондиционер"
           }
         ]
