@@ -1,0 +1,27 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.description {
+  .title {
+    margin-bottom: $margin-main;
+  }
+
+  .showMore {
+    @include flex-a-center;
+    column-gap: $margin-xs;
+    margin-top: $margin-small;
+    cursor: pointer;
+    color: $grey;
+
+    .arrow {
+      display: block;
+      transition: transform 0.3s;
+      width: 20px;
+      height: 20px;
+
+      &.up {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

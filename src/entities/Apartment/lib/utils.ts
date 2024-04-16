@@ -1,10 +1,26 @@
-import { IShortInfoProps } from '../ui/ShortInfo/ShortInfo';
 import { ApartmentItemType } from '../model/types/apartmentTypes';
 
-export const prepareShortInfoData = (data: ApartmentItemType): IShortInfoProps => ({
+export type ShortInfoListMakerType = {
+  fullArea: number;
+  livingArea: number;
+  floor?: number;
+  floors: number;
+  kitchenArea: number;
+  builtYear: number;
+};
+
+type PreparedShortInfoDataType = {
+  adress: string;
+  pricePerMonth: number;
+  views: number;
+  updated: string;
+} & ShortInfoListMakerType;
+
+export const prepareShortInfoData = (data: ApartmentItemType): PreparedShortInfoDataType => ({
   fullArea: data.about.fullArea,
   livingArea: data.about.livingArea,
   floor: data.about?.floor,
+  floors: data.about.floors,
   kitchenArea: data.about.kitchenArea,
   builtYear: data.about.builtYear,
   adress: data.about.adress,
@@ -13,21 +29,14 @@ export const prepareShortInfoData = (data: ApartmentItemType): IShortInfoProps =
   updated: data.updated,
 });
 
-export interface IShortInfoListMakerProps {
-  fullArea: number;
-  livingArea: number;
-  floor?: number;
-  kitchenArea: number;
-  builtYear: number;
-}
-
 export const shortInfoListMaker = ({
   fullArea,
   livingArea,
   floor,
   kitchenArea,
   builtYear,
-}: IShortInfoListMakerProps) => [
+  floors,
+}: ShortInfoListMakerType) => [
   {
     title: 'Площадь',
     value: `${fullArea} м²`,
@@ -42,7 +51,7 @@ export const shortInfoListMaker = ({
   },
   {
     title: 'Этаж',
-    value: floor,
+    value: `${floor} из ${floors}`,
   },
   {
     title: 'Год постройки',

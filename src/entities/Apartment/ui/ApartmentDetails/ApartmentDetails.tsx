@@ -20,10 +20,11 @@ export const ApartmentDetails = (props: IApartmentDetailsProps) => {
     <div className={classes.details}>
       <Container>
         <ApartmentImgSlider images={data.images} />
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <ShortInfo {...prepareShortInfoData(data)} />
+        <ShortInfo info={prepareShortInfoData(data)} />
       </Container>
-      <Description />
+      <Container>
+        <Description text={data.description} />
+      </Container>
       <ConditionsAndFacilities />
       <AboutInfo />
     </div>

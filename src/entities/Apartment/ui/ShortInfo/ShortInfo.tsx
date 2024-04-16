@@ -2,21 +2,23 @@ import clsx from 'clsx';
 import { toast } from 'react-toastify';
 
 import classes from './ShortInfo.module.scss';
-import { IShortInfoListMakerProps, shortInfoListMaker } from '../../lib/utils';
+import { ShortInfoListMakerType, shortInfoListMaker } from '../../lib/utils';
 
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import ViewIcon from '@/shared/assets/icons/view.svg';
 import { copyToClipboard } from '@/shared/lib';
 
-export interface IShortInfoProps extends IShortInfoListMakerProps {
-  adress: string;
-  pricePerMonth: number;
-  views: number;
-  updated: string;
+export interface IShortInfoProps {
+  info: {
+    adress: string;
+    pricePerMonth: number;
+    views: number;
+    updated: string;
+  } & ShortInfoListMakerType;
 }
 
-export const ShortInfo = (props: IShortInfoProps) => {
-  const { fullArea, livingArea, floor, kitchenArea, builtYear, adress, pricePerMonth, views, updated } = props;
+export const ShortInfo = ({ info }: IShortInfoProps) => {
+  const { fullArea, livingArea, floor, floors, kitchenArea, builtYear, adress, pricePerMonth, views, updated } = info;
 
   const handleCopy = async (text: string) => {
     try {
@@ -30,7 +32,7 @@ export const ShortInfo = (props: IShortInfoProps) => {
   return (
     <div className={classes.shortInfo}>
       <ul className={classes.shortList}>
-        {shortInfoListMaker({ fullArea, livingArea, floor, kitchenArea, builtYear }).map(({ value, title }) => (
+        {shortInfoListMaker({ fullArea, livingArea, floor, floors, kitchenArea, builtYear }).map(({ value, title }) => (
           <li key={title} className={classes.shortListItem}>
             <p>{value}</p>
             <span>{title}</span>
