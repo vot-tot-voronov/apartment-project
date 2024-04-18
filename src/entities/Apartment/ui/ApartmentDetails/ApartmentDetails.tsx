@@ -2,9 +2,9 @@ import { AboutInfo } from '../AboutInfo/AboutInfo';
 import { ConditionsAndFacilities } from '../ConditionsAndFacilities/ConditionsAndFacilities';
 import { Description } from '../Description/Description';
 import { ShortInfo } from '../ShortInfo/ShortInfo';
-import { ApartmentItemType } from '../../model/types/apartmentTypes';
+import { ApartmentItemType, ApartmentTypeEnum } from '../../model/types/apartmentTypes';
 import { ApartmentImgSlider } from '../ApartmentImgSlider/ApartmentImgSlider';
-import { prepareShortInfoData } from '../../lib/utils';
+import { prepareShortInfoData, getDataInfoList } from '../../lib/utils';
 import classes from './ApartmentDetails.module.scss';
 
 import { Container } from '@/shared/ui';
@@ -22,13 +22,15 @@ export const ApartmentDetails = (props: IApartmentDetailsProps) => {
         <ApartmentImgSlider images={data.images} />
         <ShortInfo info={prepareShortInfoData(data)} />
       </Container>
-      <Container>
+      <Container title="Описание">
         <Description text={data.description} />
       </Container>
-      <Container>
+      <Container title="Условия и удобства">
         <ConditionsAndFacilities conditionsFacilities={data.conditionsAndFacilities} />
       </Container>
-      <AboutInfo />
+      <Container title={data.about.type === ApartmentTypeEnum.FLAT ? 'О квартире' : 'О доме'}>
+        <AboutInfo listData={getDataInfoList(data.about)} />
+      </Container>
     </div>
   );
 };

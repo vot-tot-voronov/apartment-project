@@ -2,10 +2,6 @@
 @import '@styles/mixins';
 
 .description {
-  .title {
-    margin-bottom: $margin-main;
-  }
-
   .showMore {
     @include flex-a-center;
     column-gap: $margin-xs;

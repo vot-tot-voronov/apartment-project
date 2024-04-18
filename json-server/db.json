@@ -99,7 +99,7 @@
         "kitchenArea": 10,
         "renovation": "Ремонт по авторскому проекту",
         "balcony": "Есть",
-        "prepayment": true,
+        "prepayment": "За три месяца вперед",
         "viewFromWindow": "На море и во двор",
         "garbageChute": true
       }

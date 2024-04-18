@@ -13,3 +13,8 @@ export default {
 const Template: StoryFn<typeof Container> = args => <Container {...args} />;
 
 export const MainContainer = Template.bind({});
+
+export const Title = Template.bind({});
+Title.args = {
+  title: 'Title',
+};

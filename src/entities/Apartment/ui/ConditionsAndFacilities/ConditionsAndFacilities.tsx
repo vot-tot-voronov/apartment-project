@@ -3,8 +3,7 @@ import clsx from 'clsx';
 import { ConditionsAndFacilitiesType, ListItemType } from '../../model/types/apartmentTypes';
 import classes from './ConditionsAndFacilities.module.scss';
 
-import SuccessIcon from '@/shared/assets/icons/success.svg';
-import CrossIcon from '@/shared/assets/icons/cross.svg';
+import { CrossIcon, SuccessIcon } from '@/shared/assets/icons';
 
 interface IConditionsAndFacilitiesProps {
   conditionsFacilities: ConditionsAndFacilitiesType;
@@ -22,7 +21,6 @@ const ListItem = ({ value, label }: ListItemType) => {
 export const ConditionsAndFacilities = ({ conditionsFacilities }: IConditionsAndFacilitiesProps) => {
   return (
     <div className={classes.container}>
-      <h2 className={classes.title}>Условия и удобства</h2>
       <div className={classes.facilitiesAndConditions}>
         <div>
           <p className={classes.textTitle}>Удобства</p>

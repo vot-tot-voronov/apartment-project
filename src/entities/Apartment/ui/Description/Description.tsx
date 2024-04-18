@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import classes from './Description.module.scss';
 
-import ArrowIcon from '@/shared/assets/icons/arrow.svg';
+import { ArrowIcon } from '@/shared/assets/icons';
 
 interface IDescriptionProps {
   text: string;
@@ -14,7 +14,6 @@ export const Description = ({ text }: IDescriptionProps) => {
 
   return (
     <div className={classes.description}>
-      <h2 className={classes.title}>Описание</h2>
       <p className={classes.text}>
         {shouldShowMore ? text : text.slice(0, 380)}
         {shouldShowMore ? '' : '...'}

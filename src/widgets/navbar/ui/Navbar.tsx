@@ -71,7 +71,7 @@ export const Navbar = () => {
                     location.pathname.includes(`${MainRoutePaths[MainRoutesEnum.PROFILE]}`) && classes.active,
                   )}
                 >
-                  Проифиль
+                  Профиль
                 </AppLink>
               </div>
               <Button onClick={handelLogout}>Выйти</Button>

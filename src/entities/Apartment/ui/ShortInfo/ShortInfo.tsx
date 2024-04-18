@@ -2,19 +2,14 @@ import clsx from 'clsx';
 import { toast } from 'react-toastify';
 
 import classes from './ShortInfo.module.scss';
-import { ShortInfoListMakerType, shortInfoListMaker } from '../../lib/utils';
+import { shortInfoListMaker } from '../../lib/utils';
+import { ShortInfoDataType } from '../../model/types/apartmentTypes';
 
-import CopyIcon from '@/shared/assets/icons/copy.svg';
-import ViewIcon from '@/shared/assets/icons/view.svg';
 import { copyToClipboard } from '@/shared/lib';
+import { CopyIcon, ViewIcon } from '@/shared/assets/icons';
 
-export interface IShortInfoProps {
-  info: {
-    adress: string;
-    pricePerMonth: number;
-    views: number;
-    updated: string;
-  } & ShortInfoListMakerType;
+interface IShortInfoProps {
+  info: ShortInfoDataType;
 }
 
 export const ShortInfo = ({ info }: IShortInfoProps) => {
