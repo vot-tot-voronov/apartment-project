@@ -6,3 +6,4 @@ export { Loader } from './Loader/Loader';
 export { Form } from './Form/Form';
 export { Container } from './Container/Container';
 export { SelectComponent as Select } from './Select/Select';
+export { DottedList } from './DottedIList/DottedList';

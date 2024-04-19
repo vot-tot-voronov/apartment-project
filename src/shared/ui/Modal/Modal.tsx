@@ -6,7 +6,7 @@ import classes from './Modal.module.scss';
 import { Button } from '../Button/Button';
 import { Loader } from '../Loader/Loader';
 
-import CrossIcon from '@/shared/assets/icons/cross.svg';
+import { CrossIcon } from '@/shared/assets/icons';
 
 interface IModalProps {
   onBack: () => void;

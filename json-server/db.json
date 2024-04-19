@@ -44,11 +44,7 @@
   "rent": [
     {
       "id": 1,
-      "images": [
-        "/image1",
-        "/image2",
-        "/image3"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",
@@ -74,7 +70,7 @@
             "label": "Мебель в комнатах"
           },
           {
-            "value": true,
+            "value": false,
             "label": "Стиральная машина"
           },
           {
@@ -86,7 +82,7 @@
             "label": "Интернет"
           },
           {
-            "value": true,
+            "value": false,
             "label": "Кондиционер"
           }
         ]
@@ -99,10 +95,11 @@
         "fullArea": 72,
         "livingArea": 65,
         "floor": 15,
+        "floors": 19,
         "kitchenArea": 10,
         "renovation": "Ремонт по авторскому проекту",
         "balcony": "Есть",
-        "prepayment": true,
+        "prepayment": "За три месяца вперед",
         "viewFromWindow": "На море и во двор",
         "garbageChute": true
       }

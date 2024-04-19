@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { createBrowserRouter, Outlet, RouterProvider, useLoaderData } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 import { routeCreator } from './providers/router/config/lib/routeCreator';
 import { mainRouteConfig } from './providers/router/config/routeConfig';
@@ -38,7 +39,21 @@ const Root = () => {
               </div>
             }
           >
-            <div className="boxContent">{isUserInited && <Outlet />}</div>
+            <div className="boxContent">
+              {isUserInited && (
+                <>
+                  <Outlet />
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    closeOnClick
+                    theme="light"
+                    transition={Bounce}
+                  />
+                </>
+              )}
+            </div>
           </Suspense>
         </main>
         <footer>Footer</footer>
