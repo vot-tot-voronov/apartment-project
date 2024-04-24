@@ -1,0 +1,28 @@
+@import '@styles/global';
+
+.container {
+  border-radius: $radius-small;
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    column-gap: $margin-small;
+
+    .picture {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: $dark-red;
+    }
+
+    .username {
+      font-size: $font-size-middle;
+      color: $dark;
+    }
+  }
+
+  .text {
+    margin-top: $margin-small;
+    color: $white-dark;
+  }
+}

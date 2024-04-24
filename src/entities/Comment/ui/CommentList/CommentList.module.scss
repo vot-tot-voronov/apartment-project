@@ -1,0 +1,15 @@
+@import '@styles/global';
+
+.container {
+  padding: $margin-main;
+
+  .title {
+    margin-bottom: $margin-main;
+  }
+
+  .commentList {
+    display: flex;
+    flex-direction: column;
+    row-gap: $margin-main;
+  }
+}

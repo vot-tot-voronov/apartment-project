@@ -3,7 +3,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 
 import { loginByUsername } from './loginByUsernameService';
 
-import { IUser, userActions } from '@/entities/User';
+import { UserType, userActions } from '@/entities/User';
 import { RootStateType } from '@/app/providers/storeProvider';
 
 jest.mock('axios');
@@ -20,7 +20,7 @@ describe('loginByUsernameService.test', () => {
   });
 
   test('successful login', async () => {
-    const mockedData: IUser = { id: '1', username: 'test' };
+    const mockedData: UserType = { id: '1', username: 'test' };
     mockedAxios.post.mockReturnValue(Promise.resolve({ data: mockedData }));
 
     const action = loginByUsername({ username: 'test', password: '1234' });

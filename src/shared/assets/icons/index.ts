@@ -16,6 +16,7 @@ import RoomsIcon from './rooms.svg';
 import RubleIcon from './ruble.svg';
 import SuccessIcon from './success.svg';
 import ViewIcon from './view.svg';
+import UserIcon from './user.svg';
 
 export {
   AreaIcon,
@@ -36,4 +37,5 @@ export {
   RubleIcon,
   SuccessIcon,
   ViewIcon,
+  UserIcon,
 };
