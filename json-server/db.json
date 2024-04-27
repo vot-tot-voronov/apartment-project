@@ -1,32 +1,27 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": 1
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": 2
-    }
-  ],
   "comments": [
     {
       "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "text": "Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании модели развития",
+      "userId": "1",
+      "apartmentId": "1"
     },
     {
       "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "text": "Равным образом новая модель организационной деятельности требуют определения и уточнения форм развития",
+      "userId": "2",
+      "apartmentId": "1"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
+      "password": "123qW!"
+    },
+    {
+      "id": "2",
+      "username": "Ivan Ivanov",
       "password": "123qW!"
     }
   ],

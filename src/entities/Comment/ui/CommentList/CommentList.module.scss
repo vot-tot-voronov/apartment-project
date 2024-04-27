@@ -3,6 +3,15 @@
 .container {
   padding: $margin-main;
 
+  &.center {
+    text-align: center;
+  }
+
+  .errorText {
+    font-size: $font-size-middle;
+    color: $dark-red;
+  }
+
   .title {
     margin-bottom: $margin-main;
   }
