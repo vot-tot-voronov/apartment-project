@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { memo } from 'react';
 
 import { CommentItemType } from '../../model/types/commentTypes';
 import { CommentItem } from '../CommentItem/CommentItem';
@@ -12,7 +13,7 @@ interface ICommentListProps {
   error?: string;
 }
 
-export const CommentList = ({ isLoading, comments, error }: ICommentListProps) => {
+export const CommentList = memo(function CommentListComponent({ isLoading, comments, error }: ICommentListProps) {
   if (isLoading) {
     return (
       <div className={clsx(classes.container, classes.center)}>
@@ -42,4 +43,4 @@ export const CommentList = ({ isLoading, comments, error }: ICommentListProps) =
       </div>
     </div>
   );
-};
+});

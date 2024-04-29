@@ -6,7 +6,7 @@ import { ApartmentDetails } from '@/entities/Apartment';
 import { getRentApartmentData } from '@/features/RentApartment/getRentApartment';
 import { CommentList } from '@/entities/Comment';
 import { rootReducer } from '@/app/providers/storeProvider';
-import { getCommentsRent, getCommentsRentData, getCommentsRentSlice } from '@/features/RentApartment/getComments';
+import { getCommentsRent, getCommentsRentSlice, getRentComments } from '@/features/RentApartment/getComments';
 import { getCommentsRentError } from '@/features/RentApartment/getComments/model/selectors/getCommentsRentSelectors';
 import { useAppDispatch } from '@/shared/hooks';
 
@@ -30,7 +30,7 @@ export const RentApartmentDetails = () => {
   const rentApartmentData = useSelector(getRentApartmentData);
   const isCommentsLoading = useSelector(getIsLoading);
   const errorText = useSelector(getCommentsRentError);
-  const commentsList = useSelector(getCommentsRentData);
+  const commentsList = useSelector(getRentComments.selectAll);
 
   if (!rentApartmentData) {
     return null;
