@@ -25,21 +25,28 @@
       "password": "123qW!"
     }
   ],
-  "profile": {
-    "name": "Иван",
-    "surname": "Петров",
-    "middleName": "Иванович",
-    "region": {
-      "value": "1",
-      "label": "Краснодарский край"
-    },
-    "city": "Краснодар",
-    "phone": "8-999-999-99-99"
-  },
+  "profile": [
+    {
+      "name": "Иван",
+      "surname": "Иванов",
+      "middleName": "Иванович",
+      "region": {
+        "value": "1",
+        "label": "Краснодарский край"
+      },
+      "city": "Краснодар",
+      "phone": "8-999-999-99-99",
+      "id": "1"
+    }
+  ],
   "rent": [
     {
       "id": 1,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",

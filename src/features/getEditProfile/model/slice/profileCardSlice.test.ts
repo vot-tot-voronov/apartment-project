@@ -2,9 +2,10 @@ import { fetchProfileService } from '../services/fetchProfile/fetchProfileServic
 import { IProfileCardSchema } from '../types/profileCardTypes';
 import { profileCardActions, profileCardReducer } from './profileCardSlice';
 
-import { ProfileFormType } from '@/entities/Profile';
+import { ProfileType } from '@/entities/Profile';
 
-const data: ProfileFormType = {
+const data: ProfileType = {
+  id: '',
   name: '',
   surname: '',
   region: {
@@ -27,7 +28,7 @@ describe('profileCardSlice.test', () => {
   test('fetch profile data pending', () => {
     const state: DeepPartial<IProfileCardSchema> = { error: 'error', isLoading: false };
 
-    expect(profileCardReducer(state as IProfileCardSchema, fetchProfileService.pending(''))).toEqual({
+    expect(profileCardReducer(state as IProfileCardSchema, fetchProfileService.pending('', ''))).toEqual({
       error: undefined,
       isLoading: true,
     });
@@ -36,7 +37,7 @@ describe('profileCardSlice.test', () => {
   test('fetch profile data fulfilled', () => {
     const state: DeepPartial<IProfileCardSchema> = { error: undefined, isLoading: true };
 
-    expect(profileCardReducer(state as IProfileCardSchema, fetchProfileService.fulfilled(data, ''))).toEqual({
+    expect(profileCardReducer(state as IProfileCardSchema, fetchProfileService.fulfilled(data, '', ''))).toEqual({
       data,
       isLoading: false,
     });
@@ -48,7 +49,7 @@ describe('profileCardSlice.test', () => {
     expect(
       profileCardReducer(
         state as IProfileCardSchema,
-        fetchProfileService.rejected(null, '', undefined, 'Ошибка получения данных профиля'),
+        fetchProfileService.rejected(null, '', '', 'Ошибка получения данных профиля'),
       ),
     ).toEqual({ error: 'Ошибка получения данных профиля', isLoading: false });
   });

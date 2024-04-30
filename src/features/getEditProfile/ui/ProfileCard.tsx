@@ -10,7 +10,11 @@ import { ProfileFormType, ProfileForm } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/hooks';
 import { rootReducer } from '@/app/providers/storeProvider';
 
-export const ProfileCard = () => {
+interface IProfileCardProps {
+  id: string;
+}
+
+export const ProfileCard = ({ id }: IProfileCardProps) => {
   const dispatch = useAppDispatch();
   const {
     actions: { setIsReadonly },
@@ -26,9 +30,9 @@ export const ProfileCard = () => {
 
   const handleSubmit: SubmitHandler<ProfileFormType> = useCallback(
     async data => {
-      await dispatch(putProfileService(data));
+      await dispatch(putProfileService({ ...data, id }));
     },
-    [dispatch],
+    [dispatch, id],
   );
 
   const handleEdit = useCallback(

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import classes from './Navbar.module.scss';
 
-import { MainRoutePaths, MainRoutesEnum } from '@/shared/config/routeConfig/routeConfig';
+import { MainRoutePaths, MainRoutesEnum, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, Button } from '@/shared/ui';
 import { ModalTypeEnum } from '@/shared/types';
 import { getUserData, userActions } from '@/entities/User';
@@ -65,10 +65,10 @@ export const Navbar = () => {
             <>
               <div className={classes.links}>
                 <AppLink
-                  to={MainRoutePaths[MainRoutesEnum.PROFILE]}
+                  to={getRouteProfile(userData.id)}
                   className={clsx(
                     classes.link,
-                    location.pathname.includes(`${MainRoutePaths[MainRoutesEnum.PROFILE]}`) && classes.active,
+                    location.pathname.includes(getRouteProfile(userData.id)) && classes.active,
                   )}
                 >
                   Профиль

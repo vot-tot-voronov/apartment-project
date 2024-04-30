@@ -4,6 +4,8 @@ import { fetchProfileService } from '../services/fetchProfile/fetchProfileServic
 import { IProfileCardSchema } from '../types/profileCardTypes';
 import { putProfileService } from '../services/putProfile/putProfileService';
 
+import { ProfileType } from '@/entities/Profile';
+
 const initialState: IProfileCardSchema = {
   isLoading: false,
   isReadonly: true,
@@ -27,7 +29,7 @@ export const profileCardSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileService.fulfilled, (state, action) => {
+      .addCase(fetchProfileService.fulfilled, (state, action: PayloadAction<ProfileType>) => {
         state.data = action.payload;
         state.isLoading = false;
       })
@@ -39,7 +41,7 @@ export const profileCardSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(putProfileService.fulfilled, (state, action) => {
+      .addCase(putProfileService.fulfilled, (state, action: PayloadAction<ProfileType>) => {
         state.data = action.payload;
         state.isLoading = false;
         state.isReadonly = true;

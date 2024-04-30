@@ -46,4 +46,9 @@ export const ProfileFormSchema = z.object({
     }),
 });
 
+const ProfileSchema = ProfileFormSchema.extend({
+  id: z.string(),
+});
+
 export type ProfileFormType = z.infer<typeof ProfileFormSchema>;
+export type ProfileType = z.infer<typeof ProfileSchema>;

@@ -4,12 +4,13 @@ import axios from 'axios';
 import { fetchProfileService } from './fetchProfileService';
 
 import { RootStateType } from '@/app/providers/storeProvider';
-import { ProfileFormType } from '@/entities/Profile';
+import { ProfileType } from '@/entities/Profile';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios);
 
-const data: ProfileFormType = {
+const data: ProfileType = {
+  id: '',
   name: '',
   surname: '',
   region: {
@@ -32,7 +33,7 @@ describe('fetchProfileService.test', () => {
   test('successful profile fetch', async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ data }));
 
-    const action = fetchProfileService();
+    const action = fetchProfileService('1');
     const result = await action(dispatch, getState, { api: mockedAxios });
 
     expect(mockedAxios.get).toHaveBeenCalled();
@@ -43,7 +44,7 @@ describe('fetchProfileService.test', () => {
   test('rejected profile fetch', async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-    const action = fetchProfileService();
+    const action = fetchProfileService('1');
     const result = await action(dispatch, getState, { api: mockedAxios });
 
     expect(mockedAxios.get).toHaveBeenCalled();
