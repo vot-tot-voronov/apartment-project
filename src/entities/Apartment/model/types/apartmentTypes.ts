@@ -73,7 +73,7 @@ const ConditionsAndFacilitiesSchema = z.object({
 export type ConditionsAndFacilitiesType = z.infer<typeof ConditionsAndFacilitiesSchema>;
 
 const ApartmentItemSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   images: z.array(z.string()),
   pricePerMonth: z.number(),
   views: z.number(),

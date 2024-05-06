@@ -24,5 +24,6 @@
   .text {
     margin-top: $margin-small;
     color: $white-dark;
+    word-break: break-all;
   }
 }

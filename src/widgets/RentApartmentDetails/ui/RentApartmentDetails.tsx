@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
+import classes from './RentApartmentDetails.module.scss';
+
 import { ApartmentDetails } from '@/entities/Apartment';
 import { getRentApartmentData } from '@/features/RentApartment/getRentApartment';
 import { CommentList } from '@/entities/Comment';
@@ -9,6 +11,7 @@ import { rootReducer } from '@/app/providers/storeProvider';
 import { getCommentsRent, getCommentsRentSlice, getRentComments } from '@/features/RentApartment/getComments';
 import { getCommentsRentError } from '@/features/RentApartment/getComments/model/selectors/getCommentsRentSelectors';
 import { useAppDispatch } from '@/shared/hooks';
+import { SendComment } from '@/features/RentApartment/sendComment';
 
 export const RentApartmentDetails = () => {
   const { id: apartmentId } = useParams<{ id: string }>();
@@ -39,7 +42,11 @@ export const RentApartmentDetails = () => {
   return (
     <div>
       <ApartmentDetails data={rentApartmentData} />
-      <CommentList isLoading={isCommentsLoading} comments={commentsList} error={errorText} />
+      <div className={classes.comments}>
+        <h2>Комментарии</h2>
+        <SendComment className={classes.sendComment} />
+        <CommentList isLoading={isCommentsLoading} comments={commentsList} error={errorText} />
+      </div>
     </div>
   );
 };

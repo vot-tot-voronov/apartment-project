@@ -25,7 +25,6 @@ export const CommentList = memo(function CommentListComponent({ isLoading, comme
   if (error) {
     return (
       <div className={classes.container}>
-        <h2 className={classes.title}>Комментарии</h2>
         <p className={classes.errorText}>{error}</p>
       </div>
     );
@@ -33,7 +32,6 @@ export const CommentList = memo(function CommentListComponent({ isLoading, comme
 
   return (
     <div className={classes.container}>
-      <h2 className={classes.title}>Комментарии</h2>
       <div className={classes.commentList}>
         {comments && comments.length > 0 ? (
           comments.map(comment => <CommentItem key={comment.id} comment={comment} />)

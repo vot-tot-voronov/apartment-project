@@ -4,12 +4,16 @@ interface IFormProps extends Omit<FormHTMLAttributes<HTMLFormElement>, 'onSubmit
   onSubmit: Function;
 }
 
-export const Form = ({ onSubmit, children }: IFormProps) => {
+export const Form = ({ onSubmit, children, className }: IFormProps) => {
   return (
     <form
       onSubmit={e => {
         e.preventDefault();
         onSubmit();
+      }}
+      className={className}
+      style={{
+        position: 'relative',
       }}
     >
       {children}
@@ -17,6 +21,8 @@ export const Form = ({ onSubmit, children }: IFormProps) => {
         type="submit"
         style={{
           visibility: 'hidden',
+          position: 'absolute',
+          top: 0,
         }}
       />
     </form>

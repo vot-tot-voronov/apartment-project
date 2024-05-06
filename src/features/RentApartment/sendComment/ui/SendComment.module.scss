@@ -1,0 +1,17 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  column-gap: $margin-small;
+
+  .textInput {
+    flex-grow: 1;
+  }
+
+  .button {
+    max-width: 300px;
+    width: 100%;
+  }
+}
