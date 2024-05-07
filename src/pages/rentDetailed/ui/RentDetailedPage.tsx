@@ -6,9 +6,14 @@ import classes from './RentDetailedPage.module.scss';
 
 import { useAppDispatch } from '@/shared/hooks';
 import { RentApartmentDetails } from '@/widgets/RentApartmentDetails';
-import { getRentApartmentById, getRentApartmentError, getRentApartmentSlice } from '@/features/getRentApartment';
+import {
+  getRentApartmentById,
+  getRentApartmentError,
+  getRentApartmentSlice,
+} from '@/features/RentApartment/getRentApartment';
 import { rootReducer } from '@/app/providers/storeProvider';
 import { Container, Loader } from '@/shared/ui';
+import { RentRequestForm } from '@/features/RentApartment/sendRentRequest';
 
 const RentDetailedPage = () => {
   const dispatch = useAppDispatch();
@@ -51,7 +56,11 @@ const RentDetailedPage = () => {
       <div className={classes.content}>
         <RentApartmentDetails />
       </div>
-      <div className={classes.sidebar}>Sidebar</div>
+      <div className={classes.sidebar}>
+        <Container className={classes.sticky}>
+          <RentRequestForm />
+        </Container>
+      </div>
     </div>
   );
 };

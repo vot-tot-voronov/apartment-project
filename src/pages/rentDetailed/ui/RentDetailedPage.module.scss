@@ -26,5 +26,10 @@
     flex: none;
     margin-left: $margin-middle;
     width: 380px;
+
+    .sticky {
+      position: sticky;
+      top: $margin-main;
+    }
   }
 }

@@ -1,26 +1,22 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": 1
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": 2
-    }
-  ],
   "comments": [
     {
       "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
+      "text": "Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании модели развития",
+      "userId": "1",
+      "apartmentId": "1"
     },
     {
       "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
+      "text": "Равным образом новая модель организационной деятельности требуют определения и уточнения форм развития",
+      "userId": "2",
+      "apartmentId": "1"
+    },
+    {
+      "apartmentId": 1,
+      "userId": "2",
+      "text": "Рост и сфера нашей активности играет важную роль в формировании модели развития",
+      "id": "IaAesKO"
     }
   ],
   "users": [
@@ -28,23 +24,47 @@
       "id": "1",
       "username": "admin",
       "password": "123qW!"
+    },
+    {
+      "id": "2",
+      "username": "Ivanov",
+      "password": "123qW!"
     }
   ],
-  "profile": {
-    "name": "Иван",
-    "surname": "Петров",
-    "middleName": "Иванович",
-    "region": {
-      "value": "1",
-      "label": "Краснодарский край"
+  "profile": [
+    {
+      "name": "Иван",
+      "surname": "Сидоров",
+      "middleName": "Иванович",
+      "region": {
+        "value": "1",
+        "label": "Краснодарский край"
+      },
+      "city": "Краснодар",
+      "phone": "8-999-999-99-99",
+      "id": "1"
     },
-    "city": "Краснодар",
-    "phone": "8-999-999-99-99"
-  },
+    {
+      "name": "Пётр",
+      "surname": "Иванов",
+      "middleName": "Петрович",
+      "region": {
+        "value": "1",
+        "label": "Краснодарский край"
+      },
+      "city": "Краснодар",
+      "phone": "8-999-999-99-99",
+      "id": "2"
+    }
+  ],
   "rent": [
     {
       "id": 1,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",

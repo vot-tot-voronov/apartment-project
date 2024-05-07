@@ -4,12 +4,13 @@ import axios from 'axios';
 import { putProfileService } from './putProfileService';
 
 import { RootStateType } from '@/app/providers/storeProvider';
-import { ProfileFormType } from '@/entities/Profile';
+import { ProfileType } from '@/entities/Profile';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios);
 
-const data: ProfileFormType = {
+const data: ProfileType = {
+  id: '',
   name: '',
   surname: '',
   region: {

@@ -1,11 +1,13 @@
 import { AxiosInstance } from 'axios';
 
-import { AppDispatchType } from './store';
+import { AppDispatchType, RootStateType } from './store';
 
 import { IUserSchema } from '@/entities/User';
 import { ILoginFormSchema } from '@/features/loginByUsername';
 import { IProfileCardSchema } from '@/features/getEditProfile';
-import { IRentApartmentSchema } from '@/features/getRentApartment';
+import { IRentApartmentSchema } from '@/features/RentApartment/getRentApartment';
+import { ICommentsRentSchema } from '@/features/RentApartment/getComments';
+import { ISendCommentSchema } from '@/features/RentApartment/sendComment';
 
 export interface ISyncSliсesSchema {
   user: IUserSchema;
@@ -15,6 +17,8 @@ export interface ILazyLoadedSlicesSchema {
   loginByUsername: ILoginFormSchema;
   profileCard: IProfileCardSchema;
   getRentApartmentSlice: IRentApartmentSchema;
+  getCommentsRentSlice: ICommentsRentSchema;
+  sendCommentSlice: ISendCommentSchema;
 }
 
 export interface IThunkExtraArg {
@@ -24,6 +28,6 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
   rejectValue: T;
   extra: IThunkExtraArg;
-  state: ISyncSliсesSchema;
+  state: RootStateType;
   dispatch: AppDispatchType;
 }

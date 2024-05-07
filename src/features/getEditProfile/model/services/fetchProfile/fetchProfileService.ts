@@ -1,18 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { IThunkConfig } from '@/app/providers/storeProvider';
-import { ProfileFormType } from '@/entities/Profile';
+import { ProfileType } from '@/entities/Profile';
 
-export const fetchProfileService = createAsyncThunk<ProfileFormType, void, IThunkConfig<string>>(
+export const fetchProfileService = createAsyncThunk<ProfileType, string, IThunkConfig<string>>(
   'profile/fetchProfileCard',
-  async (_, thunkApi) => {
+  async (id, thunkApi) => {
     const {
       rejectWithValue,
       extra: { api },
     } = thunkApi;
 
     try {
-      const response = await api.get<ProfileFormType>('/profile');
+      const response = await api.get<ProfileType>(`/profile/${id}`);
 
       if (!response.data) {
         throw new Error();

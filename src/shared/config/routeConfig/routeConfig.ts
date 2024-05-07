@@ -16,7 +16,7 @@ export const MainRoutePaths: Record<MainRoutesEnum, string> = {
   [MainRoutesEnum.SELL]: '/sell',
   [MainRoutesEnum.RENT_LIST]: '/rent',
   [MainRoutesEnum.RENT_DETAILED]: `${MainRoutesEnum.RENT_LIST}/${MainRoutesEnum.RENT_DETAILED}`,
-  [MainRoutesEnum.PROFILE]: '/profile',
+  [MainRoutesEnum.PROFILE]: '/profile/:id',
   [MainRoutesEnum.NOT_FOUND_PAGE]: '*',
 };
 
@@ -25,3 +25,4 @@ export type AppRoutePropsType = {
 } & RouteProps;
 
 export const getRouteMain = () => MainRoutePaths[MainRoutesEnum.MAIN];
+export const getRouteProfile = (id: string) => `/${MainRoutesEnum.PROFILE}/${id}`;

@@ -29,5 +29,3 @@ export const getRentApartmentSlice = createSlice({
         state.isLoading = false;
       }),
 });
-
-export const { reducer: getRentApartmentReducer } = getRentApartmentSlice;
