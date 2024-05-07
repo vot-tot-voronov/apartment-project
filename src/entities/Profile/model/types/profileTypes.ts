@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { SelectItemSchema } from '@/shared/types';
-import { ErrorMessagesEnum } from '@/shared/constants';
+import { ErrorMessagesEnum, RegExps } from '@/shared/constants';
 
 export enum ProfileFieldsEnum {
   NAME = 'name',
@@ -16,32 +16,35 @@ export const ProfileFormSchema = z.object({
   name: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
-    .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER })
-    .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),
+    .regex(RegExps.RUSSIAN_ALPHABET, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+    .regex(RegExps.CAPITAL_LETTER, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
   surname: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
-    .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
-    .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+    .regex(RegExps.RUSSIAN_ALPHABET, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+    .regex(RegExps.CAPITAL_LETTER, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
   middleName: z
     .union([
       z
         .string()
-        .regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
-        .regex(/^[А-ЯЁ]/, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
+        .regex(RegExps.RUSSIAN_ALPHABET, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET })
+        .regex(RegExps.CAPITAL_LETTER, { message: ErrorMessagesEnum.CAPITAL_LETTER }),
       z.string().length(0),
     ])
     .optional()
     .transform(e => (e === '' ? undefined : e)),
   region: SelectItemSchema.nullable(),
   city: z
-    .union([z.string().regex(/^[а-яА-ЯЁё]+$/, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }), z.string().length(0)])
+    .union([
+      z.string().regex(RegExps.RUSSIAN_ALPHABET, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),
+      z.string().length(0),
+    ])
     .optional()
     .transform(e => (e === '' ? undefined : e)),
   phone: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
-    .regex(/^(\+7|8)-\d{3}-\d{3}-\d{2}-\d{2}$/g, {
+    .regex(RegExps.PHONE, {
       message: 'Введите номер телефона в формате +7|8-XXX-XXX-XX-XX',
     }),
 });

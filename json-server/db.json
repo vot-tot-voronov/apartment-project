@@ -14,45 +14,9 @@
     },
     {
       "apartmentId": 1,
-      "userId": "1",
-      "text": "Enter",
-      "id": "-HeEjsG"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "REnt",
-      "id": "oZE0E04"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "Комментарий",
-      "id": "ahroSb6"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "Тест",
-      "id": "sCyEdqB"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "вавава",
-      "id": "ITJ714s"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "ввввв",
-      "id": "tC0E7xz"
-    },
-    {
-      "apartmentId": 1,
-      "userId": "1",
-      "text": "dkdkdk",
-      "id": "v_ofN4r"
+      "userId": "2",
+      "text": "Рост и сфера нашей активности играет важную роль в формировании модели развития",
+      "id": "IaAesKO"
     }
   ],
   "users": [
@@ -63,7 +27,7 @@
     },
     {
       "id": "2",
-      "username": "Ivan Ivanov",
+      "username": "Ivanov",
       "password": "123qW!"
     }
   ],
@@ -79,6 +43,18 @@
       "city": "Краснодар",
       "phone": "8-999-999-99-99",
       "id": "1"
+    },
+    {
+      "name": "Пётр",
+      "surname": "Иванов",
+      "middleName": "Петрович",
+      "region": {
+        "value": "1",
+        "label": "Краснодарский край"
+      },
+      "city": "Краснодар",
+      "phone": "8-999-999-99-99",
+      "id": "2"
     }
   ],
   "rent": [
