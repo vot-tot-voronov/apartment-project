@@ -1,10 +1,5 @@
 @import '@styles/global';
-
-@mixin icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-}
+@import '@styles/mixins';
 
 .shortInfo {
   margin-top: $margin-main;
@@ -32,17 +27,6 @@
   .description {
     .text {
       margin-top: $margin-small;
-    }
-
-    .adress {
-      display: flex;
-      column-gap: $margin-main;
-
-      .copy {
-        @include icon;
-        color: $red;
-        cursor: pointer;
-      }
     }
 
     .pricePerMonth {

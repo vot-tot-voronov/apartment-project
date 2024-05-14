@@ -8,6 +8,7 @@ import { IProfileCardSchema } from '@/features/getEditProfile';
 import { IRentApartmentSchema } from '@/features/RentApartment/getRentApartment';
 import { ICommentsRentSchema } from '@/features/RentApartment/getComments';
 import { ISendCommentSchema } from '@/features/RentApartment/sendComment';
+import { IRentListSchema } from '@/features/RentApartment/getRentList';
 
 export interface ISyncSliсesSchema {
   user: IUserSchema;
@@ -19,6 +20,7 @@ export interface ILazyLoadedSlicesSchema {
   getRentApartmentSlice: IRentApartmentSchema;
   getCommentsRentSlice: ICommentsRentSchema;
   sendCommentSlice: ISendCommentSchema;
+  getRentListSlice: IRentListSchema;
 }
 
 export interface IThunkExtraArg {

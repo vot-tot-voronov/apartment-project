@@ -26,3 +26,4 @@ export type AppRoutePropsType = {
 
 export const getRouteMain = () => MainRoutePaths[MainRoutesEnum.MAIN];
 export const getRouteProfile = (id: string) => `/${MainRoutesEnum.PROFILE}/${id}`;
+export const getRouteRentDetailed = (id: string) => `/${MainRoutesEnum.RENT_LIST}/${id}`;

@@ -1,0 +1,6 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.stateContainer {
+  @include state-container;
+}
