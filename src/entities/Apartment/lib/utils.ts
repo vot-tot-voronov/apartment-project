@@ -7,6 +7,8 @@ import {
   IAboutListData,
 } from '../model/types/apartmentTypes';
 
+import { getNoun } from '@/shared/lib';
+
 export const prepareShortInfoData = (data: ApartmentItemType): ShortInfoDataType => ({
   fullArea: data.about.fullArea,
   livingArea: data.about.livingArea,
@@ -41,8 +43,8 @@ export const shortInfoListMaker = ({
     value: `${kitchenArea} м²`,
   },
   {
-    title: 'Этаж',
-    value: `${floor} из ${floors}`,
+    title: floor !== undefined ? 'Этаж' : getNoun(floors, 'Этаж', 'Этажа', 'Этажей'),
+    value: floor !== undefined ? `${floor} из ${floors}` : `${floors}`,
   },
   {
     title: 'Год постройки',
