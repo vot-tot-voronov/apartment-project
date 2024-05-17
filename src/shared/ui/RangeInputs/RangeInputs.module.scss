@@ -1,0 +1,14 @@
+@import '@styles/global';
+
+.container {
+  .fields {
+    display: flex;
+    column-gap: $margin-main;
+    align-items: flex-end;
+
+    & > div {
+      max-width: 480px;
+      width: 100%;
+    }
+  }
+}

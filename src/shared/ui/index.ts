@@ -8,3 +8,6 @@ export { Container } from './Container/Container';
 export { SelectComponent as Select } from './Select/Select';
 export { DottedList } from './DottedIList/DottedList';
 export { TextCopy } from './TextCopy';
+export { RangeInputs } from './RangeInputs/RangeInputs';
+export { FieldWithLabel } from './FieldWithLabel/FieldWithLabel';
+export { Checkbox } from './Checkbox/Checkbox';

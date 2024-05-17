@@ -7,6 +7,7 @@ import classes from './ProfileForm.module.scss';
 import { ProfileFormType, ProfileFieldsEnum, ProfileFormSchema } from '../model/types/profileTypes';
 
 import { Button, ButtonThemeEnum, Form, Loader, Select, TextInput } from '@/shared/ui';
+import { masks } from '@/shared/lib';
 
 interface IProfileCardProps {
   defaultData?: ProfileFormType;
@@ -40,7 +41,6 @@ export const ProfileForm = ({
   } = useForm<ProfileFormType>({
     values: defaultData,
     resolver: zodResolver(ProfileFormSchema),
-    mode: 'onChange',
   });
 
   const handleCancel = () => {
@@ -113,7 +113,8 @@ export const ProfileForm = ({
             className={classes.phone}
             labelText="Телефон"
             isDisabled={isReadonly}
-            placeholder="8-XXX-XXX-XX-XX"
+            placeholder="8 XXX XXX-XX-XX"
+            onChangeHandler={masks.phoneMask.onChange}
             error={phone?.message}
           />
         </div>

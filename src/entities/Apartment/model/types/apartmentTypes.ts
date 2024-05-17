@@ -12,6 +12,13 @@ export enum ApartmentTypeEnum {
   FLAT = 'flat',
 }
 
+export enum ApartmentRonvationEnum {
+  EURO = 'Евроремонт',
+  DESIGNER = 'Дизайнерский проект',
+  COSMETIC = 'Косметический ремонт',
+  NOT = 'Без ремонта',
+}
+
 const ApartmentShortInfoSchema = z.object({
   fullArea: z.number(),
   livingArea: z.number(),
@@ -49,6 +56,7 @@ export enum AboutInfoIconsEnum {
 const ApartmentAboutSchema = ApartmentShortInfoSchema.extend({
   type: z.nativeEnum(ApartmentTypeEnum),
   rooms: z.number(),
+  city: z.string(),
   adress: z.string(),
   renovation: z.string(),
   balcony: z.string(),

@@ -1,11 +1,9 @@
-import { InputHTMLAttributes, useMemo } from 'react';
+import { ChangeEvent, InputHTMLAttributes, useMemo } from 'react';
 import clsx from 'clsx';
 import { v4 as uuidv4 } from 'uuid';
 import { FieldValues, UseControllerProps, useController } from 'react-hook-form';
 
 import classes from './TextInput.module.scss';
-
-import { genericMemo } from '@/shared/lib';
 
 interface IInput
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'disabled' | 'name' | 'onBlur' | 'onChange'> {}
@@ -17,9 +15,10 @@ type InputPropsType<T extends FieldValues> = UseControllerProps<T> &
     isDisabled?: boolean;
     isRequired?: boolean;
     error?: string;
+    onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
   };
 
-const InputComponent = <T extends FieldValues>(props: InputPropsType<T>) => {
+export const TextInput = <T extends FieldValues>(props: InputPropsType<T>) => {
   const {
     className,
     labelText,
@@ -29,13 +28,13 @@ const InputComponent = <T extends FieldValues>(props: InputPropsType<T>) => {
     isRequired,
     error,
     control,
-    defaultValue,
     rules,
     shouldUnregister,
+    onChangeHandler,
   } = props;
   const {
-    field: { onBlur, onChange, value = '', ref },
-  } = useController<T>({ name, control, defaultValue, rules, shouldUnregister });
+    field: { onBlur, onChange, value, ref },
+  } = useController<T>({ name, control, rules, shouldUnregister });
 
   const idInput = useMemo(() => uuidv4(), []);
 
@@ -55,7 +54,11 @@ const InputComponent = <T extends FieldValues>(props: InputPropsType<T>) => {
         id={idInput}
         placeholder={placeholder || ''}
         value={value}
-        onChange={onChange}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          onChangeHandler?.(e);
+          onChange(e.target.value);
+        }}
+        required={isRequired}
         onBlur={onBlur}
         type="text"
         name={name}
@@ -64,5 +67,3 @@ const InputComponent = <T extends FieldValues>(props: InputPropsType<T>) => {
     </div>
   );
 };
-
-export const TextInput = genericMemo(InputComponent);

@@ -1,0 +1,41 @@
+@import '@styles/global';
+
+.container {
+  display: inline-block;
+
+  .label {
+    display: inline-block;
+    padding: $margin-small $margin-main;
+    border-radius: $radius-small;
+    background-color: $white;
+    border: 2px solid $grey;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out;
+    color: $black;
+
+    &:hover {
+      color: $white;
+      background-color: $white-dark;
+      border-color: $white-dark;
+    }
+  }
+
+  .checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:checked + .label {
+      color: $white;
+      background-color: $dark;
+      border-color: $dark;
+    }
+
+    &:checked + .label:hover {
+      background-color: $white-dark;
+      border-color: $white-dark;
+    }
+  }
+}
