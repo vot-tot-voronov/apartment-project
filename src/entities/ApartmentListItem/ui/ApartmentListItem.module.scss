@@ -5,6 +5,7 @@
   background-color: $dark-white;
   border-radius: $radius-main;
   box-shadow: 0 0 12px 0 $darker-white;
+  justify-self: center;
   max-width: 480px;
   width: 100%;
 
@@ -13,11 +14,6 @@
       border-radius: $radius-small !important;
       border-top-left-radius: $radius-main !important;
       border-top-right-radius: $radius-main !important;
-    }
-
-    & > div {
-      margin-left: auto !important;
-      margin-right: auto !important;
     }
   }
 

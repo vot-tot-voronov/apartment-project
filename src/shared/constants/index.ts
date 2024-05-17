@@ -11,9 +11,11 @@ export enum ErrorMessagesEnum {
 }
 
 export const RegExps = {
-  PHONE: /^(\+7|8)-\d{3}-\d{3}-\d{2}-\d{2}$/g,
+  PHONE: /^(8) \d{3} \d{3}-\d{2}-\d{2}$/g,
   RUSSIAN_ALPHABET: /^[а-яА-ЯЁё]+$/,
+  RUSSIAN_ALPHABET_WITH_DASH: /^[а-яА-ЯЁё-]+$/,
   CAPITAL_LETTER: /^[А-ЯЁ]/,
   LATIN_LETTERS: /^[a-zA-Z]+$/,
   PASSWORD: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[^\w\s]).{6,}/,
+  DIGITS: /^\d+$/,
 };

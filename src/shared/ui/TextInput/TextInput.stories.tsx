@@ -12,7 +12,12 @@ export default {
 } as Meta<typeof TextInput>;
 
 const Template: StoryFn<typeof TextInput> = args => {
-  const { control } = useForm();
+  const { name } = args;
+  const { control } = useForm({
+    defaultValues: {
+      [name]: '',
+    },
+  });
 
   return <TextInput {...args} control={control} />;
 };

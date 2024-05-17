@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import classes from './RentListPage.module.scss';
 
@@ -13,9 +14,11 @@ import {
   getRentListSlice,
 } from '@/features/RentApartment/getRentList';
 import { useAppDispatch } from '@/shared/hooks';
+import { RentListFilter } from '@/features/RentApartment/rentListFilter';
 
 const RentListPage = () => {
   const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
 
   const {
     selectors: { getIsLoading },
@@ -28,28 +31,34 @@ const RentListPage = () => {
   const error = useSelector(getRentListErrorSelector);
 
   useEffect(() => {
-    dispatch(getRentList());
+    dispatch(getRentList(searchParams.toString()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-  if (isLoading) {
-    return (
-      <Container className={classes.stateContainer}>
-        <Loader />
-      </Container>
-    );
-  }
+  const renderContet = () => {
+    if (isLoading) {
+      return (
+        <div className={classes.stateContainer}>
+          <Loader />
+        </div>
+      );
+    }
 
-  if (error) {
-    return (
-      <Container className={classes.stateContainer}>
-        <h2 className={classes.error}>{error}</h2>
-      </Container>
-    );
-  }
+    if (error) {
+      return (
+        <Container className={classes.stateContainer}>
+          <h2 className={classes.error}>{error}</h2>
+        </Container>
+      );
+    }
+
+    return <ApartmentList list={rentList ?? []} />;
+  };
 
   return (
     <Container>
-      <ApartmentList list={rentList ?? []} />
+      <RentListFilter />
+      {renderContet()}
     </Container>
   );
 };
