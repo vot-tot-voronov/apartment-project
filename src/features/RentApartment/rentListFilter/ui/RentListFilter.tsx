@@ -10,7 +10,7 @@ import {
   RentListFilterFormType,
 } from '../model/types/rentListFilterTypes';
 import classes from './RentListFilter.module.scss';
-import { getRentList } from '../../getRentList';
+import { getRentList, rentListActons } from '../../getRentList';
 import { defaultFormValues, mapFilterToSearchParams, queryParamsToFilter } from '../lib/helpers';
 
 import {
@@ -53,13 +53,14 @@ export const RentListFilter = () => {
   const submitHandler: SubmitHandler<RentListFilterFormType> = async data => {
     const params = mapFilterToSearchParams(data);
     setSearchParams(params);
-    await dispatch(getRentList(params));
+    await dispatch(getRentList({ queryString: params, replace: true }));
   };
 
   const handleReset = async () => {
     reset({ ...defaultFormValues });
     setSearchParams();
-    await dispatch(getRentList());
+    dispatch(rentListActons.setPage(1));
+    await dispatch(getRentList({ replace: true }));
   };
 
   return (

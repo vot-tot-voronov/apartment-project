@@ -1,7 +1,12 @@
 @import '@styles/global';
+@import '@styles/mixins';
 
 .container {
   display: grid;
   grid-gap: $margin-main;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stateContainer {
+  @include state-container;
 }
