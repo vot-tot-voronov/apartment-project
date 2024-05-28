@@ -1,16 +1,22 @@
 import SimpleImageSlider from 'react-simple-image-slider';
+import { useRef } from 'react';
 
 import classes from './ApartmentImgSlider.module.scss';
+
+import { useWidth } from '@/shared/hooks';
 
 interface IApartmentImgSliderProps {
   images: Array<string>;
 }
 
 export const ApartmentImgSlider = ({ images }: IApartmentImgSliderProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const width = useWidth(ref);
+
   return (
-    <div className={classes.imageSlider}>
+    <div ref={ref} className={classes.imageSlider}>
       <SimpleImageSlider
-        width={924}
+        width={width}
         height={500}
         slideDuration={0.3}
         navStyle={2}
@@ -19,6 +25,7 @@ export const ApartmentImgSlider = ({ images }: IApartmentImgSliderProps) => {
         images={images}
         showBullets
         showNavs
+        bgColor="transparent"
       />
     </div>
   );

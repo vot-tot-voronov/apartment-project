@@ -62,3 +62,9 @@
     font-size: $font-size-large;
   }
 }
+
+@mixin slider-border-radius {
+  border-radius: $radius-small !important;
+  border-top-left-radius: $radius-main !important;
+  border-top-right-radius: $radius-main !important;
+}

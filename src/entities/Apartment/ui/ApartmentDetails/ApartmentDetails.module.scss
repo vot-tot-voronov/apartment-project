@@ -1,7 +1,23 @@
 @import '@styles/global';
+@import '@styles/mixins';
 
 .details {
   display: flex;
   flex-direction: column;
   row-gap: $margin-main;
+
+  .backBtn {
+    @include flex-a-j-center;
+
+    width: auto;
+    padding: $margin-xs $margin-main;
+    margin-bottom: $margin-main;
+
+    & > svg {
+      transform: rotate(90deg);
+      color: $black;
+      width: 25px;
+      height: 25px;
+    }
+  }
 }

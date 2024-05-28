@@ -11,9 +11,7 @@
 
   .slider {
     * {
-      border-radius: $radius-small !important;
-      border-top-left-radius: $radius-main !important;
-      border-top-right-radius: $radius-main !important;
+      @include slider-border-radius;
     }
   }
 

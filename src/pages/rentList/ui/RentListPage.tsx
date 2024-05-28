@@ -41,7 +41,7 @@ const RentListPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-  const renderContet = () => {
+  const renderContent = () => {
     if (error) {
       return (
         <Container className={classes.stateContainer}>
@@ -56,7 +56,7 @@ const RentListPage = () => {
   return (
     <Container>
       <RentListFilter />
-      <PagePaginate onScrollBottom={() => handleLoadNextPart()}>{renderContet()}</PagePaginate>
+      <PagePaginate onScrollBottom={() => handleLoadNextPart()}>{renderContent()}</PagePaginate>
     </Container>
   );
 };

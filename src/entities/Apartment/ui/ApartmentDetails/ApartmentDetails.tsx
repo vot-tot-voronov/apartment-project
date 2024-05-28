@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { AboutInfo } from '../AboutInfo/AboutInfo';
 import { ConditionsAndFacilities } from '../ConditionsAndFacilities/ConditionsAndFacilities';
 import { Description } from '../Description/Description';
@@ -7,7 +9,8 @@ import { ApartmentImgSlider } from '../ApartmentImgSlider/ApartmentImgSlider';
 import { prepareShortInfoData, getDataInfoList } from '../../lib/utils';
 import classes from './ApartmentDetails.module.scss';
 
-import { Container } from '@/shared/ui';
+import { Button, ButtonThemeEnum, Container } from '@/shared/ui';
+import { ArrowIcon } from '@/shared/assets/icons';
 
 interface IApartmentDetailsProps {
   data: ApartmentItemType;
@@ -16,9 +19,19 @@ interface IApartmentDetailsProps {
 export const ApartmentDetails = (props: IApartmentDetailsProps) => {
   const { data } = props;
 
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={classes.details}>
       <Container>
+        <Button theme={ButtonThemeEnum.SECONDARY} onClick={handleGoBack} className={classes.backBtn}>
+          <ArrowIcon />
+          <span>Назад</span>
+        </Button>
         <ApartmentImgSlider images={data.images} />
         <ShortInfo info={prepareShortInfoData(data)} />
       </Container>
