@@ -53,6 +53,7 @@ export const RentListFilter = () => {
   const submitHandler: SubmitHandler<RentListFilterFormType> = async data => {
     const params = mapFilterToSearchParams(data);
     setSearchParams(params);
+    dispatch(rentListActons.setPage(1));
     await dispatch(getRentList({ queryString: params, replace: true }));
   };
 

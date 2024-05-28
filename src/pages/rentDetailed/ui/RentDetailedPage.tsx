@@ -10,10 +10,10 @@ import {
   getRentApartmentById,
   getRentApartmentError,
   getRentApartmentSlice,
-} from '@/features/RentApartment/getRentApartment';
+} from '@/features/RentApartment/RentDetails/getRentApartment';
 import { rootReducer } from '@/app/providers/storeProvider';
 import { Container, Loader } from '@/shared/ui';
-import { RentRequestForm } from '@/features/RentApartment/sendRentRequest';
+import { RentRequestForm } from '@/features/RentApartment/RentDetails/sendRentRequest';
 
 const RentDetailedPage = () => {
   const dispatch = useAppDispatch();

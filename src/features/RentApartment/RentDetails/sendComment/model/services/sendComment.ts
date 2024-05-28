@@ -3,8 +3,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IThunkConfig } from '@/app/providers/storeProvider';
 import { CommentItemType } from '@/entities/Comment';
 import { getUserData } from '@/entities/User';
-import { getRentApartmentData } from '@/features/RentApartment/getRentApartment';
-import { getCommentsRent } from '@/features/RentApartment/getComments';
+import { getRentApartmentData } from '@/features/RentApartment/RentDetails/getRentApartment';
+import { getCommentsRent } from '@/features/RentApartment/RentDetails/getComments';
 
 export const sendComment = createAsyncThunk<CommentItemType, string, IThunkConfig<string>>(
   'sendComment',

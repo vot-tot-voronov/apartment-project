@@ -5,13 +5,17 @@ import { useParams } from 'react-router-dom';
 import classes from './RentApartmentDetails.module.scss';
 
 import { ApartmentDetails } from '@/entities/Apartment';
-import { getRentApartmentData } from '@/features/RentApartment/getRentApartment';
+import { getRentApartmentData } from '@/features/RentApartment/RentDetails/getRentApartment';
 import { CommentList } from '@/entities/Comment';
 import { rootReducer } from '@/app/providers/storeProvider';
-import { getCommentsRent, getCommentsRentSlice, getRentComments } from '@/features/RentApartment/getComments';
-import { getCommentsRentError } from '@/features/RentApartment/getComments/model/selectors/getCommentsRentSelectors';
+import {
+  getCommentsRent,
+  getCommentsRentSlice,
+  getRentComments,
+} from '@/features/RentApartment/RentDetails/getComments';
+import { getCommentsRentError } from '@/features/RentApartment/RentDetails/getComments/model/selectors/getCommentsRentSelectors';
 import { useAppDispatch } from '@/shared/hooks';
-import { SendComment } from '@/features/RentApartment/sendComment';
+import { SendComment } from '@/features/RentApartment/RentDetails/sendComment';
 
 export const RentApartmentDetails = () => {
   const { id: apartmentId } = useParams<{ id: string }>();
