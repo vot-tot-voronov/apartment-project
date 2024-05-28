@@ -13,9 +13,9 @@ import {
   getRentListApartment,
   getRentListErrorSelector,
   getRentListSlice,
-} from '@/features/RentApartment/getRentList';
+} from '@/features/RentApartment/RentList/getRentList';
 import { useAppDispatch } from '@/shared/hooks';
-import { RentListFilter } from '@/features/RentApartment/rentListFilter';
+import { RentListFilter } from '@/features/RentApartment/RentList/rentListFilter';
 import { PagePaginate } from '@/widgets/PagePaginate';
 
 const RentListPage = () => {

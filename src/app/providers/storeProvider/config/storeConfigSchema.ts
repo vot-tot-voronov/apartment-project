@@ -5,10 +5,10 @@ import { AppDispatchType, RootStateType } from './store';
 import { IUserSchema } from '@/entities/User';
 import { ILoginFormSchema } from '@/features/loginByUsername';
 import { IProfileCardSchema } from '@/features/getEditProfile';
-import { IRentApartmentSchema } from '@/features/RentApartment/getRentApartment';
-import { ICommentsRentSchema } from '@/features/RentApartment/getComments';
-import { ISendCommentSchema } from '@/features/RentApartment/sendComment';
-import { IRentListSchema } from '@/features/RentApartment/getRentList';
+import { IRentApartmentSchema } from '@/features/RentApartment/RentDetails/getRentApartment';
+import { ICommentsRentSchema } from '@/features/RentApartment/RentDetails/getComments';
+import { ISendCommentSchema } from '@/features/RentApartment/RentDetails/sendComment';
+import { IRentListSchema } from '@/features/RentApartment/RentList/getRentList';
 
 export interface ISyncSliсesSchema {
   user: IUserSchema;

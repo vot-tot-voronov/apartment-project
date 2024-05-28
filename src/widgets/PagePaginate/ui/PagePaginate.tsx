@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import clsx from 'clsx';
 
 import { useInfiniteScroll } from '@/shared/hooks';
@@ -10,7 +10,7 @@ interface IPagePaginateProps {
 }
 
 export const PagePaginate = ({ className, children, onScrollBottom }: IPagePaginateProps) => {
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   useInfiniteScroll({
     triggerRef,

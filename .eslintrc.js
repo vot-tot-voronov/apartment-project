@@ -75,15 +75,16 @@ module.exports = {
         format: ['PascalCase'],
         prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
       },
-      {
-        selector: 'typeParameter',
-        format: ['PascalCase'],
-        prefix: ['T'],
-      },
+
       {
         selector: 'typeLike',
         format: ['PascalCase'],
         suffix: ['T', 'Type'],
+      },
+      {
+        selector: 'typeParameter',
+        format: ['PascalCase'],
+        prefix: ['T', 'K'],
       },
       {
         selector: 'interface',
@@ -100,24 +101,6 @@ module.exports = {
         format: ['UPPER_CASE'],
       },
     ],
-    // 'i18next/no-literal-string': [
-    //   'warn',
-    //   {
-    //     markupOnly: true,
-    //     ignoreAttribute: [
-    //       'as',
-    //       'role',
-    //       'data-testid',
-    //       'to',
-    //       'target',
-    //       'justify',
-    //       'align',
-    //       'border',
-    //       'direction',
-    //       'gap',
-    //     ],
-    //   },
-    // ],
     'linebreak-style': ['error', 'unix'],
     'max-len': [
       'error',
