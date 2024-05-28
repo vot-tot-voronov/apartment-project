@@ -1,21 +1,26 @@
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { LoginFormAsync as LoginForm } from '../LoginForm/LoginFormAsync';
 import classes from './LoginModal.module.scss';
 
 import { Modal } from '@/shared/ui';
+import { ModalQueryValuesEnum, ModalTypeEnum } from '@/shared/types';
 
 export const LoginModal = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const [, setSearchParams] = useSearchParams();
 
   const handleClose = () => {
-    navigate(location.pathname);
+    navigate(-1);
   };
 
   return (
     <Modal title="Авторизация" onBack={handleClose} asyncContent className={classes.modal}>
-      <LoginForm onClose={handleClose} />
+      <LoginForm
+        onClose={() => {
+          setSearchParams(`${ModalTypeEnum.LOGIN}=${ModalQueryValuesEnum.LOGIN}`);
+        }}
+      />
     </Modal>
   );
 };
