@@ -45,7 +45,7 @@ export const ProfileFormSchema = z.object({
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(1, { message: ErrorMessagesEnum.REQUIRED })
     .regex(RegExps.PHONE, {
-      message: 'Введите номер телефона в формате 8 XXX XXX-XX-XX',
+      message: ErrorMessagesEnum.PHONE,
     }),
 });
 

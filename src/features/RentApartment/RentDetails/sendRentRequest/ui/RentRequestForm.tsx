@@ -6,12 +6,19 @@ import { RentRequestFormSchema, RentRequestFormType } from '../model/types/sendR
 import classes from './RentRequestForm.module.scss';
 
 import { Button, Form, TextInput } from '@/shared/ui';
+import { masks } from '@/shared/lib';
 
 enum RentRequestFieldEnum {
   NAME = 'name',
   EMAIL = 'email',
   PHONE = 'phone',
 }
+
+const defaultFormValues: RentRequestFormType = {
+  name: '',
+  email: '',
+  phone: '',
+};
 
 export const RentRequestForm = memo(function RentRequestFormComponent() {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +30,10 @@ export const RentRequestForm = memo(function RentRequestFormComponent() {
     formState: {
       errors: { name, email, phone },
     },
-  } = useForm<RentRequestFormType>({ resolver: zodResolver(RentRequestFormSchema) });
+  } = useForm<RentRequestFormType>({
+    resolver: zodResolver(RentRequestFormSchema),
+    defaultValues: { ...defaultFormValues },
+  });
 
   const onSendRentRequest: SubmitHandler<RentRequestFormType> = async data => {
     setIsLoading(true);
@@ -66,6 +76,7 @@ export const RentRequestForm = memo(function RentRequestFormComponent() {
         name={RentRequestFieldEnum.PHONE}
         control={control}
         isDisabled={isLoading}
+        onChangeHandler={masks.phoneMask.onChange}
         error={phone?.message}
         placeholder="Телефон"
       />
