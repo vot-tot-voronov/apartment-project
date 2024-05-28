@@ -16,15 +16,22 @@ interface ILoginFormProps {
   onClose: () => void;
 }
 
+const defaultFormValues: LoginFormType = {
+  username: '',
+  password: '',
+};
+
 const LoginForm = ({ onClose }: ILoginFormProps) => {
   const dispatch = useAppDispatch();
+
   const {
     control,
     handleSubmit,
     formState: {
       errors: { username, password },
     },
-  } = useForm<LoginFormType>({ resolver: zodResolver(LoginFormSchema) });
+  } = useForm<LoginFormType>({ resolver: zodResolver(LoginFormSchema), defaultValues: { ...defaultFormValues } });
+
   const {
     selectors: { getIsLoading },
   } = useMemo(() => {
@@ -53,6 +60,7 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
         <TextInput
           name={LoginFieldEnum.PASSWORD}
           control={control}
+          type="password"
           isDisabled={isLoading}
           placeholder="Пароль"
           error={password?.message}

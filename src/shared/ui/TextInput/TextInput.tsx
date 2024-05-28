@@ -30,6 +30,7 @@ export const TextInput = <T extends FieldValues>(props: InputPropsType<T>) => {
     control,
     rules,
     shouldUnregister,
+    type,
     onChangeHandler,
   } = props;
   const {
@@ -60,7 +61,7 @@ export const TextInput = <T extends FieldValues>(props: InputPropsType<T>) => {
         }}
         required={isRequired}
         onBlur={onBlur}
-        type="text"
+        type={type ?? 'text'}
         name={name}
         disabled={isDisabled}
       />
