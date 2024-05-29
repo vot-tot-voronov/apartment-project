@@ -45,7 +45,6 @@ export const getRentListSlice = createSlice({
       })
       .addCase(getRentList.fulfilled, (state, action) => {
         state.isLoading = false;
-        rentListApartmentAdapter.addMany(state, action.payload);
         state.hasMore = action.payload.length >= state.limit;
 
         if (action.meta.arg.replace) {
