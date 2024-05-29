@@ -13,7 +13,7 @@ import { useAppDispatch } from '@/shared/hooks';
 import { rootReducer } from '@/app/providers/storeProvider';
 
 interface ILoginFormProps {
-  onClose: () => void;
+  onCloseSuccess: () => void;
 }
 
 const defaultFormValues: LoginFormType = {
@@ -21,7 +21,7 @@ const defaultFormValues: LoginFormType = {
   password: '',
 };
 
-const LoginForm = ({ onClose }: ILoginFormProps) => {
+const LoginForm = ({ onCloseSuccess }: ILoginFormProps) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -43,7 +43,7 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
   const onSubmit: SubmitHandler<LoginFormType> = async data => {
     const result = await dispatch(loginByUsername(data));
     if (result.meta.requestStatus === 'fulfilled') {
-      onClose();
+      onCloseSuccess();
     }
   };
 

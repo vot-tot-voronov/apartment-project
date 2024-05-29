@@ -23,6 +23,15 @@ const options = [
   { value: '2', label: 'Республика Саха' },
 ];
 
+const defaultFormValues: ProfileFormType = {
+  name: '',
+  surname: '',
+  region: null,
+  city: '',
+  middleName: '',
+  phone: '',
+};
+
 export const ProfileForm = ({
   defaultData,
   onSubmit,
@@ -39,7 +48,7 @@ export const ProfileForm = ({
       errors: { surname, name, middleName, region, city, phone },
     },
   } = useForm<ProfileFormType>({
-    values: defaultData,
+    values: { ...defaultFormValues, ...defaultData },
     resolver: zodResolver(ProfileFormSchema),
   });
 

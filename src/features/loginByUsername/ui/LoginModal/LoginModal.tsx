@@ -14,13 +14,11 @@ export const LoginModal = () => {
     navigate(-1);
   };
 
+  const handleOnSuccess = () => setSearchParams(`${ModalTypeEnum.LOGIN}=${ModalQueryValuesEnum.LOGIN}`);
+
   return (
     <Modal title="Авторизация" onBack={handleClose} asyncContent className={classes.modal}>
-      <LoginForm
-        onClose={() => {
-          setSearchParams(`${ModalTypeEnum.LOGIN}=${ModalQueryValuesEnum.LOGIN}`);
-        }}
-      />
+      <LoginForm onCloseSuccess={handleOnSuccess} />
     </Modal>
   );
 };

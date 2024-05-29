@@ -9,6 +9,7 @@ import { IRentApartmentSchema } from '@/features/RentApartment/RentDetails/getRe
 import { ICommentsRentSchema } from '@/features/RentApartment/RentDetails/getComments';
 import { ISendCommentSchema } from '@/features/RentApartment/RentDetails/sendComment';
 import { IRentListSchema } from '@/features/RentApartment/RentList/getRentList';
+import { ISignInSchema } from '@/features/createNewUser';
 
 export interface ISyncSliсesSchema {
   user: IUserSchema;
@@ -21,6 +22,7 @@ export interface ILazyLoadedSlicesSchema {
   getCommentsRentSlice: ICommentsRentSchema;
   sendCommentSlice: ISendCommentSchema;
   getRentListSlice: IRentListSchema;
+  createNewUserSlice: ISignInSchema;
 }
 
 export interface IThunkExtraArg {
