@@ -1,10 +1,11 @@
 export enum ModalTypeEnum {
   LOGIN = 'login',
-  SIGN_IN = 'sing_in',
+  SIGN_IN = 'sign_in',
 }
 
 export enum ModalQueryValuesEnum {
-  LOGIN = 'true',
+  LOGIN = 'open',
+  SIGN_IN = 'open',
 }
 
 export type ModalViaQueryParamType = {
