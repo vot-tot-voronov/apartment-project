@@ -12,6 +12,7 @@ import {
   getRentList,
   getRentListApartment,
   getRentListErrorSelector,
+  getRentListPageCount,
   getRentListSlice,
 } from '@/features/RentApartment/RentList/getRentList';
 import { useAppDispatch } from '@/shared/hooks';
@@ -31,13 +32,14 @@ const RentListPage = () => {
   const rentList = useSelector(getRentListApartment.selectAll);
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getRentListErrorSelector);
+  const page = useSelector(getRentListPageCount);
 
   const handleLoadNextPart = useCallback(() => {
     dispatch(getNextRentListData(searchParams.toString()));
   }, [dispatch, searchParams]);
 
   useEffect(() => {
-    dispatch(getRentList({ queryString: searchParams.toString() }));
+    dispatch(getRentList({ queryString: searchParams.toString(), page }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
