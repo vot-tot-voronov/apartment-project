@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { ErrorMessagesEnum, RegExps } from '@/shared/constants';
 
-export const SignInFormSchema = z.object({
+export const SignInFormObjectSchema = z.object({
   username: z
     .string({ required_error: ErrorMessagesEnum.REQUIRED })
     .min(4, { message: 'Логин пользователя должен содержать не менее 4 букв' })
@@ -38,8 +38,13 @@ export const SignInFormSchema = z.object({
     }),
 });
 
+export const SignInFormSchema = SignInFormObjectSchema.refine(data => data.password === data.confirmedPassword, {
+  message: ErrorMessagesEnum.CONFIRMED_PASSWORD,
+  path: ['confirmedPassword'],
+});
+
 export type SignInFormType = z.infer<typeof SignInFormSchema>;
-export const SignInFieldsEnum = SignInFormSchema.keyof().Enum;
+export const SignInFieldsEnum = SignInFormObjectSchema.keyof().Enum;
 
 export interface ISignInSchema {
   isLoading: boolean;

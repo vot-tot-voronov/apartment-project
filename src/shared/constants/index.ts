@@ -8,6 +8,7 @@ export enum ErrorMessagesEnum {
   PHONE = 'Введите номер телефона в формате 8 XXX XXX-XX-XX',
   EMAIL = 'Введите email в формате xxx@xxx.xx',
   PASSWORD = 'Пароль должен содержать латинские строчные и заглавные буквы, цифры, спецсимволы',
+  CONFIRMED_PASSWORD = 'Пароли должны совпадать',
 }
 
 export const RegExps = {
