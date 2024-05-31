@@ -13,7 +13,6 @@ export const SignInModal = () => {
   const handleClose = () => {
     navigate(-1);
   };
-
   const handleOnSuccess = () => setSearchParams(`${ModalTypeEnum.SIGN_IN}=${ModalQueryValuesEnum.SIGN_IN}`);
 
   return (
