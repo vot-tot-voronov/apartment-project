@@ -53,12 +53,12 @@ export enum AboutInfoIconsEnum {
   GARBAGE_CHUTE,
 }
 
-const ApartmentAboutSchema = ApartmentShortInfoSchema.extend({
+export const ApartmentAboutSchema = ApartmentShortInfoSchema.extend({
   type: z.nativeEnum(ApartmentTypeEnum),
   rooms: z.number(),
   city: z.string(),
   adress: z.string(),
-  renovation: z.string(),
+  renovation: z.nativeEnum(ApartmentRonvationEnum),
   balcony: z.string(),
   prepayment: z.string(),
   viewFromWindow: z.string(),
@@ -80,7 +80,7 @@ const ConditionsAndFacilitiesSchema = z.object({
 
 export type ConditionsAndFacilitiesType = z.infer<typeof ConditionsAndFacilitiesSchema>;
 
-const ApartmentItemSchema = z.object({
+export const ApartmentItemSchema = z.object({
   id: z.string(),
   images: z.array(z.string()),
   pricePerMonth: z.number(),

@@ -1,0 +1,33 @@
+@import '@styles/global';
+
+.tabs {
+  display: flex;
+  column-gap: $margin-main;
+
+  .tab {
+    height: 60px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease-in;
+
+    &:hover:not(.acitve) {
+      border-bottom-color: $grey;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      height: inherit;
+      color: $dark;
+      cursor: pointer;
+    }
+
+    .disabled {
+      pointer-events: none;
+      color: $grey;
+    }
+  }
+
+  .acitve {
+    border-bottom-color: $white-dark;
+  }
+}

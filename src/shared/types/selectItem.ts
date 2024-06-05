@@ -1,8 +1,12 @@
 import { z } from 'zod';
 
-export const SelectItemSchema = z.object({
-  value: z.string(),
-  label: z.string(),
-});
+export const SelectItemSchemaGeneric = <T extends z.ZodTypeAny>(valueSchema: T) => {
+  return z.object({
+    value: valueSchema,
+    label: z.string(),
+  });
+};
 
-export type SelectItemType = z.infer<typeof SelectItemSchema>;
+export const SelectItemStringSchema = SelectItemSchemaGeneric(z.string());
+
+export type SelectItemStringType = z.infer<typeof SelectItemStringSchema>;
