@@ -6,9 +6,15 @@ import { AppRoutePropsType } from '@/shared/config/routeConfig/routeConfig';
 
 type RouteCreatorType = Record<string, AppRoutePropsType>;
 
-export const routeCreator = (routeConfig: RouteCreatorType): Array<RouteObject> => {
-  return Object.values(routeConfig).map(({ path, element, isAuthOnly }) => ({
+const mapRoutes = (routes: Array<AppRoutePropsType>): Array<RouteObject> => {
+  return routes.map(({ path, element, isAuthOnly, nested, loader }) => ({
+    loader,
     path,
     element: isAuthOnly ? <ProtectedRoute>{element}</ProtectedRoute> : element,
+    children: nested?.length ? mapRoutes(nested) : undefined,
   }));
+};
+
+export const routeCreator = (routeConfig: RouteCreatorType): Array<RouteObject> => {
+  return mapRoutes(Object.values(routeConfig));
 };

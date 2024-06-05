@@ -9,6 +9,7 @@ export enum ErrorMessagesEnum {
   EMAIL = 'Введите email в формате xxx@xxx.xx',
   PASSWORD = 'Пароль должен содержать латинские строчные и заглавные буквы, цифры, спецсимволы',
   CONFIRMED_PASSWORD = 'Пароли должны совпадать',
+  DIGITS = 'Допустимы только цифры',
 }
 
 export const RegExps = {

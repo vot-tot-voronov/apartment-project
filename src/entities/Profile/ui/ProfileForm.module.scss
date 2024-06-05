@@ -2,8 +2,6 @@
 @import '@styles/mixins';
 
 .container {
-  min-height: 80vh;
-
   &.center {
     @include flex-a-j-center;
   }

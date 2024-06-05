@@ -29,7 +29,7 @@ export const SendComment = memo(function SendCommentButton({ className }: ISendC
     formState: {
       errors: { text },
     },
-  } = useForm<SendCommentFormType>({ resolver: zodResolver(SendCommentFormSchema) });
+  } = useForm<SendCommentFormType>({ resolver: zodResolver(SendCommentFormSchema), defaultValues: { text: '' } });
 
   const {
     selectors: { getIsLoading },

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { SelectItemSchema } from '@/shared/types';
+import { SelectItemStringSchema } from '@/shared/types';
 import { ErrorMessagesEnum, RegExps } from '@/shared/constants';
 
 export enum ProfileFieldsEnum {
@@ -33,7 +33,7 @@ export const ProfileFormSchema = z.object({
     ])
     .optional()
     .transform(e => (e === '' ? undefined : e)),
-  region: SelectItemSchema.nullable(),
+  region: SelectItemStringSchema.nullable(),
   city: z
     .union([
       z.string().regex(RegExps.RUSSIAN_ALPHABET, { message: ErrorMessagesEnum.RUSSIAN_ALPHABET }),

@@ -1,0 +1,9 @@
+@import '@styles/global';
+
+.container {
+  min-height: 80vh;
+
+  .actions {
+    margin-top: $margin-main;
+  }
+}

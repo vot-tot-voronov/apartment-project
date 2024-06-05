@@ -39,7 +39,7 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
-    if (req.method !== 'POST' && req.url !== '/users') {
+    if ((req.url.includes('/rent') && req.method !== 'GET') || (req.url.includes('/users') && req.method !== 'POST')) {
       return res.status(403).json({ message: 'AUTH ERROR' });
     }
   }
