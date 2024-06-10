@@ -24,13 +24,21 @@ const ProfilePage = () => {
 
   return (
     <Container className={classes.container}>
-      <ProfileCard id={id} />
       <div className={classes.actions}>
         <h2>Действия с недвижимостью</h2>
-        <AppLink to={getRouteNewRentApartment('ABOUT')}>Аренда</AppLink>
-        <AppLink to={getRouteNewRentApartment('ABOUT')}>Покупка</AppLink>
-        <AppLink to={getRouteNewRentApartment('ABOUT')}>Продажа</AppLink>
+        <div className={classes.links}>
+          <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
+            Аренда
+          </AppLink>
+          <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
+            Покупка
+          </AppLink>
+          <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
+            Продажа
+          </AppLink>
+        </div>
       </div>
+      <ProfileCard id={id} />
     </Container>
   );
 };

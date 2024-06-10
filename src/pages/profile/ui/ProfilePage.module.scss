@@ -1,9 +1,33 @@
 @import '@styles/global';
+@import '@styles/mixins';
 
 .container {
   min-height: 80vh;
 
   .actions {
-    margin-top: $margin-main;
+    & > h2 {
+      text-align: center;
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-around;
+      margin: 9vh 0;
+
+      .link {
+        display: block;
+        padding: $margin-xl;
+        background-color: $dark;
+        color: $white;
+        border-radius: $radius-small;
+        transition: 0.3s background-color ease-out;
+        box-shadow: -10px 10px 0 0 $orange;
+        font-size: $font-size-large;
+
+        &:hover {
+          background-color: $white-dark;
+        }
+      }
+    }
   }
 }
