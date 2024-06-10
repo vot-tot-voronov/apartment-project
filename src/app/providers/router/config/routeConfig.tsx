@@ -3,6 +3,12 @@ import {
   MainRoutePaths,
   AppRoutePropsType,
   getRouteNewRentApartment,
+  getRouteMain,
+  getRouteBuyList,
+  getRouteSellList,
+  getRouteRentList,
+  getRouteRentDetailed,
+  getRouteProfile,
 } from '@/shared/config/routeConfig/routeConfig';
 import { MainPage } from '@/pages/main';
 import { BuyPage } from '@/pages/buy';
@@ -17,24 +23,24 @@ import { AboutForm, ConditionsForm, FacilitiesForm } from '@/features/createNewA
 
 export const mainRouteConfig: Record<MainRoutesEnum, AppRoutePropsType> = {
   [MainRoutesEnum.MAIN]: {
-    path: MainRoutePaths[MainRoutesEnum.MAIN],
+    path: getRouteMain(),
     element: <MainPage />,
   },
-  [MainRoutesEnum.BUY]: { path: MainRoutePaths[MainRoutesEnum.BUY], element: <BuyPage /> },
-  [MainRoutesEnum.SELL]: {
-    path: MainRoutePaths[MainRoutesEnum.SELL],
+  [MainRoutesEnum.BUY_LIST]: { path: getRouteBuyList(), element: <BuyPage /> },
+  [MainRoutesEnum.SELL_LIST]: {
+    path: getRouteSellList(),
     element: <SellPage />,
   },
   [MainRoutesEnum.RENT_LIST]: {
-    path: MainRoutePaths[MainRoutesEnum.RENT_LIST],
+    path: getRouteRentList(),
     element: <RentListPage />,
   },
   [MainRoutesEnum.RENT_DETAILED]: {
-    path: MainRoutePaths[MainRoutesEnum.RENT_DETAILED],
+    path: getRouteRentDetailed(':id'),
     element: <RentDetailedPage />,
   },
   [MainRoutesEnum.PROFILE]: {
-    path: MainRoutePaths[MainRoutesEnum.PROFILE],
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     isAuthOnly: true,
   },

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import classes from './Navbar.module.scss';
 
-import { MainRoutePaths, MainRoutesEnum, getRouteProfile } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteProfile, getRouteRentList } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink, Button } from '@/shared/ui';
 import { ModalQueryValuesEnum, ModalTypeEnum } from '@/shared/types';
 import { getUserData, userActions } from '@/entities/User';
@@ -19,15 +19,15 @@ interface ILinkArray {
 
 const linksArray: Array<ILinkArray> = [
   {
-    path: MainRoutePaths[MainRoutesEnum.BUY],
+    path: '#',
     element: 'Купить',
   },
   {
-    path: MainRoutePaths[MainRoutesEnum.SELL],
+    path: '#',
     element: 'Продать',
   },
   {
-    path: MainRoutePaths[MainRoutesEnum.RENT_LIST],
+    path: getRouteRentList(),
     element: 'Арендовать',
   },
 ];
@@ -41,7 +41,8 @@ export const Navbar = () => {
 
   const handelLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+    navigate(0);
+  }, [dispatch, navigate]);
 
   const handleSignIn = useCallback(() => {
     navigate({ search: `?${ModalTypeEnum.SIGN_IN}=${ModalQueryValuesEnum.SIGN_IN}` });
