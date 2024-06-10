@@ -15,3 +15,21 @@
     width: 100%;
   }
 }
+
+.notAuth {
+  display: flex;
+  flex-direction: column;
+  row-gap: $margin-main;
+  margin: $margin-main 0;
+
+  .text {
+    text-align: center;
+    font-size: $font-size-middle;
+  }
+
+  .authBtn {
+    width: 320px;
+
+    @include margin-auto;
+  }
+}

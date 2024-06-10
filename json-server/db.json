@@ -59,6 +59,12 @@
       "userId": "14fgNdJ",
       "text": "Классный дом! Отличный вид!",
       "id": "1LlHg5N"
+    },
+    {
+      "apartmentId": 2,
+      "userId": "pcMCFwU",
+      "text": "Прекрасная квартира!",
+      "id": "ToYjxzd"
     }
   ],
   "users": [
@@ -162,7 +168,11 @@
   "rent": [
     {
       "id": 1,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",
@@ -224,7 +234,10 @@
     },
     {
       "id": 2,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 32000,
       "views": 14,
       "updated": "12.05.2024",
@@ -287,7 +300,10 @@
     },
     {
       "id": 3,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 15000,
       "views": 84,
       "updated": "23.04.2024",
@@ -346,7 +362,10 @@
     },
     {
       "id": 4,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 18000,
       "views": 18,
       "updated": "23.05.2024",
@@ -409,7 +428,11 @@
     },
     {
       "id": 5,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 26000,
       "views": 62,
       "updated": "12.04.2024",
@@ -472,7 +495,10 @@
     },
     {
       "id": 6,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 53000,
       "views": 162,
       "updated": "12.04.2024",
@@ -535,7 +561,11 @@
     },
     {
       "id": 7,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 34000,
       "views": 77,
       "updated": "24.02.2024",
@@ -598,7 +628,11 @@
     },
     {
       "id": 8,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 44000,
       "views": 42,
       "updated": "12.03.2024",
@@ -660,7 +694,10 @@
     },
     {
       "id": 9,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 28000,
       "views": 14,
       "updated": "12.05.2024",
@@ -723,7 +760,10 @@
     },
     {
       "id": 10,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 18500,
       "views": 84,
       "updated": "23.04.2024",
@@ -782,7 +822,10 @@
     },
     {
       "id": 4,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 13700,
       "views": 18,
       "updated": "23.05.2024",
@@ -844,7 +887,10 @@
       }
     },
     {
-      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt2.jpg"
+      ],
       "views": 48,
       "updated": "2024.06.07",
       "pricePerMonth": 90000,
@@ -907,7 +953,10 @@
       "id": 13
     },
     {
-      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt2.jpg"
+      ],
       "views": 30,
       "updated": "2024.06.07",
       "pricePerMonth": 95000,
