@@ -9,10 +9,10 @@ interface IAppLink extends LinkProps {
 }
 
 export const AppLink = memo(function AppLinkComponent(props: PropsWithChildren<IAppLink>) {
-  const { className, to, children } = props;
+  const { className, to, children, replace: isReplace } = props;
 
   return (
-    <Link to={to} className={clsx(classes.appLink, className)}>
+    <Link to={to} className={clsx(classes.appLink, className)} replace={isReplace}>
       {children}
     </Link>
   );

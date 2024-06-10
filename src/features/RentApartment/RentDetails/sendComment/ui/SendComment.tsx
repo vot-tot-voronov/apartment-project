@@ -1,9 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 import { SendCommentFormSchema, SendCommentFormType } from '../model/types/sendCommentTypes';
 import { sendComment } from '../model/services/sendComment';
@@ -13,6 +14,8 @@ import classes from './SendComment.module.scss';
 import { Button, Form, TextInput } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/hooks';
 import { rootReducer } from '@/app/providers/storeProvider';
+import { getUserData } from '@/entities/User';
+import { ModalQueryValuesEnum, ModalTypeEnum } from '@/shared/types';
 
 const TEXT = 'text';
 
@@ -37,7 +40,10 @@ export const SendComment = memo(function SendCommentButton({ className }: ISendC
     return sendCommentSlice.injectInto(rootReducer);
   }, []);
 
+  const navigate = useNavigate();
+
   const isLoading = useSelector(getIsLoading);
+  const isAuth = useSelector(getUserData);
 
   const onSendComment: SubmitHandler<SendCommentFormType> = async ({ text }) => {
     const result = await dispatch(sendComment(text));
@@ -50,6 +56,21 @@ export const SendComment = memo(function SendCommentButton({ className }: ISendC
       toast.error('Не удалось отправить комментарий');
     }
   };
+
+  const handleLogIn = useCallback(() => {
+    navigate({ search: `?${ModalTypeEnum.LOGIN}=${ModalQueryValuesEnum.LOGIN}` });
+  }, [navigate]);
+
+  if (!isAuth) {
+    return (
+      <div className={classes.notAuth}>
+        <p className={classes.text}>Для того, чтобы оставлять комментарии, пожалуйста, авторизуйтесь в системе!</p>
+        <Button onClick={handleLogIn} className={classes.authBtn}>
+          Авторизоваться
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <Form onSubmit={handleSubmit(onSendComment)} className={clsx(classes.container, className)}>
