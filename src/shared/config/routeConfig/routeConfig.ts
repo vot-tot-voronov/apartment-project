@@ -2,8 +2,8 @@ import { RouteProps } from 'react-router-dom';
 
 export enum MainRoutesEnum {
   MAIN = 'main',
-  BUY = 'buy',
-  SELL = 'sell',
+  BUY_LIST = 'buy',
+  SELL_LIST = 'sell',
   RENT_LIST = 'rent',
   RENT_DETAILED = 'rent-detailed',
   PROFILE = 'profile',
@@ -13,8 +13,8 @@ export enum MainRoutesEnum {
 
 export const MainRoutePaths: Record<MainRoutesEnum, string> = {
   [MainRoutesEnum.MAIN]: '/',
-  [MainRoutesEnum.BUY]: '/buy',
-  [MainRoutesEnum.SELL]: '/sell',
+  [MainRoutesEnum.BUY_LIST]: '/buy',
+  [MainRoutesEnum.SELL_LIST]: '/sell',
   [MainRoutesEnum.RENT_LIST]: '/rent',
   [MainRoutesEnum.RENT_DETAILED]: `${MainRoutesEnum.RENT_LIST}/:id`,
   [MainRoutesEnum.PROFILE]: '/profile/:id',
@@ -44,6 +44,8 @@ export type AppRoutePropsType = ExtendedRoutePropsType & {
 
 export const getRouteMain = () => MainRoutePaths[MainRoutesEnum.MAIN];
 export const getRouteProfile = (id: string) => `/${MainRoutesEnum.PROFILE}/${id}`;
+export const getRouteBuyList = () => MainRoutePaths[MainRoutesEnum.BUY_LIST];
+export const getRouteSellList = () => MainRoutePaths[MainRoutesEnum.SELL_LIST];
 export const getRouteRentDetailed = (id: string) => `/${MainRoutesEnum.RENT_LIST}/${id}`;
 export const getRouteRentList = () => MainRoutePaths[MainRoutesEnum.RENT_LIST];
 export const getRouteNewRentApartment = (type: keyof typeof NewRentApartmentEnum) =>

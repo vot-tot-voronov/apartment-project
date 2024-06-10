@@ -23,7 +23,7 @@ h2 {
 }
 
 .loaderContainer {
-  @include flex-a-j-center;
+  @include state-container;
 }
 
 .boxContent {

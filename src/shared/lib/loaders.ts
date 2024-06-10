@@ -2,7 +2,14 @@ import { LoaderFunction, redirect, redirectDocument } from 'react-router-dom';
 
 import { ModalQueryValuesEnum, ModalTypeEnum } from '../types';
 import { USER_INFO_LOCALSTORAGE_KEY } from '../constants';
-import { MainRoutesEnum, getRouteNewRentApartment } from '../config/routeConfig/routeConfig';
+import {
+  MainRoutesEnum,
+  getRouteBuyList,
+  getRouteMain,
+  getRouteNewRentApartment,
+  getRouteRentList,
+  getRouteSellList,
+} from '../config/routeConfig/routeConfig';
 
 export const rootLoader: LoaderFunction = ({ request }) => {
   const queryParams = new URL(request.url).searchParams;
@@ -27,6 +34,10 @@ export const rootLoader: LoaderFunction = ({ request }) => {
     return {
       modalType: ModalTypeEnum.SIGN_IN,
     };
+  }
+
+  if (path === getRouteMain() || path === getRouteBuyList() || path === getRouteSellList()) {
+    return redirectDocument(getRouteRentList());
   }
 
   return null;
