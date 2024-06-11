@@ -3,7 +3,7 @@ import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 
 import { Navbar } from './Navbar';
 
-import { getRouteBuyList } from '@/shared/config/routeConfig/routeConfig';
+import { getRouteRentList } from '@/shared/config/routeConfig/routeConfig';
 import { StoreDecorator } from '@/shared/config/storybook/storeDecorator/StoreDecorator';
 
 export default {
@@ -11,7 +11,7 @@ export default {
   component: Navbar,
   parameters: {
     reactRouter: reactRouterParameters({
-      routing: { path: getRouteBuyList() },
+      routing: { path: getRouteRentList() },
     }),
   },
 } as Meta<typeof Navbar>;

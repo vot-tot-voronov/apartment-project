@@ -4,7 +4,7 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { RentRequestFormSchema, RentRequestFormType } from '../model/types/sendRentRequestTypes';
+import { RentRequestFormSchema, RentRequestFormType } from '../../model/types/sendRentRequestTypes';
 import classes from './RentRequestForm.module.scss';
 
 import { Button, Form, TextInput } from '@/shared/ui';
@@ -24,7 +24,7 @@ const defaultFormValues: RentRequestFormType = {
   phone: '',
 };
 
-export const RentRequestForm = memo(function RentRequestFormComponent() {
+const RentRequestForm = memo(function RentRequestFormComponent() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
@@ -108,3 +108,5 @@ export const RentRequestForm = memo(function RentRequestFormComponent() {
     </Form>
   );
 });
+
+export default RentRequestForm;
