@@ -45,8 +45,11 @@ export const Navbar = () => {
   }, [dispatch, navigate]);
 
   const handleSignIn = useCallback(() => {
-    navigate({ search: `?${ModalTypeEnum.SIGN_IN}=${ModalQueryValuesEnum.SIGN_IN}` });
-  }, [navigate]);
+    navigate(
+      { search: `?${ModalTypeEnum.SIGN_IN}=${ModalQueryValuesEnum.SIGN_IN}` },
+      { replace: true, state: { from: { pathname: location.pathname, search: location.search } } },
+    );
+  }, [navigate, location.pathname, location.search]);
 
   return (
     <div className={classes.navbar}>
@@ -87,6 +90,8 @@ export const Navbar = () => {
             <>
               <AppLink
                 to={{ search: `?${ModalTypeEnum.LOGIN}=${ModalQueryValuesEnum.LOGIN}` }}
+                state={{ from: { pathname: location.pathname, search: location.search } }}
+                replace
                 className={classes.login}
               >
                 Войти
