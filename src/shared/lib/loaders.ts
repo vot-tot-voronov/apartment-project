@@ -36,6 +36,15 @@ export const rootLoader: LoaderFunction = ({ request }) => {
     };
   }
 
+  if (
+    path === getRouteRentList() &&
+    queryParams.get(ModalTypeEnum.RENT_REQUEST) === ModalQueryValuesEnum.RENT_REQUEST
+  ) {
+    return {
+      modalType: ModalTypeEnum.RENT_REQUEST,
+    };
+  }
+
   if (path === getRouteMain() || path === getRouteBuyList() || path === getRouteSellList()) {
     return redirectDocument(getRouteRentList());
   }

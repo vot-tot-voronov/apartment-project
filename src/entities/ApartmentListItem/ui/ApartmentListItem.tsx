@@ -1,6 +1,6 @@
 import SimpleImageSlider from 'react-simple-image-slider';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './ApartmentListItem.module.scss';
 
@@ -9,6 +9,7 @@ import { useWidth } from '@/shared/hooks';
 import { Button, ButtonThemeEnum, TextCopy } from '@/shared/ui';
 import { getRouteRentDetailed } from '@/shared/config/routeConfig/routeConfig';
 import { getNoun } from '@/shared/lib';
+import { ModalQueryValuesEnum, ModalTypeEnum } from '@/shared/types';
 
 interface IApartmentListItemProps {
   item: ApartmentItemType;
@@ -18,11 +19,17 @@ export const ApartmentListItem = ({ item }: IApartmentListItemProps) => {
   const { images } = item;
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const ref = useRef<HTMLDivElement>(null);
   const width = useWidth(ref);
 
   const handleNavigate = () => navigate(getRouteRentDetailed(item.id));
+  const handleRentRequest = () =>
+    navigate(
+      { search: `?${ModalTypeEnum.RENT_REQUEST}=${ModalQueryValuesEnum.RENT_REQUEST}` },
+      { state: { from: { pathname: location.pathname, search: location.search } } },
+    );
 
   return (
     <div ref={ref} className={classes.container}>
@@ -59,7 +66,7 @@ export const ApartmentListItem = ({ item }: IApartmentListItemProps) => {
         </p>
         <div className={classes.buttons}>
           <Button onClick={handleNavigate}>Посмотреть</Button>
-          <Button onClick={() => console.info('Send')} theme={ButtonThemeEnum.SECONDARY}>
+          <Button onClick={handleRentRequest} theme={ButtonThemeEnum.SECONDARY}>
             Связаться
           </Button>
         </div>
