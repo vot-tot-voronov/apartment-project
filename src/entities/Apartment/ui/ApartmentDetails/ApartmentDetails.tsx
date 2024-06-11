@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 import { AboutInfo } from '../AboutInfo/AboutInfo';
 import { ConditionsAndFacilities } from '../ConditionsAndFacilities/ConditionsAndFacilities';
@@ -21,9 +22,9 @@ export const ApartmentDetails = (props: IApartmentDetailsProps) => {
 
   const navigate = useNavigate();
 
-  const handleGoBack = () => {
+  const handleGoBack = useCallback(() => {
     navigate(-1);
-  };
+  }, [navigate]);
 
   return (
     <div className={classes.details}>

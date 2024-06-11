@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 import classes from './RentRequestModal.module.scss';
 import { RentRequestFormAsync } from '../RentRequestForm/RentRequestFormAsync';
@@ -12,9 +13,9 @@ export const RentRequestModal = () => {
 
   const { from } = location.state || { from: { pathname: getRouteRentList() } };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     navigate(from, { replace: true, state: {} });
-  };
+  }, [navigate, from]);
 
   return (
     <Modal onBack={handleClose} asyncContent className={classes.modal}>

@@ -1,5 +1,5 @@
 import SimpleImageSlider from 'react-simple-image-slider';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './ApartmentListItem.module.scss';
@@ -24,12 +24,15 @@ export const ApartmentListItem = ({ item }: IApartmentListItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const width = useWidth(ref);
 
-  const handleNavigate = () => navigate(getRouteRentDetailed(item.id));
-  const handleRentRequest = () =>
+  const handleNavigate = useCallback(() => {
+    navigate(getRouteRentDetailed(item.id));
+  }, [navigate, item.id]);
+  const handleRentRequest = useCallback(() => {
     navigate(
       { search: `?${ModalTypeEnum.RENT_REQUEST}=${ModalQueryValuesEnum.RENT_REQUEST}` },
       { state: { from: { pathname: location.pathname, search: location.search } } },
     );
+  }, [navigate, location.pathname, location.search]);
 
   return (
     <div ref={ref} className={classes.container}>
