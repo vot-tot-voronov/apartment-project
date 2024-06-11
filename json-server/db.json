@@ -65,6 +65,12 @@
       "userId": "pcMCFwU",
       "text": "Прекрасная квартира!",
       "id": "ToYjxzd"
+    },
+    {
+      "apartmentId": 15,
+      "userId": "pcMCFwU",
+      "text": "Роскошная квартира! Потрясающий вид на море!",
+      "id": "bSgxP3Y"
     }
   ],
   "users": [
@@ -158,21 +164,19 @@
     {
       "name": "Пол",
       "surname": "Иванов",
-      "region": null,
-      "city": "",
-      "middleName": "",
-      "phone": "89566666666",
+      "region": {
+        "value": "1",
+        "label": "Краснодарский край"
+      },
+      "city": "Краснодар",
+      "phone": "89999999999",
       "id": "pcMCFwU"
     }
   ],
   "rent": [
     {
       "id": 1,
-      "images": [
-        "/images/apt1.jpg",
-        "/images/apt2.jpg",
-        "/images/apt3.jpg"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",
@@ -234,10 +238,7 @@
     },
     {
       "id": 2,
-      "images": [
-        "/images/apt3.jpg",
-        "/images/apt2.jpg"
-      ],
+      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
       "pricePerMonth": 32000,
       "views": 14,
       "updated": "12.05.2024",
@@ -300,10 +301,7 @@
     },
     {
       "id": 3,
-      "images": [
-        "/images/apt2.jpg",
-        "/images/apt1.jpg"
-      ],
+      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
       "pricePerMonth": 15000,
       "views": 84,
       "updated": "23.04.2024",
@@ -362,10 +360,7 @@
     },
     {
       "id": 4,
-      "images": [
-        "/images/apt1.jpg",
-        "/images/apt3.jpg"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 18000,
       "views": 18,
       "updated": "23.05.2024",
@@ -428,11 +423,7 @@
     },
     {
       "id": 5,
-      "images": [
-        "/images/apt3.jpg",
-        "/images/apt2.jpg",
-        "/images/apt1.jpg"
-      ],
+      "images": ["/images/apt3.jpg", "/images/apt2.jpg", "/images/apt1.jpg"],
       "pricePerMonth": 26000,
       "views": 62,
       "updated": "12.04.2024",
@@ -495,10 +486,7 @@
     },
     {
       "id": 6,
-      "images": [
-        "/images/apt2.jpg",
-        "/images/apt1.jpg"
-      ],
+      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
       "pricePerMonth": 53000,
       "views": 162,
       "updated": "12.04.2024",
@@ -561,11 +549,7 @@
     },
     {
       "id": 7,
-      "images": [
-        "/images/apt1.jpg",
-        "/images/apt3.jpg",
-        "/images/apt2.jpg"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt3.jpg", "/images/apt2.jpg"],
       "pricePerMonth": 34000,
       "views": 77,
       "updated": "24.02.2024",
@@ -628,11 +612,7 @@
     },
     {
       "id": 8,
-      "images": [
-        "/images/apt1.jpg",
-        "/images/apt2.jpg",
-        "/images/apt3.jpg"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 44000,
       "views": 42,
       "updated": "12.03.2024",
@@ -694,10 +674,7 @@
     },
     {
       "id": 9,
-      "images": [
-        "/images/apt3.jpg",
-        "/images/apt2.jpg"
-      ],
+      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
       "pricePerMonth": 28000,
       "views": 14,
       "updated": "12.05.2024",
@@ -760,10 +737,7 @@
     },
     {
       "id": 10,
-      "images": [
-        "/images/apt2.jpg",
-        "/images/apt1.jpg"
-      ],
+      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
       "pricePerMonth": 18500,
       "views": 84,
       "updated": "23.04.2024",
@@ -822,10 +796,7 @@
     },
     {
       "id": 4,
-      "images": [
-        "/images/apt1.jpg",
-        "/images/apt3.jpg"
-      ],
+      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
       "pricePerMonth": 13700,
       "views": 18,
       "updated": "23.05.2024",
@@ -887,10 +858,7 @@
       }
     },
     {
-      "images": [
-        "/images/apt2.jpg",
-        "/images/apt2.jpg"
-      ],
+      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
       "views": 48,
       "updated": "2024.06.07",
       "pricePerMonth": 90000,
@@ -953,10 +921,7 @@
       "id": 13
     },
     {
-      "images": [
-        "/images/apt2.jpg",
-        "/images/apt2.jpg"
-      ],
+      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
       "views": 30,
       "updated": "2024.06.07",
       "pricePerMonth": 95000,
@@ -1016,6 +981,69 @@
         "garbageChute": false
       },
       "id": 14
+    },
+    {
+      "images": ["/images/apt3.jpg", "/images/apt1.jpg"],
+      "views": 143,
+      "updated": "2024.06.11",
+      "pricePerMonth": 150000,
+      "description": "Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа систем массового участия. Значимость этих проблем настолько очевидна, что сложившаяся структура организации представляет собой интересный эксперимент проверки форм развития. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании новых предложений. Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует насущным потребностям.",
+      "conditionsAndFacilities": {
+        "conditions": [
+          {
+            "value": true,
+            "label": "Можно с детьми"
+          },
+          {
+            "value": false,
+            "label": "Нельзя с животными"
+          }
+        ],
+        "facilities": [
+          {
+            "value": true,
+            "label": "Мебель на кухне"
+          },
+          {
+            "value": true,
+            "label": "Мебель в комнатах"
+          },
+          {
+            "value": true,
+            "label": "Стиральная машина"
+          },
+          {
+            "value": false,
+            "label": "Холодильник"
+          },
+          {
+            "value": true,
+            "label": "Интернет"
+          },
+          {
+            "value": true,
+            "label": "Кондиционер"
+          }
+        ]
+      },
+      "about": {
+        "type": "flat",
+        "rooms": 4,
+        "builtYear": 2020,
+        "city": "Сочи",
+        "adress": "г. Сочи, ул. Моряков, дом 46-22",
+        "fullArea": 102,
+        "livingArea": 90,
+        "floor": 4,
+        "floors": 4,
+        "kitchenArea": 8,
+        "renovation": "Дизайнерский проект",
+        "balcony": "Есть",
+        "prepayment": "За три месяца вперёд",
+        "viewFromWindow": "На море",
+        "garbageChute": true
+      },
+      "id": 15
     }
   ]
 }

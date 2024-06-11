@@ -28,13 +28,10 @@ const ProfilePage = () => {
         <h2>Действия с недвижимостью</h2>
         <div className={classes.links}>
           <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
-            Аренда
+            Разместить жилье для сдачи в аренду
           </AppLink>
           <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
-            Покупка
-          </AppLink>
-          <AppLink to={getRouteNewRentApartment('ABOUT')} className={classes.link}>
-            Продажа
+            Разместить жилье для продажи
           </AppLink>
         </div>
       </div>

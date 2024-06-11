@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -10,6 +10,7 @@ import {
   FacilitiesFormKeysEnum,
   FacilitiesFormType,
   FacilitiesFormSchema,
+  AboutFormSchema,
 } from '../../model/types/createNewApartmentTypes';
 import { createNewApartmentActions, createNewApartmentSlice } from '../../model/slice/createNewApartmentSlice';
 import { mapNewApartmentData } from '../../model/lib';
@@ -59,6 +60,12 @@ export const FacilitiesForm = () => {
   };
 
   const handleGoBack = () => navigate(getRouteNewRentApartment('CONDITIONS'));
+
+  useEffect(() => {
+    if (!AboutFormSchema.safeParse(aboutFormData).success) {
+      navigate(getRouteNewRentApartment('ABOUT'), { replace: true });
+    }
+  }, [navigate, aboutFormData]);
 
   return (
     <Container className={classes.container}>

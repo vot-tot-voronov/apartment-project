@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import classes from './ConditionsForm.module.scss';
 import {
+  AboutFormSchema,
   ConditionsFormKeysEnum,
   ConditionsFormSchema,
   ConditionsFormType,
@@ -22,11 +23,12 @@ export const ConditionsForm = () => {
   const dispatch = useAppDispatch();
 
   const {
-    selectors: { getConditionsFormData, getIsLoading },
+    selectors: { getConditionsFormData, getAboutFormData, getIsLoading },
   } = useMemo(() => {
     return createNewApartmentSlice.injectInto(rootReducer);
   }, []);
 
+  const aboutFormData = useSelector(getAboutFormData);
   const conditionsFormData = useSelector(getConditionsFormData);
   const isLoading = useSelector(getIsLoading);
 
@@ -47,6 +49,12 @@ export const ConditionsForm = () => {
   useEffect(() => {
     dispatch(createNewApartmentActions.setCanStepToFacilities(false));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!AboutFormSchema.safeParse(aboutFormData).success) {
+      navigate(getRouteNewRentApartment('ABOUT'), { replace: true });
+    }
+  }, [navigate, aboutFormData]);
 
   return (
     <Container className={classes.container}>

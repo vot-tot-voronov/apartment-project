@@ -18,7 +18,7 @@ export const getRentList = createAsyncThunk<Array<ApartmentItemType>, IRentListS
 
     try {
       const response = await api.get<Array<ApartmentItemType>>(`/rent${queryString?.length ? `?${queryString}` : ''}`, {
-        params: { _page: page, _limit: limit },
+        params: { _page: page, _limit: limit, _sort: 'id', _order: 'desc' },
       });
 
       if (!response.data) {
