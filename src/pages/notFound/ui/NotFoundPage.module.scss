@@ -1,0 +1,25 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.container {
+  height: 80vh;
+
+  @include flex-a-j-center;
+  flex-direction: column;
+  row-gap: $margin-large;
+
+  .title {
+    font-size: 120px;
+    font-style: italic;
+  }
+
+  .text {
+    font-size: $font-size-xl;
+    font-style: italic;
+  }
+
+  .button {
+    font-size: $font-size-xl;
+    max-width: 480px;
+  }
+}
