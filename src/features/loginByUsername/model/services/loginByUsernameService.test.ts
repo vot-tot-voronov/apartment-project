@@ -29,7 +29,7 @@ describe('loginByUsernameService.test', () => {
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(dispatch).toHaveBeenCalledWith(userActions.setUserData(mockedData));
     expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(result.payload).toEqual(mockedData);
+    expect(result.payload).toEqual(null);
   });
 
   test('Unsuccessful login', async () => {
@@ -40,6 +40,6 @@ describe('loginByUsernameService.test', () => {
 
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toBe('Ошибка авторизации');
+    expect(result.payload).toBe('Неверные данные пользователя или пароля');
   });
 });

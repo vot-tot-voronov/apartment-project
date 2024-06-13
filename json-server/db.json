@@ -1,182 +1,41 @@
 {
   "comments": [
     {
-      "id": "1",
-      "text": "Задача организации, в особенности же постоянный количественный рост и сфера нашей активности играет важную роль в формировании модели развития",
-      "userId": "1",
-      "apartmentId": 1
-    },
-    {
-      "id": "2",
-      "text": "Равным образом новая модель организационной деятельности требуют определения и уточнения форм развития",
-      "userId": "2",
-      "apartmentId": 1
-    },
-    {
-      "apartmentId": 1,
-      "userId": "2",
-      "text": "Рост и сфера нашей активности играет важную роль в формировании модели развития",
-      "id": "IaAesKO"
-    },
-    {
-      "apartmentId": 2,
-      "userId": "2",
-      "text": "Отличная квартира! Адекватный арендодатель.",
-      "id": "aJ1HkhY"
-    },
-    {
-      "apartmentId": 4,
-      "userId": "2",
-      "text": "Отличная квартира, прекрасный район!",
-      "id": "mE-Khq5"
-    },
-    {
-      "apartmentId": 2,
-      "userId": "14fgNdJ",
-      "text": "Хороший район",
-      "id": "uS55FVu"
-    },
-    {
-      "apartmentId": 2,
-      "userId": "14fgNdJ",
-      "text": "Прекрасный вид!",
-      "id": "BuBeKF-"
-    },
-    {
-      "apartmentId": 11,
-      "userId": "14fgNdJ",
-      "text": "Прекрасный вид на море!",
-      "id": "iKdeNtt"
-    },
-    {
-      "apartmentId": 11,
-      "userId": "14fgNdJ",
-      "text": "Адекватный арендодатель",
-      "id": "PP5b81a"
-    },
-    {
-      "apartmentId": 13,
-      "userId": "14fgNdJ",
-      "text": "Классный дом! Отличный вид!",
-      "id": "1LlHg5N"
-    },
-    {
-      "apartmentId": 2,
-      "userId": "pcMCFwU",
-      "text": "Прекрасная квартира!",
-      "id": "ToYjxzd"
-    },
-    {
-      "apartmentId": 15,
-      "userId": "pcMCFwU",
-      "text": "Роскошная квартира! Потрясающий вид на море!",
-      "id": "bSgxP3Y"
+      "apartmentId": 14,
+      "userId": 1,
+      "text": "Прекрасные апартаменты с отличным видом из окна!",
+      "id": 1
     }
   ],
   "users": [
     {
-      "id": "1",
-      "username": "admin",
-      "password": "123qW!"
-    },
-    {
-      "id": "2",
-      "username": "Ivanov",
-      "password": "123qW!"
-    },
-    {
-      "username": "Sidorov",
-      "password": "321qW!",
-      "id": "hAsJdKD"
-    },
-    {
-      "username": "Petrov",
-      "password": "321qW!",
-      "id": "14fgNdJ"
-    },
-    {
-      "username": "Gregory",
-      "password": "321qW!",
-      "id": "CNQR5xU"
-    },
-    {
       "username": "Poul",
       "password": "123qW!",
-      "id": "pcMCFwU"
+      "id": 1
     }
   ],
   "profile": [
     {
-      "name": "Иван",
-      "surname": "Сидоров",
-      "region": {
-        "value": "1",
-        "label": "Краснодарский край"
-      },
-      "city": "Краснодар",
-      "phone": "89999999999",
-      "id": "1"
-    },
-    {
-      "name": "Пётр",
-      "surname": "Иванов",
-      "middleName": "Петрович",
-      "region": {
-        "value": "1",
-        "label": "Краснодарский край"
-      },
-      "city": "Краснодар",
-      "phone": "89999999999",
-      "id": "2"
-    },
-    {
-      "name": "Аркадий",
-      "surname": "Сидоров",
-      "middleName": "Петрович",
-      "region": {
-        "value": "1",
-        "label": "Краснодарский край"
-      },
-      "city": "Краснодар",
-      "phone": "89999999999",
-      "id": "hAsJdKD"
-    },
-    {
-      "name": "Игорь",
-      "surname": "Григоренко",
-      "region": {
-        "value": "2",
-        "label": "Республика Саха"
-      },
-      "city": "Якутск",
-      "phone": "87777777777",
-      "id": "14fgNdJ"
-    },
-    {
-      "name": "Григорий",
-      "surname": "Грегори",
-      "region": null,
-      "city": "",
-      "middleName": "",
-      "phone": "89995551111",
-      "id": "CNQR5xU"
-    },
-    {
       "name": "Пол",
       "surname": "Иванов",
+      "middleName": "Викторович",
       "region": {
         "value": "1",
         "label": "Краснодарский край"
       },
       "city": "Краснодар",
-      "phone": "89999999999",
-      "id": "pcMCFwU"
+      "phone": "89999991111",
+      "id": 1
     }
   ],
   "rent": [
     {
       "id": 1,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 20000,
       "views": 42,
       "updated": "12.03.2024",
@@ -238,7 +97,10 @@
     },
     {
       "id": 2,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 32000,
       "views": 14,
       "updated": "12.05.2024",
@@ -301,7 +163,10 @@
     },
     {
       "id": 3,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 15000,
       "views": 84,
       "updated": "23.04.2024",
@@ -360,7 +225,10 @@
     },
     {
       "id": 4,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 18000,
       "views": 18,
       "updated": "23.05.2024",
@@ -423,7 +291,11 @@
     },
     {
       "id": 5,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 26000,
       "views": 62,
       "updated": "12.04.2024",
@@ -486,7 +358,10 @@
     },
     {
       "id": 6,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 53000,
       "views": 162,
       "updated": "12.04.2024",
@@ -549,7 +424,11 @@
     },
     {
       "id": 7,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 34000,
       "views": 77,
       "updated": "24.02.2024",
@@ -612,7 +491,11 @@
     },
     {
       "id": 8,
-      "images": ["/images/apt1.jpg", "/images/apt2.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 44000,
       "views": 42,
       "updated": "12.03.2024",
@@ -674,7 +557,10 @@
     },
     {
       "id": 9,
-      "images": ["/images/apt3.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt2.jpg"
+      ],
       "pricePerMonth": 28000,
       "views": 14,
       "updated": "12.05.2024",
@@ -737,7 +623,10 @@
     },
     {
       "id": 10,
-      "images": ["/images/apt2.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt1.jpg"
+      ],
       "pricePerMonth": 18500,
       "views": 84,
       "updated": "23.04.2024",
@@ -796,7 +685,10 @@
     },
     {
       "id": 4,
-      "images": ["/images/apt1.jpg", "/images/apt3.jpg"],
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt3.jpg"
+      ],
       "pricePerMonth": 13700,
       "views": 18,
       "updated": "23.05.2024",
@@ -858,7 +750,10 @@
       }
     },
     {
-      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt2.jpg"
+      ],
       "views": 48,
       "updated": "2024.06.07",
       "pricePerMonth": 90000,
@@ -921,7 +816,10 @@
       "id": 13
     },
     {
-      "images": ["/images/apt2.jpg", "/images/apt2.jpg"],
+      "images": [
+        "/images/apt2.jpg",
+        "/images/apt2.jpg"
+      ],
       "views": 30,
       "updated": "2024.06.07",
       "pricePerMonth": 95000,
@@ -983,7 +881,10 @@
       "id": 14
     },
     {
-      "images": ["/images/apt3.jpg", "/images/apt1.jpg"],
+      "images": [
+        "/images/apt3.jpg",
+        "/images/apt1.jpg"
+      ],
       "views": 143,
       "updated": "2024.06.11",
       "pricePerMonth": 150000,
@@ -1044,6 +945,71 @@
         "garbageChute": true
       },
       "id": 15
+    },
+    {
+      "images": [
+        "/images/apt1.jpg",
+        "/images/apt2.jpg"
+      ],
+      "views": 22,
+      "updated": "2024.06.13",
+      "pricePerMonth": 120000,
+      "description": "Задача организации, в особенности же укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Разнообразный и богатый опыт реализация намеченных плановых заданий требуют от нас анализа систем массового участия.",
+      "conditionsAndFacilities": {
+        "conditions": [
+          {
+            "value": true,
+            "label": "Можно с детьми"
+          },
+          {
+            "value": false,
+            "label": "Нельзя с животными"
+          }
+        ],
+        "facilities": [
+          {
+            "value": true,
+            "label": "Мебель на кухне"
+          },
+          {
+            "value": true,
+            "label": "Мебель в комнатах"
+          },
+          {
+            "value": false,
+            "label": "Стиральная машина"
+          },
+          {
+            "value": false,
+            "label": "Холодильник"
+          },
+          {
+            "value": true,
+            "label": "Интернет"
+          },
+          {
+            "value": true,
+            "label": "Кондиционер"
+          }
+        ]
+      },
+      "about": {
+        "type": "flat",
+        "rooms": 4,
+        "builtYear": 2015,
+        "city": "Сочи",
+        "adress": "г. Сочи, ул. Набережная, дом 542",
+        "fullArea": 100,
+        "livingArea": 90,
+        "floors": 2,
+        "kitchenArea": 10,
+        "renovation": "Без ремонта",
+        "balcony": "Есть",
+        "prepayment": "За три месяца вперёд",
+        "viewFromWindow": "На море и горы",
+        "garbageChute": false
+      },
+      "id": 16
     }
   ]
 }

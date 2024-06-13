@@ -9,4 +9,8 @@
 
 .stateContainer {
   @include state-container;
+
+  .emptyTitle {
+    text-align: center;
+  }
 }

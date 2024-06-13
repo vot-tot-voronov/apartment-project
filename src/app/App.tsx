@@ -56,7 +56,6 @@ const Root = () => {
             </div>
           </Suspense>
         </main>
-        <footer>Footer</footer>
       </div>
       <div id="modalPortal" />
     </ErrorBoundary>
