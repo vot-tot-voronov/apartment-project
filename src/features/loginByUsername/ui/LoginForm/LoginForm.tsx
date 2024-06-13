@@ -1,11 +1,11 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import classes from './LoginForm.module.scss';
 import { LoginFormType, LoginFieldEnum, LoginFormSchema } from '../../model/types/loginByUsernameTypes';
-import { loginByUsernameSlice } from '../../model/slice/loginByUsernameSlice';
+import { logInActions, loginByUsernameSlice } from '../../model/slice/loginByUsernameSlice';
 import { loginByUsername } from '../../model/services/loginByUsernameService';
 
 import { Button, Form, TextInput } from '@/shared/ui';
@@ -33,12 +33,19 @@ const LoginForm = ({ onCloseSuccess }: ILoginFormProps) => {
   } = useForm<LoginFormType>({ resolver: zodResolver(LoginFormSchema), defaultValues: { ...defaultFormValues } });
 
   const {
-    selectors: { getIsLoading },
+    selectors: { getIsLoading, getError },
   } = useMemo(() => {
     return loginByUsernameSlice.injectInto(rootReducer);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      dispatch(logInActions.setError());
+    };
+  }, [dispatch]);
+
   const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
   const onSubmit: SubmitHandler<LoginFormType> = async data => {
     const result = await dispatch(loginByUsername(data));
@@ -66,6 +73,7 @@ const LoginForm = ({ onCloseSuccess }: ILoginFormProps) => {
           error={password?.message}
         />
       </div>
+      {error !== undefined && <p className={classes.error}>{error}</p>}
       <Button className={classes.button} onClick={handleSubmit(onSubmit)} isDisabled={isLoading}>
         Войти
       </Button>

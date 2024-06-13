@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { loginByUsername } from '../services/loginByUsernameService';
 import { ILoginFormSchema } from '../types/loginByUsernameTypes';
@@ -10,9 +10,14 @@ const initialState: ILoginFormSchema = {
 export const loginByUsernameSlice = createSlice({
   name: 'loginByUsername',
   initialState,
-  reducers: {},
+  reducers: {
+    setError: (state, action: PayloadAction<string | undefined>) => {
+      state.error = action.payload;
+    },
+  },
   selectors: {
     getIsLoading: sliceState => sliceState.isLoading,
+    getError: sliceState => sliceState.error,
   },
   extraReducers: builder => {
     builder
@@ -29,3 +34,5 @@ export const loginByUsernameSlice = createSlice({
       });
   },
 });
+
+export const { actions: logInActions } = loginByUsernameSlice;

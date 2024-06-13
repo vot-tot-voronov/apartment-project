@@ -6,7 +6,7 @@ import { UserType, userActions } from '@/entities/User';
 import { USER_INFO_LOCALSTORAGE_KEY } from '@/shared/constants';
 import { IThunkConfig } from '@/app/providers/storeProvider';
 
-export const loginByUsername = createAsyncThunk<UserType, LoginFormType, IThunkConfig<string>>(
+export const loginByUsername = createAsyncThunk<null, LoginFormType, IThunkConfig<string>>(
   'login/loginByUsername',
   async (authData, { dispatch, extra: { api }, rejectWithValue }) => {
     try {
@@ -19,9 +19,9 @@ export const loginByUsername = createAsyncThunk<UserType, LoginFormType, IThunkC
       localStorage.setItem(USER_INFO_LOCALSTORAGE_KEY, JSON.stringify(data));
       dispatch(userActions.setUserData(data));
 
-      return data;
+      return null;
     } catch (error) {
-      return rejectWithValue('Ошибка авторизации');
+      return rejectWithValue('Неверные данные пользователя или пароля');
     }
   },
 );

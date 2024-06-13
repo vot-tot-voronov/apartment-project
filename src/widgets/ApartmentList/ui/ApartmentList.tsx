@@ -12,14 +12,23 @@ interface IApartmentListProps {
 export const ApartmentList = ({ list, isLoading }: IApartmentListProps) => {
   return (
     <>
-      <div className={classes.container}>
-        {list.map(apartment => (
-          <ApartmentListItem key={apartment.id} item={apartment} />
-        ))}
-      </div>
       {isLoading && (
         <div className={classes.stateContainer}>
           <Loader />
+        </div>
+      )}
+      {list.length > 0 ? (
+        <div className={classes.container}>
+          {list.map(apartment => (
+            <ApartmentListItem key={apartment.id} item={apartment} />
+          ))}
+        </div>
+      ) : (
+        <div className={classes.stateContainer}>
+          <h2 className={classes.emptyTitle}>
+            По вашему запросу ничего не найдено. <br />
+            Попробуйте изменить настройки фильтров.
+          </h2>
         </div>
       )}
     </>
