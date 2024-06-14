@@ -1,0 +1,64 @@
+@import '@styles/global';
+
+.field {
+  max-width: 480px;
+}
+
+.btn {
+  color: white;
+  display: flex;
+  align-items: center;
+  column-gap: $margin-small;
+  width: auto;
+  margin-left: auto;
+  margin-bottom: $margin-main;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s linear;
+  }
+
+  .open {
+    transform: rotate(-180deg);
+  }
+}
+
+.container {
+  display: grid;
+  row-gap: $margin-main;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+  margin-bottom: 0;
+  padding: 0;
+
+  .inner {
+    overflow: hidden;
+  }
+
+  &_visible {
+    grid-template-rows: 1fr;
+    padding: $margin-main;
+    margin-bottom: $margin-main;
+  }
+
+  .form {
+    display: grid;
+    row-gap: $margin-main;
+
+    .checkboxList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $margin-main;
+    }
+
+    .buttons {
+      display: flex;
+      column-gap: $margin-main;
+
+      & > button {
+        max-width: 320px;
+      }
+    }
+  }
+}

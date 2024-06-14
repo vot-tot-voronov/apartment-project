@@ -1,19 +1,23 @@
-export interface BuildPaths {
+export interface IBuildPaths {
   html: string;
   entry: string;
   output: string;
+  src: string;
+  styles: string;
 }
 
-export type BuildMode = "production" | "development";
+export type BuildModeType = 'production' | 'development';
 
-export interface BuildOptions {
-  paths: BuildPaths;
-  mode: BuildMode;
+export interface IBuildOptions {
+  paths: IBuildPaths;
+  mode: BuildModeType;
   port: number;
   isDev: boolean;
+  apiUrl: string;
 }
 
-export interface BuildEnv {
+export interface IBuildEnv {
   port: number;
-  mode: BuildMode;
+  mode: BuildModeType;
+  apiUrl?: string;
 }

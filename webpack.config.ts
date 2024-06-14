@@ -1,24 +1,28 @@
-import path from "path";
+import path from 'path';
 
-import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
-import { BuildEnv, BuildMode, BuildPaths } from "./config/build/types/config";
+import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+import { IBuildEnv, BuildModeType, IBuildPaths } from './config/build/types/config';
 
-const config = (env: BuildEnv) => {
-  const paths: BuildPaths = {
-    html: path.resolve(__dirname, "public", "index.html"),
-    entry: path.resolve(__dirname, "src", "index.ts"),
-    output: path.resolve(__dirname, "build"),
+const config = (env: IBuildEnv) => {
+  const paths: IBuildPaths = {
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    output: path.resolve(__dirname, 'build'),
+    src: path.resolve(__dirname, 'src'),
+    styles: path.resolve(__dirname, 'src', 'app', 'styles'),
   };
 
-  const mode: BuildMode = env.mode || "development";
-  const isDev = mode === "development";
+  const mode: BuildModeType = env.mode || 'development';
+  const isDev = mode === 'development';
   const PORT = env.port || 3000;
+  const API_URL = env.apiUrl || 'http://localhost:8000';
 
   return buildWebpackConfig({
     paths,
     mode,
     isDev,
     port: PORT,
+    apiUrl: API_URL,
   });
 };
 

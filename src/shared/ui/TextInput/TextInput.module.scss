@@ -1,0 +1,27 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.label {
+  @include label;
+}
+
+.input {
+  padding: $margin-small;
+  border: 1px solid $grey;
+  border-radius: $radius-small;
+  transition: border-color 0.3s;
+  width: 100%;
+  max-height: $field-height;
+
+  &:hover:not(&[disabled], .error) {
+    border-color: $white-dark;
+  }
+
+  &[disabled] {
+    background-color: $white-grey;
+  }
+}
+
+.error {
+  border-color: $red;
+}

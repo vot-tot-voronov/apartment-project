@@ -4,16 +4,29 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "include": [
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
+    "./config/**/*.js",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "webpack.config.ts",
+    ".eslintrc.js"
+  ]
 }

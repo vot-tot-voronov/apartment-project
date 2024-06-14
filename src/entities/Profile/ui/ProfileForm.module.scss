@@ -1,0 +1,49 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.container {
+  &.center {
+    @include flex-a-j-center;
+  }
+
+  .error {
+    color: $dark-red;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+  }
+
+  .title {
+    margin-bottom: $margin-main;
+  }
+
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: $margin-middle;
+
+    .surname,
+    .region,
+    .phone {
+      grid-column: 1 / 3;
+    }
+
+    .name,
+    .city {
+      grid-column: 3 / 5;
+    }
+
+    .middleName {
+      grid-column: 5 / 7;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    column-gap: $margin-main;
+
+    & .btn {
+      margin-top: $margin-middle;
+      max-width: 320px;
+    }
+  }
+}

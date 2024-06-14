@@ -1,0 +1,9 @@
+@import '@styles/global';
+
+.comments {
+  padding: $margin-main;
+
+  .sendComment {
+    margin: $margin-main 0;
+  }
+}

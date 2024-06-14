@@ -1,0 +1,12 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.imageSlider {
+  @include margin-auto;
+  max-width: 924px;
+  width: 100%;
+
+  * {
+    @include slider-border-radius;
+  }
+}

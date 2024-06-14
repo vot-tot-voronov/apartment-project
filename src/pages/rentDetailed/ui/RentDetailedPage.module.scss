@@ -1,0 +1,35 @@
+@import '@styles/mixins';
+@import '@styles/global';
+
+.stateContainer {
+  min-height: 80vh;
+
+  @include flex-a-j-center;
+
+  .error {
+    color: $dark-red;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+  }
+}
+
+.mainContainer {
+  min-height: 80vh;
+  display: flex;
+
+  .content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar {
+    flex: none;
+    margin-left: $margin-middle;
+    width: 380px;
+
+    .sticky {
+      position: sticky;
+      top: $margin-main;
+    }
+  }
+}

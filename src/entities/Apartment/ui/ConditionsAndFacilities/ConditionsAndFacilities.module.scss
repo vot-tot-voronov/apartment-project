@@ -1,0 +1,35 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.container {
+  .facilitiesAndConditions {
+    column-count: 2;
+
+    .textTitle {
+      color: $grey;
+    }
+  }
+
+  .list {
+    display: inline-flex;
+    flex-direction: column;
+    row-gap: $margin-xs;
+    margin-top: $margin-xs;
+
+    .listItem {
+      @include flex-a-center;
+      column-gap: $margin-xs;
+
+      .icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        color: $green;
+
+        &.rejected {
+          color: $red;
+        }
+      }
+    }
+  }
+}

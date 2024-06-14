@@ -1,0 +1,95 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+@mixin hover-on-link {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: $dark-white;
+  height: 60px;
+
+  .container {
+    @include flex-a-j-between;
+    max-width: $width-xl;
+    width: 100%;
+    height: 100%;
+    padding: 0 $margin-main;
+
+    @include margin-auto;
+
+    .logoContainer {
+      position: relative;
+      cursor: pointer;
+
+      .text {
+        font-size: $font-size-large;
+        color: $dark;
+
+        &::before {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: $dark-red;
+          text-shadow: 0 0 1px $black;
+          overflow: hidden;
+          width: 100%;
+          height: 0%;
+          transition: height 0.5s;
+        }
+
+        &:hover::before {
+          height: 100%;
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      column-gap: $margin-main;
+      height: inherit;
+
+      .link {
+        @include flex-a-center;
+
+        position: relative;
+        height: inherit;
+
+        &:hover:not(.active)::before {
+          @include hover-on-link;
+          background-color: $grey;
+        }
+
+        &.active::before {
+          @include hover-on-link;
+          background-color: $dark;
+        }
+      }
+    }
+
+    .authorization {
+      @include flex-a-center;
+      column-gap: $margin-main;
+      height: inherit;
+
+      .login {
+        @include flex-a-center;
+        position: relative;
+        height: inherit;
+        font-weight: $font-weight-light;
+
+        &:hover::before {
+          @include hover-on-link;
+          background-color: $grey;
+        }
+      }
+    }
+  }
+}

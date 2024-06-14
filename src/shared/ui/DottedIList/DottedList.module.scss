@@ -1,0 +1,33 @@
+@import '@styles/global';
+
+.list {
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .dots {
+      display: inline-flex;
+      content: '';
+      flex-grow: 1;
+      margin: $margin-xs $margin-xs 0;
+      border-bottom: 1px dashed $grey;
+      height: 7px;
+    }
+
+    .value {
+      display: inline-block;
+      flex-shrink: 1;
+      max-width: 50%;
+      text-align: right;
+    }
+  }
+}

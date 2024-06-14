@@ -1,0 +1,51 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.shortInfo {
+  margin-top: $margin-main;
+
+  .shortList {
+    display: flex;
+    justify-content: space-around;
+
+    .shortListItem {
+      text-align: center;
+
+      & > p {
+        font-size: $font-size-large;
+        color: $dark;
+      }
+
+      & > span {
+        display: inline-block;
+        color: $grey;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .description {
+    .text {
+      margin-top: $margin-small;
+    }
+
+    .pricePerMonth {
+      font-size: $font-size-xl;
+    }
+
+    .views {
+      display: flex;
+      column-gap: $margin-main;
+
+      .icon {
+        @include icon;
+      }
+    }
+
+    .updated {
+      & > span {
+        color: $grey;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import '@styles/global';
+
+.btn {
+  transition:
+    background-color 0.4s,
+    border-color 0.4s;
+  color: $white;
+  padding: $margin-small $margin-large;
+  min-width: 15px;
+  width: 100%;
+  border-radius: $radius-main;
+
+  &.disabled {
+    background-color: $grey;
+    cursor: not-allowed;
+  }
+
+  &:not(.disabled) {
+    &.primary {
+      background-color: $dark;
+    }
+
+    &.secondary {
+      background-color: $white;
+      border: 2px solid $grey;
+      color: $white-dark;
+    }
+
+    &:hover {
+      &.primary {
+        background-color: $white-dark;
+      }
+
+      &.secondary {
+        border-color: $dark;
+      }
+    }
+  }
+}
+
+.small {
+  font-size: $font-size-small;
+}
+
+.main {
+  font-size: $font-size-main;
+}
+
+.middle {
+  font-size: $font-size-middle;
+}
+
+.large {
+  font-size: $font-size-large;
+}

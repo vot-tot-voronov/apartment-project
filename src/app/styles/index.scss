@@ -1,0 +1,31 @@
+@import 'global';
+@import 'reset';
+@import 'fonts';
+@import 'mixins';
+@import 'react-toastify/dist/ReactToastify.css';
+
+body {
+  font-family: $font-family-main;
+  font-style: normal;
+  font-weight: $font-weight-main;
+  font-size: $font-size-main;
+  color: $dark;
+}
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+}
+
+.loaderContainer {
+  @include state-container;
+}
+
+.boxContent {
+  padding: $margin-main $margin-small;
+}

@@ -1,0 +1,16 @@
+@import '@styles/global';
+
+.container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 200px 1fr;
+  column-gap: $margin-large;
+
+  .label {
+    font-size: $font-size-middle;
+  }
+
+  .labelMain {
+    font-size: $font-size-main;
+  }
+}

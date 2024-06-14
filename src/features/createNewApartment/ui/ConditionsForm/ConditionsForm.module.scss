@@ -1,0 +1,29 @@
+@import '@styles/global';
+
+.container {
+  .title {
+    margin-bottom: $margin-main;
+  }
+
+  .form {
+    display: grid;
+    gap: $margin-main;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .fieldBox {
+      grid-template-columns: 250px 1fr;
+    }
+  }
+
+  .btnContainer {
+    display: flex;
+    justify-content: right;
+    margin-top: $margin-main;
+    column-gap: $margin-main;
+
+    .button {
+      display: block;
+      max-width: 250px;
+    }
+  }
+}

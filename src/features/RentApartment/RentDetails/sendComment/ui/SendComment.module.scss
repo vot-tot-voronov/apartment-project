@@ -1,0 +1,35 @@
+@import '@styles/global';
+@import '@styles/mixins';
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  column-gap: $margin-small;
+
+  .textInput {
+    flex-grow: 1;
+  }
+
+  .button {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+.notAuth {
+  display: flex;
+  flex-direction: column;
+  row-gap: $margin-main;
+  margin: $margin-main 0;
+
+  .text {
+    text-align: center;
+    font-size: $font-size-middle;
+  }
+
+  .authBtn {
+    width: 320px;
+
+    @include margin-auto;
+  }
+}

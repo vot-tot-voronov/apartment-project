@@ -1,7 +1,8 @@
-import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
-import { BuildOptions } from "./types/config";
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
-export function buildDevServer({ port }: BuildOptions): DevServerConfiguration {
+import { IBuildOptions } from './types/config';
+
+export function buildDevServer({ port }: IBuildOptions): DevServerConfiguration {
   return {
     port,
     hot: true,

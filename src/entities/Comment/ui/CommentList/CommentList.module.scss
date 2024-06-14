@@ -1,0 +1,18 @@
+@import '@styles/global';
+
+.container {
+  &.center {
+    text-align: center;
+  }
+
+  .errorText {
+    font-size: $font-size-middle;
+    color: $dark-red;
+  }
+
+  .commentList {
+    display: flex;
+    flex-direction: column;
+    row-gap: $margin-main;
+  }
+}
