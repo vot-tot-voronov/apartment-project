@@ -2,6 +2,7 @@ import {
   AboutFormType,
   ConditionsFormType,
   FacilitiesFormType,
+  NewApartmentType,
   SelectItemApartmentType,
   SelectItemRenovationType,
 } from '../types/createNewApartmentTypes';
@@ -71,3 +72,65 @@ export const renovationOptions: Array<SelectItemRenovationType> = [
     value: ApartmentRonvationEnum.NOT,
   },
 ];
+
+export const mockedNewApartment: NewApartmentType = {
+  images: ['/images/apt1.jpg', '/images/apt2.jpg', '/images/apt3.jpg'],
+  pricePerMonth: 20000,
+  views: 42,
+  updated: '12.03.2024',
+  description: '',
+  conditionsAndFacilities: {
+    conditions: [
+      {
+        value: true,
+        label: 'Можно с детьми',
+      },
+      {
+        value: false,
+        label: 'Нельзя с животными',
+      },
+    ],
+    facilities: [
+      {
+        value: true,
+        label: 'Мебель на кухне',
+      },
+      {
+        value: true,
+        label: 'Мебель в комнатах',
+      },
+      {
+        value: false,
+        label: 'Стиральная машина',
+      },
+      {
+        value: true,
+        label: 'Холодильник',
+      },
+      {
+        value: true,
+        label: 'Интернет',
+      },
+      {
+        value: false,
+        label: 'Кондиционер',
+      },
+    ],
+  },
+  about: {
+    type: ApartmentTypeEnum.HOUSE,
+    rooms: 3,
+    builtYear: 1994,
+    city: 'Москва',
+    adress: 'г. Москва, Рублёвское шоссе, дом. 1532, подъезд 1',
+    fullArea: 72,
+    livingArea: 65,
+    floors: 2,
+    kitchenArea: 10,
+    renovation: ApartmentRonvationEnum.DESIGNER,
+    balcony: 'Есть',
+    prepayment: 'За три месяца вперед',
+    viewFromWindow: 'На море и во двор',
+    garbageChute: true,
+  },
+};

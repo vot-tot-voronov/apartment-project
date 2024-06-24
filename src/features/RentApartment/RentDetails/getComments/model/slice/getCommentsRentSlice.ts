@@ -42,3 +42,5 @@ export const getCommentsRentSlice = createSlice({
         state.isLoading = false;
       }),
 });
+
+export const { reducer: getCommentsRentReducer } = getCommentsRentSlice;
