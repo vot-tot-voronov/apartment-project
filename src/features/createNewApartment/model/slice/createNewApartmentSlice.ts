@@ -63,4 +63,4 @@ export const createNewApartmentSlice = createSlice({
   },
 });
 
-export const { actions: createNewApartmentActions } = createNewApartmentSlice;
+export const { actions: createNewApartmentActions, reducer: createNewApartmentReducer } = createNewApartmentSlice;

@@ -1,12 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { CommentsResponseType } from '../types/commentsRentType';
+
 import { IThunkConfig } from '@/app/providers/storeProvider';
 import { CommentItemType } from '@/entities/Comment';
-
-type CommentsResponseType = {
-  userId: string;
-  apartmentId: string;
-} & CommentItemType;
 
 export const getCommentsRent = createAsyncThunk<Array<CommentItemType>, string, IThunkConfig<string>>(
   'rent/getCommentsRent',

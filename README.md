@@ -56,6 +56,15 @@ npm run start - запуск frontend проекта на webpack dev server в 
 
 ----
 
+## Тесты
+
+Для написания unit-тестов используется Jest
+
+##### Запуск unit-тестов
+- `npm run test:unit` - запуск unit тестов с jest
+
+----
+
 ## Storybook
 
 Для каждого компонента UI-кита описываются стори-кейсы.
@@ -120,6 +129,8 @@ export const CheckBox = Template.bind({});
 Взаимодействие с данными осуществляется при помощи Redux Toolkit.
 
 Для уменьшения размера бандла используется [асинхронное](https://redux-toolkit.js.org/api/combineSlices#injectinto) подключение редьюсеров.
+
+Работа с формами осуществляется при помощи [React Hook Form](https://react-hook-form.com/docs).
 
 ----
 

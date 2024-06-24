@@ -17,7 +17,7 @@ const data: ProfileType = {
 };
 
 describe('profileCardSlice.test', () => {
-  test('test set IsLoading', () => {
+  test('test set isLoading', () => {
     const state: DeepPartial<IProfileCardSchema> = { isReadonly: true };
 
     expect(profileCardReducer(state as IProfileCardSchema, profileCardActions.setIsReadonly(false))).toEqual({
