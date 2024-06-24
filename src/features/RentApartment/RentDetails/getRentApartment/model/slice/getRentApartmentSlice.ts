@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { IRentApartmentSchema } from '../types/rentApartmentTypes';
-import { getRentApartmentById } from '../services/getRentApartment/getRentApartment';
+import { getRentApartmentById } from '../services/getRentApartment';
 
 const initialState: IRentApartmentSchema = {
   isLoading: false,

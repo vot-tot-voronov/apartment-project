@@ -29,3 +29,5 @@ export const createNewUserSlice = createSlice({
       });
   },
 });
+
+export const { reducer: createNewUserReducer } = createNewUserSlice;

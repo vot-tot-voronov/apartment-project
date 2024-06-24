@@ -35,4 +35,4 @@ export const loginByUsernameSlice = createSlice({
   },
 });
 
-export const { actions: logInActions } = loginByUsernameSlice;
+export const { actions: logInActions, reducer: logInByUsernameReducer } = loginByUsernameSlice;

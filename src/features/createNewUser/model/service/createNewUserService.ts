@@ -24,7 +24,7 @@ const profileCreator = ({ id, name, surname, phone }: IProfileCreatorProps): Pro
   id,
 });
 
-export const createNewUser = createAsyncThunk<UserType, SignInFormType, IThunkConfig<string>>(
+export const createNewUser = createAsyncThunk<null, SignInFormType, IThunkConfig<string>>(
   'signIn/createNewUser',
   async ({ username, name, surname, confirmedPassword, phone }, { dispatch, extra: { api }, rejectWithValue }) => {
     try {
@@ -42,7 +42,7 @@ export const createNewUser = createAsyncThunk<UserType, SignInFormType, IThunkCo
       localStorage.setItem(USER_INFO_LOCALSTORAGE_KEY, JSON.stringify(data));
       dispatch(userActions.setUserData(data));
 
-      return data;
+      return null;
     } catch (error) {
       return rejectWithValue('Ошибка при создании пользователя');
     }
